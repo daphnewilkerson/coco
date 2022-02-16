@@ -29,10 +29,10 @@ export default function Landing() {
         <Text style={styles.landingButtonText}>Fetch Info</Text>
       </Pressable>
       <Pressable style={styles.landingButton}>
-        <Text style={styles.landingButtonText}>Fetch Info</Text>
+        <Text style={styles.landingButtonText}>Compare Items</Text>
       </Pressable>
       <Pressable style={styles.landingButton}>
-        <Text style={styles.landingButtonText}>Fetch Info</Text>
+        <Text style={styles.landingButtonText}>Sniff Receipt</Text>
       </Pressable>
     </View>
   )
