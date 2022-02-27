@@ -7,8 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import Svg from "react-native-svg";
-import Dog from '../assets/dogs/dog1.svg';
+import Dog1 from './dog1';
 
 export default function Intro() {
 
@@ -27,7 +26,7 @@ export default function Intro() {
         <Text style={styles.bigText}>Welcome to CoCo!</Text>
         <Text style={styles.mediumText}>Let me show you around!</Text>
         <Text style={styles.smallText}>tap anywhere to continue</Text>
-        <Dog width={100} height={200}/>
+        <Dog1 style={styles.dog}/>
     </View>
   )
 }
@@ -73,4 +72,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  dog: {
+    bottom
+  }
 });
