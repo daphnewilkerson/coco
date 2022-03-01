@@ -5,7 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Landing from './components/Landing';
-import Intro from './components/Intro';
+import Intro1 from './components/Intro1';
+import Intro2 from './components/Intro2';
+import Customdog from './components/CustomDog';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +15,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Intro" component={Intro} options={{headerShown: false}}/>
+        <Stack.Screen name="Intro1" component={Intro1} options={{headerShown: false}}/>
+        <Stack.Screen name="Intro2" component={Intro2} options={{headerShown: false}}/>
+        <Stack.Screen name="CustomDog" component={Customdog} options={{headerShown: false}}/>
+        <Stack.Screen name="Landing" component={Landing} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
