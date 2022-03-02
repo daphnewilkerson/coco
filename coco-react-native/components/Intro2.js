@@ -30,7 +30,7 @@ export default function Intro() {
           <Text style={styles.bigText}>My name is CoCo</Text>
           <Text style={styles.mediumText}>(short for Concious Consumer)</Text>
           <Text style={styles.moremediumText}>and I'm here to give you information and feedback about all things ethics!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('CustomDog')}>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Values')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
@@ -42,7 +42,7 @@ export default function Intro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     alignItems: 'center',
   },
   logo: {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   leftCornerButton: {
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     width: 100,
     height: 50,
     position: 'absolute',

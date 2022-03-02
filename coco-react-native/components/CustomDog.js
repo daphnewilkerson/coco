@@ -73,7 +73,7 @@ export default function Intro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     alignItems: 'center',
   },
   logo: {
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   leftCornerButton: {
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     width: 100,
     height: 50,
     position: 'absolute',
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rightCornerButton: {
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     width: 100,
     height: 50,
     position: 'absolute',
@@ -150,12 +150,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   scroll: {
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
   },
   stack: {
     marginLeft: 40,
     marginRight: 40,
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     alignItems: 'center',
   },
 });
