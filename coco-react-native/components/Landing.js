@@ -10,6 +10,8 @@ import AppLoading from 'expo-app-loading';
 
 export default function Landing() {
 
+  const navigator = useNavigation();
+
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -25,7 +27,7 @@ export default function Landing() {
         style={styles.logo}
         source={require('../assets/logo.png')}
       />
-      <Pressable style={styles.landingButton}>
+      <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Fetch1')}>
         <Text style={styles.landingButtonText}>Fetch Info</Text>
       </Pressable>
       <Pressable style={styles.landingButton}>

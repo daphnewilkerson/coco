@@ -12,6 +12,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Coco from './components/Coco';
 import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Fetch1 from './components/Fetch1';
+import { COLORS } from './utils/constants'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -59,20 +61,30 @@ function TabNav() {
         }
 
         // You can return any component that you like here!
-        return <Ionicons name={iconName} size={35} color={color} />;
+        return <Ionicons name={iconName} size={45} color={color}/>;
       },
-      tabBarActiveTintColor: '#f9f9f1',
-      tabBarInactiveTintColor: '#07500A',
+      tabBarActiveTintColor: COLORS.background,
+      tabBarInactiveTintColor: COLORS.darkGreen,
       tabBarStyle: {
-        backgroundColor: '#93d075',
+        backgroundColor: COLORS.lightGreen,
+        paddingBottom: 0,
       },
       tabBarShowLabel: false,
       })}
     >
       <Tab.Screen name="Profile" component={ProfileNav} />
-      <Tab.Screen name="Landing" component={Landing} />
-      <Tab.Screen name="Coco" component={Coco} />
+      <Tab.Screen name="Landing" component={LandingNav} />
+      <Tab.Screen name="Coco" component={CocoNav} />
     </Tab.Navigator>
+  )
+}
+
+function LandingNav() {
+  return (
+    <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
+      <Stack.Screen name="LandingMain" component={Landing}/>
+      <Stack.Screen name="Fetch1" component={Fetch1}/>
+    </Stack.Navigator>
   )
 }
 
