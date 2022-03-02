@@ -38,7 +38,7 @@ export default function Intro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#FEFADC',
     alignItems: 'center',
   },
   logo: {
