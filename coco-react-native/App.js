@@ -23,30 +23,89 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-        
-        <Stack.Screen name="Intro1" component={Intro1}/>
-        <Stack.Screen name="Intro2" component={Intro2}/>
-        <Stack.Screen name="Values" component={Values}/>
-        <Stack.Screen name="CustomDog" component={Customdog}/>
-        <Stack.Screen name="Landing" component={Landing}/>
-        <Stack.Screen name="TestTab" component={TabNav}/>
+        <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+        <Stack.Screen name="MainApp" component={MainAppNav}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-// function StackNav() {
-//   return (
-//     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-//       <Stack.Screen name="Intro1" component={Intro1}/>
-//       <Stack.Screen name="Intro2" component={Intro2}/>
-//       <Stack.Screen name="CustomDog" component={Customdog}/>
-//       <Stack.Screen name="Landing" component={Landing}/>
-//     </Stack.Navigator>
-//   )
-// }
+function OnboardingTab() {
+  return (
+    <Tab.Navigator screenOptions={({ route }) => ({
+      headerShown: false,
+      tabBarIcon: ({ color }) => {
+        let iconName;
 
-function TabNav() {
+        if (route.name === 'Profile') {
+          iconName = 'person';
+        } 
+        else if (route.name === 'Landing') {
+          iconName = 'home';
+        }
+        else if (route.name === 'Coco') {
+          iconName = 'paw';
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={45} color={color}/>;
+      },
+      tabBarActiveTintColor: COLORS.darkGreen,
+      tabBarInactiveTintColor: COLORS.darkGreen,
+      tabBarStyle: {
+        backgroundColor: COLORS.lightGreen,
+        paddingBottom: 0,
+      },
+      tabBarShowLabel: false,
+      })}
+    >
+      <Tab.Screen 
+        name="Profile" 
+        component={OnboardingStack} 
+        listeners={{
+          tabPress: e => {
+            // Prevent default action
+            e.preventDefault();
+          },
+        }}
+      />
+      <Tab.Screen 
+        name="Landing" 
+        component={OnboardingStack}
+        listeners={{
+          tabPress: e => {
+            // Prevent default action
+            e.preventDefault();
+          },
+        }}
+      />
+      <Tab.Screen 
+        name="Coco" 
+        component={OnboardingStack}
+        listeners={{
+          tabPress: e => {
+            // Prevent default action
+            e.preventDefault();
+          },
+        }} 
+      />
+    </Tab.Navigator>
+  )
+}
+
+function OnboardingStack() {
+  return (
+    <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
+      <Stack.Screen name="Intro1" component={Intro1}/>
+      <Stack.Screen name="Intro2" component={Intro2}/>
+      <Stack.Screen name="CustomDog" component={Customdog}/>
+      <Stack.Screen name="Landing" component={Landing}/>
+    </Stack.Navigator>
+  )
+}
+
+
+function MainAppNav() {
   return (
     <Tab.Navigator screenOptions={({ route }) => ({
       headerShown: false,
@@ -78,6 +137,16 @@ function TabNav() {
       <Tab.Screen name="Profile" component={ProfileNav} />
       <Tab.Screen name="Landing" component={LandingNav} />
       <Tab.Screen name="Coco" component={CocoNav} />
+      {/* <Tab.Screen
+        name="Chat"
+        component={Landing}
+        listeners={{
+          tabPress: e => {
+            // Prevent default action
+            e.preventDefault();
+          },
+        }}
+      /> */}
     </Tab.Navigator>
   )
 }
