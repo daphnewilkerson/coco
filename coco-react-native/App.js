@@ -16,6 +16,7 @@ import Fetch1 from './components/Fetch1';
 import { COLORS } from './utils/constants'
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
+import Values from './components/Values';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -29,7 +30,7 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>

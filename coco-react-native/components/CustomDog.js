@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
+import { COLORS } from '../utils/constants';
 import Dog1 from './dogs/dog1';
 import Dog2 from './dogs/dog2';
 import Dog3 from './dogs/dog3';
@@ -75,7 +76,7 @@ export default function Intro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     alignItems: 'center',
   },
   logo: {
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   mediumText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 30,
     fontWeight: 'bold',
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   unselectedButton: {
-    backgroundColor: '#93d075ff',
+    backgroundColor: COLORS.lightGreen,
     width: '70%',
     height: 80,
     alignItems: 'center',
@@ -108,12 +109,12 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   unselectedButtonText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
   },
   selectedButton: {
-    backgroundColor: '#07500A',
+    backgroundColor: COLORS.darkGreen,
     width: '70%',
     height: 80,
     alignItems: 'center',
@@ -122,12 +123,12 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   selectedButtonText: {
-    color: '#93d075ff',
+    color: COLORS.lightGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
   },
   leftCornerButton: {
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     width: 100,
     height: 50,
     position: 'absolute',
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rightCornerButton: {
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     width: 100,
     height: 50,
     position: 'absolute',
@@ -147,17 +148,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cornerText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
   },
   scroll: {
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
   },
   stack: {
     marginLeft: 40,
     marginRight: 40,
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     alignItems: 'center',
   },
 });

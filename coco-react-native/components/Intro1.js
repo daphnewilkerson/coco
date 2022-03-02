@@ -9,6 +9,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
+import { COLORS } from '../utils/constants';
 
 export default function Intro() {
   const navigation = useNavigation();
@@ -38,7 +39,7 @@ export default function Intro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     alignItems: 'center',
   },
   logo: {
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   bigText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 50,
     fontWeight: 'bold',
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   mediumText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 30,
     fontWeight: 'bold',
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   smallText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 15,
     fontWeight: 'bold',
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     height: 500,
   },
   button: {
-    backgroundColor: '#93d075ff',
+    backgroundColor: COLORS.lightGreen,
     width: 200,
     height: 50,
     alignItems: 'center',

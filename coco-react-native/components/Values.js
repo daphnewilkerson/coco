@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
+import { COLORS } from '../utils/constants';
 
 
 
@@ -70,7 +71,7 @@ export default function Intro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     alignItems: 'center',
   },
   logo: {
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   mediumText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
     fontWeight: 'bold',
@@ -97,13 +98,13 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   unselectedButtonText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 18,
     textAlign: 'center',
   },
   selectedButton: {
-    backgroundColor: '#07500A',
+    backgroundColor: COLORS.darkGreen,
     width: 175,
     height: 70,
     alignItems: 'center',
@@ -112,13 +113,13 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   selectedButtonText: {
-    color: '#93d075ff',
+    color: COLORS.lightGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 18,
     textAlign: 'center',
   },
   leftCornerButton: {
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     width: 100,
     height: 50,
     position: 'absolute',
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rightCornerButton: {
-    backgroundColor: '#FEFADC',
+    backgroundColor: COLORS.background,
     width: 100,
     height: 50,
     position: 'absolute',
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cornerText: {
-    color: '#07500A',
+    color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
   },
