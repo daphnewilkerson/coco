@@ -19,6 +19,8 @@ import Dog9 from './dogs/dog9';
 
 export default function Intro() {
 
+  const navigation = useNavigation();
+
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -34,7 +36,7 @@ export default function Intro() {
 
   return (
     <View style={styles.container}>
-        <Pressable style={styles.leftCornerButton}>
+        <Pressable style={styles.leftCornerButton} onPress={() => navigation.navigate('Intro2')}>
             <Text style={styles.cornerText}>{'<'} back</Text>
         </Pressable>
         <Pressable style={styles.rightCornerButton}>

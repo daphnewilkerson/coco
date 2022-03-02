@@ -10,6 +10,8 @@ import AppLoading from 'expo-app-loading';
 
 export default function Landing() {
 
+  const navigator = useNavigation();
+
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -25,7 +27,7 @@ export default function Landing() {
         style={styles.logo}
         source={require('../assets/logo.png')}
       />
-      <Pressable style={styles.landingButton}>
+      <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Fetch1')}>
         <Text style={styles.landingButtonText}>Fetch Info</Text>
       </Pressable>
       <Pressable style={styles.landingButton}>
@@ -41,7 +43,7 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#f9f9f1',
     alignItems: 'center',
   },
   logo: {
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   landingButton: {
-    backgroundColor: '#93d075ff',
+    backgroundColor: '#93d075',
     width: '70%',
     height: 80,
     alignItems: 'center',
