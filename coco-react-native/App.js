@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ animationEnabled: false }}>
         <Stack.Screen name="Intro1" component={Intro1} options={{headerShown: false}}/>
         <Stack.Screen name="Intro2" component={Intro2} options={{headerShown: false}}/>
         <Stack.Screen name="CustomDog" component={Customdog} options={{headerShown: false}}/>

@@ -42,10 +42,17 @@ export default function Intro() {
         </Pressable>
         <Image style={styles.logo} source={require('../assets/logo.png')}/>
         <Text style={styles.mediumText}>Customize CoCo!</Text>
-        <ScrollView horizontal={true} decelerationRate={0} contentOffset={{x: -60}} snapToInterval={300} snapToAlignment={"center"} style={styles.scroll}>
+        <ScrollView 
+          horizontal={true} 
+          decelerationRate={0} 
+          snapToInterval={300} 
+          style={styles.scroll} 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ marginLeft: 50, paddingRight: 110}}
+          >
             {
                 arr.map((dog, index) => (
-                    <View style={styles.stack}>
+                    <View style={styles.stack} key={index}>
                         {dog}
                         <Pressable onPress={() => setSelected(index)} style={selected === index ? styles.selectedButton : styles.unselectedButton}>
                         {
