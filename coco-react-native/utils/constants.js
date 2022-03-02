@@ -3,3 +3,5 @@ export const COLORS = {
   lightGreen: '#93d075',
   darkGreen: '#07500A',
 }
+
+export const MAINFONT = 'Comfortaa_400Regular';

@@ -5,21 +5,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
-import AppLoading from 'expo-app-loading';
+import { COLORS, MAINFONT } from '../utils/constants';
 
 export default function Landing() {
 
   const navigator = useNavigation();
-
-  // Load fonts. Return expo loading screen if not loaded
-  let [fontsLoaded] = useFonts({
-    Comfortaa_400Regular,
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
     <View style={styles.container}>
@@ -43,17 +33,18 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f1',
+    backgroundColor: COLORS.background,
     alignItems: 'center',
+    paddingTop: 300
   },
   logo: {
     width: 125,
     height: 105,
-    marginTop: 100,
-    marginBottom: 50,
+    top: 100,
+    position: 'absolute'
   },
   landingButton: {
-    backgroundColor: '#93d075',
+    backgroundColor: COLORS.lightGreen,
     width: '70%',
     height: 80,
     alignItems: 'center',
@@ -62,8 +53,8 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   landingButtonText: {
-    color: '#07500A',
-    fontFamily: 'Comfortaa_400Regular',
+    color: COLORS.darkGreen,
+    fontFamily: MAINFONT,
     fontSize: 20,
   }
 });
