@@ -41,7 +41,7 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f1ff',
+    backgroundColor: '#f9f9f1',
     alignItems: 'center',
   },
   logo: {
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   landingButton: {
-    backgroundColor: '#93d075ff',
+    backgroundColor: '#93d075',
     width: '70%',
     height: 80,
     alignItems: 'center',

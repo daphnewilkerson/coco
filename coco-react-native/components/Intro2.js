@@ -23,7 +23,7 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.goBack()}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro1')}>
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
