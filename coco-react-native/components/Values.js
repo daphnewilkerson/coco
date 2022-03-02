@@ -24,15 +24,16 @@ export default function Intro() {
     }
   
     function handleSelection(index) {
-        if (selected.includes(index)) {
-            var loc = selected.indexOf(index);
+        let copy = [...selected];
+        if (copy.includes(index)) {
+            var loc = copy.indexOf(index);
             if (loc > -1) {
-                selected.splice(loc, 1);
+                copy.splice(loc, 1);
             }
         } else {
-            selected.push(index);
+            copy.push(index);
         }
-        return selected;
+        setSelected(copy);
     }
     let arr = ["Sustainability", "Paid Maternity Leave", "Diversity and Inclusion", "Accessibility", "Wages", "Health Care for Workers", "Anti-Child Labor Polocies", "Charity", "Workers' Rights", "Anti-Discrimination", "Animal Cruelty/Testing", "LGBTQ+ Rights", "COVID-19 Policies", "Ability to Unionize", "Reduced Water Use", "Transparency", "Greenwashing", "Eco-Friendly", "Supporting POC Owned Businesses", "Women's Rights", "Privacy"];
   
@@ -49,7 +50,6 @@ export default function Intro() {
           <ScrollView style={styles.scroll}>
               {
                   arr.map((value, index) => (
-                    <View style={{ alignItems: 'baseline' }}>
                         <View style={styles.stack} key={index}>
                           <Pressable onPress={() => handleSelection(index)} style={selected.includes(index) ? styles.selectedButton : styles.unselectedButton}>
                           {
@@ -60,7 +60,6 @@ export default function Intro() {
                           }
                           </Pressable>
                         </View>
-                    </View>
                   ))
               }
           </ScrollView> 
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
   },
   unselectedButton: {
     backgroundColor: '#93d075ff',
-    width: 100,
+    width: 175,
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
@@ -101,10 +100,11 @@ const styles = StyleSheet.create({
     color: '#07500A',
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 18,
+    textAlign: 'center',
   },
   selectedButton: {
     backgroundColor: '#07500A',
-    width: 100,
+    width: 175,
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     color: '#93d075ff',
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 18,
+    textAlign: 'center',
   },
   leftCornerButton: {
     backgroundColor: '#FEFADC',
