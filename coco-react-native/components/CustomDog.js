@@ -27,7 +27,7 @@ export default function Intro() {
     Comfortaa_400Regular,
   });
 
-  const [selected, setSelected] = useState(1);
+  const [selected, setSelected] = useState(0);
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -40,7 +40,7 @@ export default function Intro() {
         <Pressable style={styles.leftCornerButton} onPress={() => navigation.navigate('Intro2')}>
             <Text style={styles.cornerText}>{'<'} back</Text>
         </Pressable>
-        <Pressable style={styles.rightCornerButton}>
+        <Pressable style={styles.rightCornerButton} onPress={() => navigation.navigate('SaveDog', {dognum: selected})}>
             <Text style={styles.cornerText}>save</Text>
         </Pressable>
         <Image style={styles.logo} source={require('../assets/logo.png')}/>

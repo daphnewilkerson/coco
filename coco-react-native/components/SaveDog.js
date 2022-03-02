@@ -7,12 +7,21 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
 import { COLORS } from '../utils/constants';
+import Dog1 from './dogs/dog1';
+import Dog2 from './dogs/dog2';
+import Dog3 from './dogs/dog3';
+import Dog4 from './dogs/dog4';
+import Dog5 from './dogs/dog5';
+import Dog6 from './dogs/dog6';
+import Dog7 from './dogs/dog7';
+import Dog8 from './dogs/dog8';
+import Dog9 from './dogs/dog9';
 
-export default function Intro() {
+export default function Intro({route}) {
   const navigation = useNavigation();
+  const { dognum} = route.params;
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -21,21 +30,20 @@ export default function Intro() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-
+  let arr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
+  let SelectedDog = arr[dognum];
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro1')}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('CustomizeDog')}>
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
-          <Text style={styles.bigText}>My name is CoCo</Text>
-          <Text style={styles.mediumText}>(short for Concious Consumer)</Text>
-          <Text style={styles.moremediumText}>and I'm here to give you information and feedback about all things ethics!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro3')}>
-            <Text style={styles.smallText}>click to continue</Text>
+          <Text style={styles.bigText}>CoCo loves their new look!</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
+            <Text style={styles.smallText}>click to continue tutorial</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <Dog1 style={styles.dog}/>
+          <SelectedDog style={styles.dog}/>
       </View>
   )
 }
@@ -65,24 +73,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-  },
-  mediumText: {
-    color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  moremediumText: {
-    color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-    marginLeft: 25,
-    marginRight: 25,
   },
   smallText: {
     color: COLORS.darkGreen,
