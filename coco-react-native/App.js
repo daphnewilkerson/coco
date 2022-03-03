@@ -7,7 +7,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import Landing from './components/Landing';
 import Intro1 from './components/Intro1';
 import Intro2 from './components/Intro2';
-import Customdog from './components/CustomDog';
+import Intro3 from './components/Intro3';
+import Intro4 from './components/Intro4';
+import CustomDog from './components/CustomDog';
+import SaveDog from './components/SaveDog';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Coco from './components/Coco';
 import Profile from './components/Profile';
@@ -110,7 +113,11 @@ function OnboardingStack() {
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
       <Stack.Screen name="Intro1" component={Intro1}/>
       <Stack.Screen name="Intro2" component={Intro2}/>
-      <Stack.Screen name="CustomDog" component={Customdog}/>
+      <Stack.Screen name="Intro3" component={Intro3}/>
+      <Stack.Screen name="Intro4" component={Intro4}/>
+      <Stack.Screen name="Values" component={Values}/>
+      <Stack.Screen name="CustomDog" component={CustomDog}/>
+      <Stack.Screen name="SaveDog" component={SaveDog}/>
       <Stack.Screen name="Landing" component={Landing}/>
     </Stack.Navigator>
   )

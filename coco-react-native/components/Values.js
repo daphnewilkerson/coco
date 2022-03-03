@@ -34,6 +34,7 @@ export default function Intro() {
         } else {
             copy.push(index);
         }
+        console.log(copy);
         setSelected(copy);
     }
     let arr = ["Sustainability", "Paid Maternity Leave", "Diversity and Inclusion", "Accessibility", "Wages", "Health Care for Workers", "Anti-Child Labor Polocies", "Charity", "Workers' Rights", "Anti-Discrimination", "Animal Cruelty/Testing", "LGBTQ+ Rights", "COVID-19 Policies", "Ability to Unionize", "Reduced Water Use", "Transparency", "Greenwashing", "Eco-Friendly", "Supporting POC Owned Businesses", "Women's Rights", "Privacy"];
@@ -90,12 +91,12 @@ const styles = StyleSheet.create({
   },
   unselectedButton: {
     backgroundColor: '#93d075ff',
-    width: 175,
+    width: '45%',
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    margin: 15,
+    margin: 5,
   },
   unselectedButtonText: {
     color: COLORS.darkGreen,
@@ -105,12 +106,12 @@ const styles = StyleSheet.create({
   },
   selectedButton: {
     backgroundColor: COLORS.darkGreen,
-    width: 175,
+    width: '45%',
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    margin: 15,
+    margin: 5,
   },
   selectedButtonText: {
     color: COLORS.lightGreen,
@@ -148,9 +149,11 @@ const styles = StyleSheet.create({
   },
   stack: {
     backgroundColor: 'pink',
-    alignItems: 'center',
     width: 400,
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    alignContent: 'space-around',
   },
 });

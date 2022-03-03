@@ -10,6 +10,7 @@ import AppLoading from 'expo-app-loading';
 import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
 import { COLORS } from '../utils/constants';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Intro() {
   const navigation = useNavigation();
@@ -24,18 +25,19 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro1')}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro3')}>
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
-          <Text style={styles.bigText}>My name is CoCo</Text>
-          <Text style={styles.mediumText}>(short for Concious Consumer)</Text>
-          <Text style={styles.moremediumText}>and I'm here to give you information and feedback about all things ethics!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro3')}>
+          <Text style={styles.moremediumText}>This is CoCo's profile button, where you can update CoCo's look, and view CoCo Bones earned by shopping ethically.</Text>
+          <Text style={styles.mediumText}>Let's start by customizing CoCo's look! Click on CoCo's profile to continue.</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('CustomDog')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <Dog1 style={styles.dog}/>
+          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 60, marginLeft: 270}}/>
+          
       </View>
   )
 }
@@ -58,13 +60,16 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginBottom: 50,
   },
-  bigText: {
+  moremediumText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 40,
+    fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: 'center',
+    textAlign: 'right',
+    marginTop: 30,
+    marginLeft: 50,
+    marginRight: 25,
   },
   mediumText: {
     color: COLORS.darkGreen,
@@ -72,16 +77,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: 'center',
-  },
-  moremediumText: {
-    color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-    marginLeft: 25,
+    textAlign: 'right',
+    marginTop: 30,
+    marginLeft: 50,
     marginRight: 25,
   },
   smallText: {
@@ -93,7 +91,8 @@ const styles = StyleSheet.create({
   },
   dog: {
     position: 'absolute',
-    bottom: 0,
+    left: 15,
+    bottom: -170,
   },
   video: {
     backgroundColor: "red",
