@@ -32,7 +32,6 @@ export default function Fetch1() {
         newResults.push(result);
       }
     }
-    console.log(newResults);
     setResults(newResults);
     setSearch(searchText);
   }
