@@ -31,15 +31,19 @@ export default function Intro({route}) {
     return <AppLoading />;
   }
   let arr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
-  let SelectedDog = arr[dognum];
+  let SelectedDog = (props)=> (
+      <View style={props.style}>
+      {arr[dognum]}
+      </View>
+  )
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('CustomizeDog')}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('CustomDog')}>
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
           <Text style={styles.bigText}>CoCo loves their new look!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5', {dognum: dognum})}>
             <Text style={styles.smallText}>click to continue tutorial</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
@@ -69,10 +73,11 @@ const styles = StyleSheet.create({
   bigText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 40,
+    fontSize: 45,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    padding: 20,
   },
   smallText: {
     color: COLORS.darkGreen,
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: COLORS.lightGreen,
-    width: 200,
+    width: 250,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
