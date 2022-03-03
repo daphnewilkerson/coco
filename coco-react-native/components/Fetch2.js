@@ -3,13 +3,16 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Svg, { Path, G, Defs } from "react-native-svg"
+import Svg, { Path, G, Defs } from "react-native-svg";
+import SadDog from './dogs/dogSad';
 
 
 export default function Fetch2({ route, navigation }) {
   
   const storeLogos = {
-    Amazon: require('../assets/company-logos/amazon.png')
+    'Amazon': require('../assets/company-logos/amazon.png'),
+    'Amtrak': require('../assets/company-logos/amtrak.png'),
+    'American Eagle': require('../assets/company-logos/americaneagle.png')
   }
 
   const storeNews = {
@@ -24,7 +27,9 @@ export default function Fetch2({ route, navigation }) {
         title: 'Amazon Better Than Home Depot, Despite What Dog In Video Says',
         link: ''
       }
-    ]
+    ],
+    'Amtrak': [],
+    'American Eagle': []
   }
 
   const storeRatings = {
@@ -41,46 +46,60 @@ export default function Fetch2({ route, navigation }) {
         category: 'Workers\' Rights',
         score: 2
       }
-    ]
+    ],
+    'Amtrak': [],
+    'American Eagle': []
   }
 
   return (
     <View style={styles.container}>
       <Back/>
-      <Image
+      {/* <Image
         style={styles.logo}
         source={require('../assets/logo.png')}
-      />
+      /> */}
       <Image
         style={styles.storeLogo}
         source={storeLogos[route.params.store]}
       />
-      <Text style={styles.label}>
-        Recent News
-      </Text>
       {
-        storeNews[route.params.store].map(story => (
-          <Pressable key={story.title} style={styles.newsBlurb}>
-            <Text style={styles.source}>{story.source}</Text>
-            <Text style={styles.title}>{story.title}</Text>
-            <Icon name="bookmark-outline" style={styles.bookmark} size={25}/>
-          </Pressable>
-        ))
+        storeRatings[route.params.store].length === 0 ?
+        <View style={styles.container}>
+          <Text style={styles.sorryText}>
+            Sorry, we don't have any info uploaded for this company yet. I would go check out Amazon...
+          </Text>
+          <SadDog style={{marginTop: 'auto', marginBottom: -37}}/>
+        </View>
+        :
+        <>
+          <Text style={styles.label}>
+            Recent News
+          </Text>
+          {
+            storeNews[route.params.store].map(story => (
+              <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4')}>
+                <Text style={styles.source}>{story.source}</Text>
+                <Text style={styles.title}>{story.title}</Text>
+                <Icon name="bookmark-outline" style={styles.bookmark} size={25}/>
+              </Pressable>
+            ))
+          }
+          <Text style={styles.ratingsLabel}>
+            CoCo's Ratings
+          </Text>
+          <View style={styles.ratingsContainer}>
+          {
+            storeRatings[route.params.store].map(rating => (
+              <Pressable key={rating.category} style={styles.ratingsEntry} onPress={() => navigation.navigate('Fetch3', {store: route.params.store, category: rating.category})}>
+                <Text style={styles.ratingsNumber}>{rating.score}</Text>
+                <Bone style={{marginTop: -10}}/>
+                <Text style={styles.ratingsText}>{rating.category}</Text>
+              </Pressable>
+            ))
+          }
+          </View>
+        </>
       }
-      <Text style={styles.ratingsLabel}>
-        CoCo's Ratings
-      </Text>
-      <View style={styles.ratingsContainer}>
-      {
-        storeRatings[route.params.store].map(rating => (
-          <Pressable key={rating.category} style={styles.ratingsEntry} onPress={() => navigation.navigate('Fetch3', {store: route.params.store, category: rating.category})}>
-            <Text style={styles.ratingsNumber}>{rating.score}</Text>
-            <Bone style={{marginTop: -10}}/>
-            <Text style={styles.ratingsText}>{rating.category}</Text>
-          </Pressable>
-        ))
-      }
-      </View>
     </View>
   )
 }
@@ -90,7 +109,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   logo: {
     width: 125,
@@ -101,15 +120,14 @@ const styles = StyleSheet.create({
   storeLogo: {
     width: 200,
     height: 100,
-    position: 'absolute',
-    top: 225,
+    marginTop: 100,
+    marginBottom: 50,
   },
   label: {
     fontFamily: MAINFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     right: 100,
-    marginTop: 400,
     marginBottom: 10,
   },
   newsBlurb: {
@@ -145,7 +163,7 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
-    marginTop: 10
+    marginTop: 40
   },
   ratingsContainer: {
     display: 'flex',
@@ -172,24 +190,15 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 14,
     textAlign: 'center'
-  }
+  },
+  sorryText: {
+    fontFamily: MAINFONT,
+    fontSize: 25,
+    color: COLORS.darkGreen,
+    margin: 20,
+    marginTop: 100
+  },
 });
-
-// const ThoughtBubble = (props) => (
-//   <Svg
-//     // width={375}
-//     // height={254}
-//     viewBox="0 0 450 350"
-//     fill="none"
-//     xmlns="http://www.w3.org/2000/svg"
-//     {...props}
-//   >
-//     <Path
-//       d="M285.5 237.5c0 2.161-1.964 4-4.5 4s-4.5-1.839-4.5-4 1.964-4 4.5-4 4.5 1.839 4.5 4ZM262.5 247c0 3.558-3.101 6.5-7 6.5s-7-2.942-7-6.5 3.101-6.5 7-6.5 7 2.942 7 6.5ZM240.5 239c0 4.669-4.004 8.5-9 8.5s-9-3.831-9-8.5c0-4.669 4.004-8.5 9-8.5s9 3.831 9 8.5ZM-1 35.145C24-9.933 75.642 13.207 82 23.764 82 23.764 97.5 1 125.5 1S173 23.764 173 23.764 177.676 1 213.338 1s50.406 22.763 50.406 22.763S284.563 1 319.5 1 375 35.145 375 35.145M375 191c-25 45.078-76.643 21.938-83 11.381 0 0-15.5 22.764-43.5 22.764S201 202.381 201 202.381s-4.676 22.763-40.338 22.763-50.406-22.763-50.406-22.763-20.819 22.764-55.756 22.764S-1 191-1 191"
-//       stroke="#07500A"
-//     />
-//   </Svg>
-// )
 
 const Bone = (props) => (
   <Svg

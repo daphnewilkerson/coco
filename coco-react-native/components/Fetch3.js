@@ -85,7 +85,7 @@ export default function Fetch3({ route, navigation }) {
       </Text>
       {
         storeNews[route.params.store][route.params.category].map(story => (
-          <Pressable key={story.title} style={styles.newsBlurb}>
+          <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4')}>
             <Text style={styles.source}>{story.source}</Text>
             <Text style={styles.title}>{story.title}</Text>
             <Icon name="bookmark-outline" style={styles.bookmark} size={25}/>

@@ -32,19 +32,33 @@ export default function Fetch1() {
         newResults.push(result);
       }
     }
+    if (newResults.length === 0) {
+      newResults.push({store: 'No results :('})
+    }
     setResults(newResults);
     setSearch(searchText);
   }
 
-  const renderResults = ({ item }) => (
-    <Pressable onPress={() => navigation.navigate('Fetch2', { store: item.store })}>
-      <View style={{...styles.resultItem, borderBottomWidth: (item.store === results[results.length-1].store) ? 1 : 0}}>
-        <Text style={styles.resultItemText}>
-          {item.store}
-        </Text>
-      </View>
-    </Pressable>
-  )
+  const renderResults = ({ item }) => {
+    if (item.store === 'No results :(') {
+      return (
+        <View style={styles.noResultsContainer}>
+          <Text style={styles.noResultsText}>
+            No results :(
+          </Text>
+        </View>
+      )
+    }
+    return (
+      <Pressable onPress={() => navigation.navigate('Fetch2', { store: item.store })}>
+        <View style={{...styles.resultItem, borderBottomWidth: (item.store === results[results.length-1].store) ? 1 : 0}}>
+          <Text style={styles.resultItemText}>
+            {item.store}
+          </Text>
+        </View>
+      </Pressable>
+    )
+  }
 
   return (
     <View style={styles.container}>
@@ -71,16 +85,16 @@ export default function Fetch1() {
         data={results}
         renderItem={renderResults}
         keyExtractor={entry => entry.store}
-        style={{...styles.resultsList, display: (searchFocused) ? 'flex' : 'none'}}
+        style={{...styles.resultsList, display: (searchFocused || search !== '') ? 'flex' : 'none'}}
       />
       <Text style={styles.label}>
         Recently Bought
       </Text>
       <View style={{...styles.blob, marginBottom: 40}}>
         {recents.map(store => (
-          <View style={styles.blobEntry} key={store}>
+          <Pressable style={styles.blobEntry} key={store} onPress={() => handleSearch(store)}>
             <Text style={styles.blobText}>{store}</Text>
-          </View>
+          </Pressable>
         ))}
       </View>
       <Text style={styles.label}>
@@ -88,9 +102,9 @@ export default function Fetch1() {
       </Text>
       <View style={styles.blob}>
         {recommended.map(store => (
-          <View style={styles.blobEntry} key={store}>
+          <Pressable style={styles.blobEntry} key={store} onPress={() => handleSearch(store)}>
             <Text style={styles.blobText}>{store}</Text>
-          </View>
+          </Pressable>
         ))}
       </View>
     </View>
@@ -183,5 +197,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 2, // for ios
     elevation: 2, // for android
-  }
+  },
+  noResultsContainer: {
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 30
+  },
+  noResultsText: {
+    color: COLORS.darkGreen,
+    fontFamily: MAINFONT,
+    fontSize: 25,
+  },
 });
