@@ -5,3 +5,31 @@ export const COLORS = {
 }
 
 export const MAINFONT = 'Comfortaa_400Regular';
+
+import { Text, StyleSheet, Pressable} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+
+const globalStyles = StyleSheet.create({
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 30
+  },
+  backButtonText: {
+    fontFamily: MAINFONT,
+    fontSize: 20,
+    color: COLORS.darkGreen
+  }
+})
+
+export const Back = () => {
+  const navigation = useNavigation();
+  return (
+    <Pressable onPress={() => navigation.goBack()} style={globalStyles.backButton}>
+      <Text style={globalStyles.backButtonText}>
+        {'<'} back
+      </Text>
+    </Pressable>
+  );
+};

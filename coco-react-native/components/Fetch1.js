@@ -2,7 +2,7 @@ import React, {
   useState,
 } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, FlatList, Pressable} from 'react-native';
-import { COLORS, MAINFONT } from '../utils/constants';
+import { COLORS, MAINFONT, Back} from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -48,6 +48,7 @@ export default function Fetch1() {
 
   return (
     <View style={styles.container}>
+      <Back/>
       <Image
         style={styles.logo}
         source={require('../assets/logo.png')}
@@ -70,7 +71,7 @@ export default function Fetch1() {
         data={results}
         renderItem={renderResults}
         keyExtractor={entry => entry.store}
-        style={{...styles.resultsList, display: (searchFocused || search !== '') ? 'flex' : 'none'}}
+        style={{...styles.resultsList, display: (searchFocused) ? 'flex' : 'none'}}
       />
       <Text style={styles.label}>
         Recently Bought

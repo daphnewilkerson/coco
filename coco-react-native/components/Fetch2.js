@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT } from '../utils/constants';
+import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg"
 
@@ -46,6 +46,7 @@ export default function Fetch2({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <Back/>
       <Image
         style={styles.logo}
         source={require('../assets/logo.png')}
@@ -59,7 +60,7 @@ export default function Fetch2({ route, navigation }) {
       </Text>
       {
         storeNews[route.params.store].map(story => (
-          <Pressable style={styles.newsBlurb}>
+          <Pressable key={story.title} style={styles.newsBlurb}>
             <Text style={styles.source}>{story.source}</Text>
             <Text style={styles.title}>{story.title}</Text>
             <Icon name="bookmark-outline" style={styles.bookmark} size={25}/>
@@ -72,7 +73,7 @@ export default function Fetch2({ route, navigation }) {
       <View style={styles.ratingsContainer}>
       {
         storeRatings[route.params.store].map(rating => (
-          <Pressable style={styles.ratingsEntry}>
+          <Pressable key={rating.category} style={styles.ratingsEntry} onPress={() => navigation.navigate('Fetch3', {store: route.params.store, category: rating.category})}>
             <Text style={styles.ratingsNumber}>{rating.score}</Text>
             <Bone style={{marginTop: -10}}/>
             <Text style={styles.ratingsText}>{rating.category}</Text>
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     right: 100,
     marginTop: 400,
+    marginBottom: 10,
   },
   newsBlurb: {
     width: '95%',
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
-    marginTop: 20
+    marginTop: 10
   },
   ratingsContainer: {
     display: 'flex',

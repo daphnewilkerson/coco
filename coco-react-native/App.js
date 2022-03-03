@@ -17,6 +17,7 @@ import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fetch1 from './components/Fetch1';
 import Fetch2 from './components/Fetch2';
+import Fetch3 from './components/Fetch3';
 import { COLORS } from './utils/constants'
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
@@ -176,6 +177,7 @@ function LandingNav() {
       <Stack.Screen name="LandingMain" component={Landing}/>
       <Stack.Screen name="Fetch1" component={Fetch1}/>
       <Stack.Screen name="Fetch2" component={Fetch2}/>
+      <Stack.Screen name="Fetch3" component={Fetch3}/>
     </Stack.Navigator>
   )
 }
