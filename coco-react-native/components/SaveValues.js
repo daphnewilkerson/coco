@@ -21,7 +21,7 @@ import Dog9 from './dogs/dog9';
 
 export default function Intro({route}) {
   const navigation = useNavigation();
-  const { dognum} = route.params;
+  const { dognum, selected} = route.params;
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -30,21 +30,23 @@ export default function Intro({route}) {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  let arr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
+  let valuearr = ["Sustainability", "Paid Maternity Leave", "Diversity and Inclusion", "Accessibility", "Wages", "Health Care for Workers", "Anti-Child Labor Polocies", "Charity", "Workers' Rights", "Anti-Discrimination", "Animal Cruelty/Testing", "LGBTQ+ Rights", "COVID-19 Policies", "Ability to Unionize", "Reduced Water Use", "Transparency", "Greenwashing", "Eco-Friendly", "Supporting POC Owned Businesses", "Women's Rights", "Privacy"];
+  let dogarr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
   let SelectedDog = (props)=> (
       <View style={props.style}>
-      {arr[dognum]}
+      {dogarr[dognum]}
       </View>
   )
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('CustomDog')}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Values', {dognum: dognum, selected: selected})}>
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
-          <Text style={styles.bigText}>CoCo loves their new look!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5', {dognum: dognum})}>
-            <Text style={styles.smallText}>click to continue tutorial</Text>
+          <Text style={styles.bigText}>Thanks for sharing your values!</Text>
+          <Text style={styles.mediumText}>You can always go back and update your values through your profile page.</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Landing', {dognum: dognum})}>
+            <Text style={styles.smallText}>click to launch app!</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <SelectedDog style={styles.dog}/>
@@ -73,11 +75,18 @@ const styles = StyleSheet.create({
   bigText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 45,
+    fontSize: 35,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    padding: 20,
+  },
+  mediumText: {
+    color: COLORS.darkGreen,
+    fontFamily: 'Comfortaa_400Regular',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
   },
   smallText: {
     color: COLORS.darkGreen,

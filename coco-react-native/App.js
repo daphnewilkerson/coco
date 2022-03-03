@@ -9,8 +9,10 @@ import Intro1 from './components/Intro1';
 import Intro2 from './components/Intro2';
 import Intro3 from './components/Intro3';
 import Intro4 from './components/Intro4';
+import Intro5 from './components/Intro5';
 import CustomDog from './components/CustomDog';
 import SaveDog from './components/SaveDog';
+import SaveValues from './components/SaveValues';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Coco from './components/Coco';
 import Profile from './components/Profile';
@@ -38,7 +40,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-        <Stack.Screen name="MainApp" component={MainAppNav}/>
+        {/* <Stack.Screen name="MainApp" component={MainAppNav}/> */}
         <Stack.Screen name="Onboarding" component={OnboardingTab}/>
       </Stack.Navigator>
     </NavigationContainer>
@@ -115,9 +117,11 @@ function OnboardingStack() {
       <Stack.Screen name="Intro2" component={Intro2}/>
       <Stack.Screen name="Intro3" component={Intro3}/>
       <Stack.Screen name="Intro4" component={Intro4}/>
-      <Stack.Screen name="Values" component={Values}/>
+      <Stack.Screen name="Intro5" component={Intro5}/>
       <Stack.Screen name="CustomDog" component={CustomDog}/>
       <Stack.Screen name="SaveDog" component={SaveDog}/>
+      <Stack.Screen name="Values" component={Values}/>
+      <Stack.Screen name="SaveValues" component={SaveValues}/>
       <Stack.Screen name="Landing" component={Landing}/>
     </Stack.Navigator>
   )

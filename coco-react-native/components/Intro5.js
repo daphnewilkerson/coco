@@ -9,6 +9,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
 import { COLORS } from '../utils/constants';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Dog1 from './dogs/dog1';
 import Dog2 from './dogs/dog2';
 import Dog3 from './dogs/dog3';
@@ -20,8 +21,8 @@ import Dog8 from './dogs/dog8';
 import Dog9 from './dogs/dog9';
 
 export default function Intro({route}) {
-  const navigation = useNavigation();
-  const { dognum} = route.params;
+    const navigation = useNavigation();
+    const { dognum} = route.params;
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -36,18 +37,22 @@ export default function Intro({route}) {
       {arr[dognum]}
       </View>
   )
+
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('CustomDog')}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('SaveDog', {dognum: dognum})}>
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
-          <Text style={styles.bigText}>CoCo loves their new look!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5', {dognum: dognum})}>
-            <Text style={styles.smallText}>click to continue tutorial</Text>
+          <Text style={styles.moremediumText}>This is your profile button, where you can update your values, and view favorited stores, saved articles, and recent purchases.</Text>
+          <Text style={styles.mediumText}>Let's add your values! Click on your profile to continue.</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Values', {dognum:dognum})}>
+            <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <SelectedDog style={styles.dog}/>
+          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 60, marginRight: 270}}/>
+          
       </View>
   )
 }
@@ -70,14 +75,26 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginBottom: 50,
   },
-  bigText: {
+  moremediumText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 45,
+    fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: 'center',
-    padding: 20,
+    textAlign: 'left',
+    marginTop: 30,
+    marginLeft: 25,
+    marginRight: 50,
+  },
+  mediumText: {
+    color: COLORS.darkGreen,
+    fontFamily: 'Comfortaa_400Regular',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'left',
+    marginTop: 30,
+    marginRight: 50,
   },
   smallText: {
     color: COLORS.darkGreen,
@@ -88,7 +105,8 @@ const styles = StyleSheet.create({
   },
   dog: {
     position: 'absolute',
-    bottom: 0,
+    right: 15,
+    bottom: -170,
   },
   video: {
     backgroundColor: "red",
@@ -97,7 +115,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: COLORS.lightGreen,
-    width: 250,
+    width: 200,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',

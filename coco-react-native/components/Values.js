@@ -11,7 +11,9 @@ import { COLORS } from '../utils/constants';
 
 
 
-export default function Intro() {
+export default function Intro({route}) {
+    const navigation = useNavigation();
+    const { dognum } = route.params;
 
     // Load fonts. Return expo loading screen if not loaded
     let [fontsLoaded] = useFonts({
@@ -41,10 +43,10 @@ export default function Intro() {
   
     return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton}>
+          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro5', {dognum: dognum})}>
               <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
-          <Pressable style={styles.rightCornerButton}>
+          <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate('SaveValues', {dognum: dognum, selected: selected})}>
               <Text style={styles.cornerText}>save</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
