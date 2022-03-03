@@ -9,7 +9,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 
 export default function Intro() {
   const navigation = useNavigation();
@@ -24,10 +24,7 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro1')}>
-            <Text style={styles.cornerText}>{'<'} back</Text>
-          </Pressable>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
+          <Back/>
           <Text style={styles.bigText}>My name is CoCo</Text>
           <Text style={styles.mediumText}>(short for Concious Consumer)</Text>
           <Text style={styles.moremediumText}>and I'm here to give you information and feedback about all things ethics!</Text>
@@ -46,12 +43,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   coco: {
     width: 115,
     height: 250,
@@ -65,6 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    marginTop: 180,
   },
   mediumText: {
     color: COLORS.darkGreen,

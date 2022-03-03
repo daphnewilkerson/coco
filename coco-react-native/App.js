@@ -14,7 +14,7 @@ import CustomDog from './components/CustomDog';
 import SaveDog from './components/SaveDog';
 import SaveValues from './components/SaveValues';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Coco from './components/Coco';
+import CoCo from './components/CoCo';
 import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fetch1 from './components/Fetch1';
@@ -62,7 +62,7 @@ function OnboardingTab() {
         else if (route.name === 'Landing') {
           iconName = 'home';
         }
-        else if (route.name === 'Coco') {
+        else if (route.name === 'CoCo') {
           iconName = 'paw';
         }
 
@@ -99,7 +99,7 @@ function OnboardingTab() {
         }}
       />
       <Tab.Screen 
-        name="Coco" 
+        name="CoCo" 
         component={OnboardingStack}
         listeners={{
           tabPress: e => {
@@ -143,7 +143,7 @@ function MainAppNav() {
         else if (route.name === 'Landing') {
           iconName = 'home';
         }
-        else if (route.name === 'Coco') {
+        else if (route.name === 'CoCo') {
           iconName = 'paw';
         }
 
@@ -161,7 +161,7 @@ function MainAppNav() {
     >
       <Tab.Screen name="Profile" component={ProfileNav} />
       <Tab.Screen name="Landing" component={LandingNav} />
-      <Tab.Screen name="Coco" component={CocoNav} />
+      <Tab.Screen name="CoCo" component={CoCoNav} />
       {/* <Tab.Screen
         name="Chat"
         component={Landing}
@@ -196,10 +196,10 @@ function ProfileNav() {
   )
 }
 
-function CocoNav() {
+function CoCoNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-      <Stack.Screen name="CocoMain" component={Coco}/>
+      <Stack.Screen name="CoCoMain" component={CoCo}/>
     </Stack.Navigator>
   )
 }

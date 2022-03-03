@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 import Dog1 from './dogs/dog1';
 import Dog2 from './dogs/dog2';
 import Dog3 from './dogs/dog3';
@@ -37,13 +37,10 @@ export default function Intro() {
 
   return (
     <View style={styles.container}>
-        <Pressable style={styles.leftCornerButton} onPress={() => navigation.navigate('Intro2')}>
-            <Text style={styles.cornerText}>{'<'} back</Text>
-        </Pressable>
+        <Back/>
         <Pressable style={styles.rightCornerButton} onPress={() => navigation.navigate('SaveDog', {dognum: selected})}>
             <Text style={styles.cornerText}>save</Text>
         </Pressable>
-        <Image style={styles.logo} source={require('../assets/logo.png')}/>
         <Text style={styles.mediumText}>Customize CoCo!</Text>
         <ScrollView 
           horizontal={true} 
@@ -79,12 +76,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   coco: {
     width: 115,
     height: 250,
@@ -94,10 +85,11 @@ const styles = StyleSheet.create({
   mediumText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 30,
+    fontSize: 50,
     fontWeight: 'bold',
-    marginBottom: 40,
+    marginBottom: 60,
     textAlign: 'center',
+    marginTop: 160,
   },
   unselectedButton: {
     backgroundColor: COLORS.lightGreen,

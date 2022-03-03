@@ -9,7 +9,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Intro() {
@@ -25,18 +25,15 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro3')}>
-            <Text style={styles.cornerText}>{'<'} back</Text>
-          </Pressable>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
+          <Back/>
           <Text style={styles.moremediumText}>This is CoCo's profile button! You can update CoCo's look, and view CoCo Bones earned by shopping ethically.</Text>
           <Text style={styles.mediumText}>Let's start by customizing CoCo's look! Click on CoCo's profile to continue.</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('CustomDog')}>
-            <Text style={styles.smallText}>click to continue</Text>
+            <Text style={styles.smallText}>click to customize CoCo</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <Dog1 style={styles.dog}/>
-          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 60, marginLeft: 270}}/>
+          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
           
       </View>
   )
@@ -47,12 +44,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
     alignItems: 'center',
-  },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
   },
   coco: {
     width: 115,
@@ -67,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'right',
-    marginTop: 30,
+    marginTop: 220,
     marginLeft: 50,
     marginRight: 25,
   },
@@ -78,7 +69,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'right',
-    marginTop: 30,
+    marginTop: 55,
     marginLeft: 50,
     marginRight: 25,
   },
@@ -101,11 +92,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: COLORS.lightGreen,
-    width: 200,
+    width: 230,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
+    marginTop: 25,
   },
   leftCornerButton: {
     backgroundColor: COLORS.background,
