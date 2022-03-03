@@ -12,6 +12,7 @@ export default function Fetch4({ route, navigation }) {
         {
           loading ?
           <View style={styles.cover}>
+            <Back/>
             <ActivityIndicator size='large' color={COLORS.darkGreen}/>
           </View>
           :
@@ -20,7 +21,7 @@ export default function Fetch4({ route, navigation }) {
             <Back/>
           </View>
         }
-        <WebView source={{ uri: 'https://www.google.com/' }} onLoad={() => setLoading(false)} style={styles.webpage} />
+        <WebView source={{ uri: route.params.link }} onLoad={() => setLoading(false)} style={styles.webpage} />
     </View>
   ) 
 }

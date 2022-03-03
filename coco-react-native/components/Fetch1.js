@@ -63,11 +63,7 @@ export default function Fetch1() {
   return (
     <View style={styles.container}>
       <Back/>
-      <Image
-        style={styles.logo}
-        source={require('../assets/logo.png')}
-      />
-      <Text style={{...styles.label, marginTop: 150}}>
+      <Text style={styles.label}>
         Search a brand
       </Text>
       <View style={styles.searchContainer}>
@@ -97,7 +93,7 @@ export default function Fetch1() {
           </Pressable>
         ))}
       </View>
-      <Text style={styles.label}>
+      <Text style={styles.recommendedLabel}>
         Recommended
       </Text>
       <View style={styles.blob}>
@@ -118,16 +114,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    top: 100,
-    position: 'absolute'
-  },
   label: {
     fontFamily: MAINFONT,
     fontSize: 28,
     color: COLORS.darkGreen
+  },
+  recommendedLabel: {
+    fontFamily: MAINFONT,
+    fontSize: 28,
+    color: COLORS.darkGreen,
+    marginTop: 30,
   },
   searchContainer: {
     borderWidth: 1,
@@ -139,7 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: COLORS.darkGreen,
     marginTop: 20,
-    marginBottom: 30,
+    marginBottom: 50,
     paddingRight: 50
   },
   searchInput: {
@@ -158,7 +154,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 20
+    marginTop: 20,
   },
   blobEntry: {
     backgroundColor: COLORS.lightGreen,
@@ -192,7 +188,7 @@ const styles = StyleSheet.create({
   resultsList: {
     width: '100%',
     height: '55%',
-    top: '45%',
+    top: '35%',
     backgroundColor: COLORS.background,
     position: 'absolute',
     zIndex: 2, // for ios

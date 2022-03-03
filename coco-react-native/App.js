@@ -1,9 +1,12 @@
+import React, {
+  createContext, 
+  useState
+} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
-import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import Landing from './components/Landing';
 import Intro1 from './components/Intro1';
 import Intro2 from './components/Intro2';
@@ -23,12 +26,25 @@ import { COLORS } from './utils/constants'
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
+import { UserContext } from './utils/constants';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 export default function App() {
   
+  // This is the way you have to declare new stuff to be tracked in state
+  const [bookmarks, setBookmarks] = useState([]);
+  const addBookmark = (article) => {
+    setBookmarks([...bookmarks, article]);
+  }
+  const removeBookmark = (article) => {
+    let newBookmarks = [...bookmarks]
+    newBookmarks.splice(newBookmarks.indexOf(article), 1)
+    setBookmarks(newBookmarks)
+  }
+
+
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -36,14 +52,18 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+  
+  
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-        <Stack.Screen name="MainApp" component={MainAppNav}/>
-        <Stack.Screen name="Onboarding" component={OnboardingTab}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark}}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
+          <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserContext.Provider>
   );
 }
 
