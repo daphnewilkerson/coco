@@ -29,7 +29,7 @@ export default function Intro() {
             <Text style={styles.cornerText}>{'<'} back</Text>
           </Pressable>
           <Image style={styles.logo} source={require('../assets/logo.png')}/>
-          <Text style={styles.moremediumText}>This is CoCo's profile button, where you can update CoCo's look, and view CoCo Bones earned by shopping ethically.</Text>
+          <Text style={styles.moremediumText}>This is CoCo's profile button! You can update CoCo's look, and view CoCo Bones earned by shopping ethically.</Text>
           <Text style={styles.mediumText}>Let's start by customizing CoCo's look! Click on CoCo's profile to continue.</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('CustomDog')}>
             <Text style={styles.smallText}>click to continue</Text>
