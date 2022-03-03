@@ -47,7 +47,7 @@ export default function Intro({route}) {
             <Text style={styles.smallText}>click to add values</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <SelectedDog style={styles.dog}/>
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
           <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
           
       </View>
@@ -98,6 +98,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     bottom: -170,
+    width: 221,
+    height: 281,
   },
   video: {
     backgroundColor: "red",

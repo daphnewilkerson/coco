@@ -9,7 +9,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS } from '../utils/constants';
+import { COLORS} from '../utils/constants';
 
 export default function Intro() {
   const navigation = useNavigation();
@@ -31,7 +31,8 @@ export default function Intro() {
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <Dog1 style={styles.dog}/>
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          {/* <Dog1 style={styles.dog}/> */}
       </View>
   )
 }
@@ -78,6 +79,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dog: {
+    width: 221,
+    height: 281,
     position: 'absolute',
     bottom: 0,
   },

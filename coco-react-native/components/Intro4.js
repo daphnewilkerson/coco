@@ -31,8 +31,7 @@ export default function Intro() {
           <Pressable style={styles.button} onPress={() => navigation.navigate('CustomDog')}>
             <Text style={styles.smallText}>click to customize CoCo</Text>
           </Pressable>
-          {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <Dog1 style={styles.dog}/>
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
           <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
           
       </View>
@@ -84,6 +83,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 15,
     bottom: -170,
+    width: 221,
+    height: 281,
   },
   video: {
     backgroundColor: "red",

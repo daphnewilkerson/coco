@@ -30,8 +30,7 @@ export default function Intro() {
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
-          {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <Dog1 style={styles.dog}/>
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
           <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 60}}/>
       </View>
   )
@@ -71,7 +70,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: -60,
     top: 160,
-    transform: [{ rotate: '50deg' }]
+    transform: [{ rotate: '50deg' }],
+    width: 221,
+    height: 281,
   },
   video: {
     backgroundColor: "red",

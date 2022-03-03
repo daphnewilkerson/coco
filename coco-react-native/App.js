@@ -61,7 +61,7 @@ export default function App() {
     <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="MainApp" component={MainAppNav}/>
+          {/* <Stack.Screen name="MainApp" component={MainAppNav}/> */}
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
         </Stack.Navigator>
       </NavigationContainer>

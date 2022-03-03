@@ -43,8 +43,7 @@ export default function Intro({route}) {
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5', {dognum: dognum})}>
             <Text style={styles.smallText}>click to continue tutorial</Text>
           </Pressable>
-          {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <SelectedDog style={styles.dog}/>
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
       </View>
   )
 }
@@ -81,6 +80,8 @@ const styles = StyleSheet.create({
   dog: {
     position: 'absolute',
     bottom: 0,
+    width: 300,
+    height: 381,
   },
   video: {
     backgroundColor: "red",
