@@ -1,3 +1,10 @@
+import { Text, StyleSheet, Pressable} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, {
+  createContext
+} from 'react';
+
+
 export const COLORS = {
   background: '#FEFADC',
   lightGreen: '#93d075',
@@ -6,8 +13,6 @@ export const COLORS = {
 
 export const MAINFONT = 'Comfortaa_400Regular';
 
-import { Text, StyleSheet, Pressable} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 
 const globalStyles = StyleSheet.create({
@@ -33,3 +38,6 @@ export const Back = () => {
     </Pressable>
   );
 };
+
+// Using context for global stuff, hopefully this works
+export const UserContext = createContext(null);

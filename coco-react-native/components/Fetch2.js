@@ -1,13 +1,20 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, {
+  useContext
+} from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg";
 import SadDog from './dogs/dogSad';
+import { UserContext } from '../utils/constants';
 
 
 export default function Fetch2({ route, navigation }) {
+
+  const { bookmarks, addBookmark, removeBookmark } = useContext(
+    UserContext
+  );
   
   const storeLogos = {
     'Amazon': require('../assets/company-logos/amazon.png'),
@@ -20,12 +27,12 @@ export default function Fetch2({ route, navigation }) {
       {
         source: 'NYT',
         title: 'Amazon Rebrands Itself as \'Zamazon\' Following CS 147 Video',
-        link: ''
+        link: 'https://www.nytimes.com/'
       },
       {
         source: 'CNN',
         title: 'Amazon Better Than Home Depot, Despite What Dog In Video Says',
-        link: ''
+        link: 'https://www.cnn.com/'
       }
     ],
     'Amtrak': [],
@@ -49,6 +56,15 @@ export default function Fetch2({ route, navigation }) {
     ],
     'Amtrak': [],
     'American Eagle': []
+  }
+
+  const handleBookmark = (title) => {
+    if (bookmarks.includes(title)) {
+      removeBookmark(title);
+    }
+    else {
+      addBookmark(title);
+    }
   }
 
   return (
@@ -77,10 +93,17 @@ export default function Fetch2({ route, navigation }) {
           </Text>
           {
             storeNews[route.params.store].map(story => (
-              <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4')}>
+              <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4', {link: story.link})}>
                 <Text style={styles.source}>{story.source}</Text>
                 <Text style={styles.title}>{story.title}</Text>
-                <Icon name="bookmark-outline" style={styles.bookmark} size={25}/>
+                <Pressable style={styles.bookmarkContainer} onPress={() => handleBookmark(story.title)}>
+                  {
+                    bookmarks.includes(story.title) ?
+                    <Icon name="bookmark" size={25} style={styles.bookmark}/>
+                    :
+                    <Icon name="bookmark-outline" size={25} style={styles.bookmark}/>
+                  }
+                </Pressable>
               </Pressable>
             ))
           }
@@ -153,10 +176,12 @@ const styles = StyleSheet.create({
     left: 10,
     marginRight: 50
   },
-  bookmark: {
+  bookmarkContainer: {
     position: 'absolute',
     top: 10,
     right: 10,
+  },
+  bookmark: {
     color: COLORS.darkGreen
   },
   ratingsLabel: {

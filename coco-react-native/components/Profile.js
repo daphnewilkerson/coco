@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {
+  useContext
+} from 'react';
 import { View, Text, StyleSheet} from 'react-native';
+import { UserContext } from '../utils/constants';
 
 export default function Profile() {
+  const { bookmarks } = useContext(
+    UserContext
+  );
+
   return (
     <View style={styles.container}>
       <Text>
