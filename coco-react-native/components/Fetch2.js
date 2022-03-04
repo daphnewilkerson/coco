@@ -6,7 +6,6 @@ import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg";
-import SadDog from './dogs/dogSad';
 import { UserContext, storeLogos, storeNews, storeRatings } from '../utils/constants';
 import NewsBlurb from './NewsBlurb';
 
@@ -26,7 +25,7 @@ export default function Fetch2({ route, navigation }) {
           <Text style={styles.sorryText}>
             Sorry, we don't have any info uploaded for this company yet. I would go check out Amazon...
           </Text>
-          <SadDog style={{marginTop: 'auto', marginBottom: -37}}/>
+          {/* <SadDog style={{marginTop: 'auto', marginBottom: -37}}/> */}
         </View>
         :
         <>

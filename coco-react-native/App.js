@@ -17,7 +17,7 @@ import CustomDog from './components/CustomDog';
 import SaveDog from './components/SaveDog';
 import SaveValues from './components/SaveValues';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Coco from './components/Coco'
+import CoCo from './components/CoCo'
 import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fetch1 from './components/Fetch1';
@@ -226,7 +226,7 @@ function ProfileNav() {
 function CoCoNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-      <Stack.Screen name="CoCoMain" component={Coco}/>
+      <Stack.Screen name="CoCoMain" component={CoCo}/>
     </Stack.Navigator>
   )
 }
