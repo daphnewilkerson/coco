@@ -8,15 +8,7 @@ import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-nativ
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import { COLORS, Back } from '../utils/constants';
-import Dog1 from './dogs/dog1';
-import Dog2 from './dogs/dog2';
-import Dog3 from './dogs/dog3';
-import Dog4 from './dogs/dog4';
-import Dog5 from './dogs/dog5';
-import Dog6 from './dogs/dog6';
-import Dog7 from './dogs/dog7';
-import Dog8 from './dogs/dog8';
-import Dog9 from './dogs/dog9';
+
 
 export default function Intro() {
 
@@ -33,7 +25,7 @@ export default function Intro() {
     return <AppLoading />;
   }
 
-  let arr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
+  let arr = ['../assets/dogs/dog1', '../assets/dogs/dog2', '../assets/dogs/dog3', '../assets/dogs/dog4', '../assets/dogs/dog5', '../assets/dogs/dog6', '../assets/dogs/dog7', '../assets/dogs/dog8', '../assets/dogs/dog9'];
 
   return (
     <View style={styles.container}>
@@ -53,7 +45,7 @@ export default function Intro() {
             {
                 arr.map((dog, index) => (
                     <View style={styles.stack} key={index}>
-                        {dog}
+                        <Image style={styles.dog} source={require(dog)}/>
                         <Pressable onPress={() => setSelected(index)} style={selected === index ? styles.selectedButton : styles.unselectedButton}>
                         {
                             selected === index ?
@@ -81,6 +73,10 @@ const styles = StyleSheet.create({
     height: 250,
     marginTop: 100,
     marginBottom: 50,
+  },
+  dog: {
+      width: 221,
+      height 281,
   },
   mediumText: {
     color: COLORS.darkGreen,

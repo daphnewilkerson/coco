@@ -10,15 +10,7 @@ import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
 import { COLORS, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Dog1 from './dogs/dog1';
-import Dog2 from './dogs/dog2';
-import Dog3 from './dogs/dog3';
-import Dog4 from './dogs/dog4';
-import Dog5 from './dogs/dog5';
-import Dog6 from './dogs/dog6';
-import Dog7 from './dogs/dog7';
-import Dog8 from './dogs/dog8';
-import Dog9 from './dogs/dog9';
+
 
 export default function Intro({route}) {
     const navigation = useNavigation();

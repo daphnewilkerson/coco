@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
 import { COLORS, Back } from '../utils/constants';
 
