@@ -6,7 +6,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT } from '../utils/constants';
-import Dog1 from './dogs/dog1';
 
 export default function Landing() {
 
