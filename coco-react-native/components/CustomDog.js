@@ -1,5 +1,7 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, {
+  useContext
+} from 'react';
 import { Component, useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS, Back } from '../utils/constants';
+import { COLORS, Back, UserContext } from '../utils/constants';
 import Dog1 from './dogs/dog1';
 import Dog2 from './dogs/dog2';
 import Dog3 from './dogs/dog3';
@@ -22,12 +24,12 @@ export default function Intro() {
 
   const navigation = useNavigation();
 
+  const { dogNum, setDogNum } = useContext(UserContext);
+
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
   });
-
-  const [selected, setSelected] = useState(0);
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -38,7 +40,7 @@ export default function Intro() {
   return (
     <View style={styles.container}>
         <Back/>
-        <Pressable style={styles.rightCornerButton} onPress={() => navigation.navigate('SaveDog', {dognum: selected})}>
+        <Pressable style={styles.rightCornerButton} onPress={() => navigation.navigate('SaveDog')}>
             <Text style={styles.cornerText}>save</Text>
         </Pressable>
         <Text style={styles.mediumText}>Customize CoCo!</Text>
@@ -54,9 +56,9 @@ export default function Intro() {
                 arr.map((dog, index) => (
                     <View style={styles.stack} key={index}>
                         {dog}
-                        <Pressable onPress={() => setSelected(index)} style={selected === index ? styles.selectedButton : styles.unselectedButton}>
+                        <Pressable onPress={() => setDogNum(index)} style={dogNum === index ? styles.selectedButton : styles.unselectedButton}>
                         {
-                            selected === index ?
+                            dogNum === index ?
                             <Text style={styles.selectedButtonText}>Selected</Text>
                             :
                             <Text style={styles.unselectedButtonText}>Select</Text>

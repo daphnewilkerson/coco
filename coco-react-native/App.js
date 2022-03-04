@@ -47,6 +47,9 @@ export default function App() {
     setBookmarks(newBookmarks)
   }
 
+  // For saving dog number
+  const [dogNum, setDogNum] = useState(0);
+
 
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
@@ -59,11 +62,11 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark}}>
+    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="MainApp" component={MainAppNav}/>
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
