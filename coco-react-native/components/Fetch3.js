@@ -6,7 +6,7 @@ import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Graph1, Graph2, Graph3 } from './Graphs';
-import { UserContext } from '../utils/constants';
+import { UserContext, storeLogos, storeSpecificNews, storeRatings } from '../utils/constants';
 
 
 
@@ -15,59 +15,6 @@ export default function Fetch3({ route, navigation }) {
   const { bookmarks, addBookmark, removeBookmark } = useContext(
     UserContext
   );
-  
-  const storeLogos = {
-    Amazon: require('../assets/company-logos/amazon.png')
-  }
-
-  const storeNews = {
-    Amazon: {
-      'Sustainability': [
-        {
-          source: 'WSJ',
-          title: 'Amazon relocates headquarters to space',
-          link: 'https://www.wsj.com/'
-        },
-        {
-          source: 'Washington Post',
-          title: 'Amazon Factory Starts Forest Fire, Bezos: “My Bad”',
-          link: 'https://www.washingtonpost.com/'
-        }
-      ],
-      'Accessibility': [
-        {
-          source: 'CNN',
-          title: 'Major Amazon Lawsuit Underway',
-          link: 'https://www.cnn.com/'
-        },
-        {
-          source: 'WSJ',
-          title: 'Bezos says “Exclusivity is Good”',
-          link: 'https://www.wsj.com/'
-        }
-      ],
-      'Workers\' Rights': [
-        {
-          source: 'NYT',
-          title: 'Amazon Employees Fired When They Have Covid',
-          link: 'https://www.nytimes.com/'
-        },
-        {
-          source: 'WSJ',
-          title: 'Retention Rate At Amazon at an “All Time Low”',
-          link: 'https://www.wsj.com/'
-        }
-      ],
-    }
-  }
-
-  const storeRatings = {
-    Amazon: {
-      'Sustainability': 5,
-      'Accessibility': 7,
-      'Workers\' Rights': 2
-    }
-  }
 
   const graphs = {
     'Amazon': {
@@ -77,12 +24,12 @@ export default function Fetch3({ route, navigation }) {
     }
   }
 
-  const handleBookmark = (title) => {
-    if (bookmarks.includes(title)) {
-      removeBookmark(title);
+  const handleBookmark = (story) => {
+    if (bookmarks.includes(story)) {
+      removeBookmark(story);
     }
     else {
-      addBookmark(title);
+      addBookmark(story);
     }
   }
 
@@ -101,11 +48,11 @@ export default function Fetch3({ route, navigation }) {
         Stories
       </Text>
       {
-        storeNews[route.params.store][route.params.category].map(story => (
+        storeSpecificNews[route.params.store][route.params.category].map(story => (
           <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4', {link: story.link})}>
             <Text style={styles.source}>{story.source}</Text>
             <Text style={styles.title}>{story.title}</Text>
-            <Pressable style={styles.bookmarkContainer} onPress={() => handleBookmark(story.title)}>
+            <Pressable style={styles.bookmarkContainer} onPress={() => handleBookmark(JSON.stringify(story))}>
                   {
                     bookmarks.includes(story.title) ?
                     <Icon name="bookmark" size={25} style={styles.bookmark}/>
@@ -136,10 +83,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   storeLogo: {
-    width: 200,
     height: 100,
     position: 'absolute',
     top: 100,
+    resizeMode: 'contain',
   },
   scoreLabel: {
     fontFamily: MAINFONT,

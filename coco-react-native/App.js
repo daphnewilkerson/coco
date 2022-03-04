@@ -29,6 +29,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
+import Bookmarks from './components/Bookmarks'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -212,6 +213,8 @@ function ProfileNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
       <Stack.Screen name="ProfileMain" component={Profile}/>
+      <Stack.Screen name="Bookmarks" component={Bookmarks}/>
+      <Stack.Screen name="Fetch4" component={Fetch4}/>
     </Stack.Navigator>
   )
 }
