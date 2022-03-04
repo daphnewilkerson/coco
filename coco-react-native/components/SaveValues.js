@@ -42,7 +42,7 @@ export default function Intro({route}) {
           <Back/>
           <Text style={styles.bigText}>Thanks for sharing your values!</Text>
           <Text style={styles.mediumText}>You can always go back and update your values through your profile page.</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Landing', {dognum: dognum})}>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('MainApp', {dognum: dognum})}>
             <Text style={styles.smallText}>click to launch app!</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}

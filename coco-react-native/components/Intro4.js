@@ -33,7 +33,7 @@ export default function Intro() {
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <Dog1 style={styles.dog}/>
-          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
           
       </View>
   )

@@ -48,7 +48,7 @@ export default function Intro({route}) {
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <SelectedDog style={styles.dog}/>
-          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
           
       </View>
   )

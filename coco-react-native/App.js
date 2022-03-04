@@ -17,7 +17,7 @@ import CustomDog from './components/CustomDog';
 import SaveDog from './components/SaveDog';
 import SaveValues from './components/SaveValues';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CoCo from './components/CoCo';
+import Coco from './components/Coco'
 import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fetch1 from './components/Fetch1';
@@ -62,8 +62,8 @@ export default function App() {
     <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="MainApp" component={MainAppNav}/>
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -179,6 +179,7 @@ function MainAppNav() {
       },
       tabBarShowLabel: false,
       })}
+      initialRouteName="Landing"
     >
       <Tab.Screen name="Profile" component={ProfileNav} />
       <Tab.Screen name="Landing" component={LandingNav} />
@@ -222,7 +223,7 @@ function ProfileNav() {
 function CoCoNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-      <Stack.Screen name="CoCoMain" component={CoCo}/>
+      <Stack.Screen name="CoCoMain" component={Coco}/>
     </Stack.Navigator>
   )
 }
