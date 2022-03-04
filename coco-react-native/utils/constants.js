@@ -25,6 +25,20 @@ export const Back = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 30
+  },
+  backButtonText: {
+    fontFamily: MAINFONT,
+    fontSize: 20,
+    color: COLORS.darkGreen
+  }
+})
+
+
 // Using context for global stuff, hopefully this works
 export const UserContext = createContext(null);
 
@@ -122,20 +136,6 @@ export const storeSpecificNews = {
     ],
   }
 }
-
-const styles = StyleSheet.create({
-  backButton: {
-    position: 'absolute',
-    top: 50,
-    left: 30
-  },
-  backButtonText: {
-    fontFamily: MAINFONT,
-    fontSize: 20,
-    color: COLORS.darkGreen
-  }
-})
-
 
 export const dogimages = [require('../assets/dogs/dog1.png'), require('../assets/dogs/dog2.png'), require('../assets/dogs/dog3.png'), require('../assets/dogs/dog4.png'), require('../assets/dogs/dog5.png'), require('../assets/dogs/dog6.png'), require('../assets/dogs/dog7.png'), require('../assets/dogs/dog8.png'), require('../assets/dogs/dog9.png')];
 export const sadimages = [require('../assets/dogs/sad1.png'), require('../assets/dogs/sad2.png'), require('../assets/dogs/sad3.png'), require('../assets/dogs/sad4.png'), require('../assets/dogs/sad5.png'), require('../assets/dogs/sad6.png'), require('../assets/dogs/sad7.png'), require('../assets/dogs/sad8.png'), require('../assets/dogs/sad9.png')];

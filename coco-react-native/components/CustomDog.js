@@ -139,6 +139,9 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
+    position: 'absolute',
+    top: 10,
+    right: 0,
   },
   scroll: {
     backgroundColor: COLORS.background,
