@@ -8,7 +8,7 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 import Dog1 from './dogs/dog1';
 import Dog2 from './dogs/dog2';
 import Dog3 from './dogs/dog3';
@@ -39,10 +39,7 @@ export default function Intro({route}) {
   )
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Values', {dognum: dognum, selected: selected})}>
-            <Text style={styles.cornerText}>{'<'} back</Text>
-          </Pressable>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
+          <Back/>
           <Text style={styles.bigText}>Thanks for sharing your values!</Text>
           <Text style={styles.mediumText}>You can always go back and update your values through your profile page.</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Landing', {dognum: dognum})}>
@@ -60,12 +57,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   coco: {
     width: 115,
     height: 250,
@@ -79,11 +70,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    marginTop: 200,
   },
   mediumText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',

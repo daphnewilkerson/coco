@@ -4,10 +4,10 @@ import { Component, useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, ScrollView, FlatList} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 
 
 
@@ -39,34 +39,44 @@ export default function Intro({route}) {
         console.log(copy);
         setSelected(copy);
     }
-    let arr = ["Sustainability", "Paid Maternity Leave", "Diversity and Inclusion", "Accessibility", "Wages", "Health Care for Workers", "Anti-Child Labor Polocies", "Charity", "Workers' Rights", "Anti-Discrimination", "Animal Cruelty/Testing", "LGBTQ+ Rights", "COVID-19 Policies", "Ability to Unionize", "Reduced Water Use", "Transparency", "Greenwashing", "Eco-Friendly", "Supporting POC Owned Businesses", "Women's Rights", "Privacy"];
+    const DATA = [{id: 0, value: "Sustainability"}, {id: 1, value: "Paid Maternity Leave"}, {id: 2, value: "Diversity and Inclusion"}, {id: 3, value: "Accessibility"}, {id: 4, value: "Wages"}, {id: 5, value: "Health Care for Workers"}, {id: 6, value: "Anti-Child Labor Polocies"}, {id: 7, value: "Charity"}, {id: 8, value: "Workers' Rights"}, {id: 9, value: "Anti-Discrimination"}, {id: 10, value: "Animal Cruelty/Testing"}, {id: 11, value: "LGBTQ+ Rights"}, {id: 12, value: "COVID-19 Policies"}, {id: 13, value: "Ability to Unionize"}, {id: 14, value: "Reduced Water Use"}, {id: 15, value: "Transparency"}, {id: 16, value: "Greenwashing"}, {id: 17, value: "Eco-Friendly"}, {id: 18, value: "Supporting POC Owned Businesses"}, {id: 19, value: "Women's Rights"}, {id: 20, value: "Privacy"}];
   
+    const Item = ({ item, onPress, backgroundColor, textColor }) => (
+        <Pressable onPress={onPress} style={[styles.button, backgroundColor]}>
+          <Text style={[styles.value, textColor]}>{item.value}</Text>
+        </Pressable>
+      );
+
+    const renderItem = ({ item }) => {
+        const backgroundColor = selected.includes(item.id) ? COLORS.darkGreen : COLORS.lightGreen;
+        const color = selected.includes(item.id) ? COLORS.lightGreen : COLORS.darkGreen;
+    
+        return (
+        <Item
+            item={item}
+            onPress={() => handleSelection(item.id)}
+            backgroundColor={{ backgroundColor }}
+            textColor={{ color }}
+        />
+        );
+    };
+
+
     return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro5', {dognum: dognum})}>
-              <Text style={styles.cornerText}>{'<'} back</Text>
-          </Pressable>
+          <Back/>
           <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate('SaveValues', {dognum: dognum, selected: selected})}>
               <Text style={styles.cornerText}>save</Text>
           </Pressable>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
           <Text style={styles.mediumText}>What is most important to you?</Text>
-          <ScrollView style={styles.scroll}>
-              {
-                  arr.map((value, index) => (
-                        <View style={styles.stack} key={index}>
-                          <Pressable onPress={() => handleSelection(index)} style={selected.includes(index) ? styles.selectedButton : styles.unselectedButton}>
-                          {
-                              selected.includes(index) ?
-                              <Text style={styles.selectedButtonText}>{value}</Text>
-                              :
-                              <Text style={styles.unselectedButtonText}>{value}</Text>
-                          }
-                          </Pressable>
-                        </View>
-                  ))
-              }
-          </ScrollView> 
+          <FlatList
+            contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            extraData={selected}
+            numColumns={2}
+          />
       </View>
     )
   }
@@ -77,59 +87,29 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   mediumText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 40,
+    marginBottom: 30,
+    marginTop: 115,
     textAlign: 'center',
   },
-  unselectedButton: {
+  button: {
     backgroundColor: '#93d075ff',
-    width: '45%',
+    width: '47%',
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
     margin: 5,
   },
-  unselectedButtonText: {
+  value: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 18,
     textAlign: 'center',
-  },
-  selectedButton: {
-    backgroundColor: COLORS.darkGreen,
-    width: '45%',
-    height: 70,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 50,
-    margin: 5,
-  },
-  selectedButtonText: {
-    color: COLORS.lightGreen,
-    fontFamily: 'Comfortaa_400Regular',
-    fontSize: 18,
-    textAlign: 'center',
-  },
-  leftCornerButton: {
-    backgroundColor: COLORS.background,
-    width: 100,
-    height: 50,
-    position: 'absolute',
-    left: 25,
-    top: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   rightCornerButton: {
     backgroundColor: COLORS.background,
@@ -145,17 +125,5 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
-  },
-  scroll: {
-    backgroundColor: 'pink',
-  },
-  stack: {
-    backgroundColor: 'pink',
-    width: 400,
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    alignContent: 'space-around',
   },
 });

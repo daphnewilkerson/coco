@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 
-export default function Coco() {
+export default function Profile() {
   return (
     <View style={styles.container}>
       <Text>
-        Coco Page!
+        CoCo Page!
       </Text>
     </View>
   )
@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f9f9f1ff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 });

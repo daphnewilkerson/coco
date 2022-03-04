@@ -9,7 +9,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Dog1 from './dogs/dog1';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Intro() {
@@ -25,10 +25,7 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('Intro2')}>
-            <Text style={styles.cornerText}>{'<'} back</Text>
-          </Pressable>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
+          <Back/>
           <Text style={styles.moremediumText}>This is your home button! Tapping it will always bring you back to your home page.</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
             <Text style={styles.smallText}>click to continue</Text>
@@ -46,12 +43,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   coco: {
     width: 115,
     height: 250,
@@ -65,7 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    marginTop: 180,
+    marginTop: 430,
     marginLeft: 25,
     marginRight: 25,
   },

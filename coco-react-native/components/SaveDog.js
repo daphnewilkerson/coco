@@ -8,7 +8,7 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS } from '../utils/constants';
+import { COLORS, Back } from '../utils/constants';
 import Dog1 from './dogs/dog1';
 import Dog2 from './dogs/dog2';
 import Dog3 from './dogs/dog3';
@@ -38,11 +38,8 @@ export default function Intro({route}) {
   )
   return (
       <View style={styles.container}>
-          <Pressable style={styles.leftCornerButton} onPress={()=> navigation.navigate('CustomDog')}>
-            <Text style={styles.cornerText}>{'<'} back</Text>
-          </Pressable>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
-          <Text style={styles.bigText}>CoCo loves their new look!</Text>
+          <Back/>
+          <Text style={styles.bigText}>CoCo loves their look!</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5', {dognum: dognum})}>
             <Text style={styles.smallText}>click to continue tutorial</Text>
           </Pressable>
@@ -58,12 +55,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   coco: {
     width: 115,
     height: 250,
@@ -73,11 +64,12 @@ const styles = StyleSheet.create({
   bigText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
-    fontSize: 45,
+    fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
     padding: 20,
+    marginTop: 170,
   },
   smallText: {
     color: COLORS.darkGreen,
