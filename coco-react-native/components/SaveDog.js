@@ -10,7 +10,7 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, Back, UserContext } from '../utils/constants';
+import { COLORS, Back, UserContext, dogimages } from '../utils/constants';
 
 export default function Intro({route}) {
   const navigation = useNavigation();
@@ -24,12 +24,7 @@ export default function Intro({route}) {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  let arr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
-  let SelectedDog = (props)=> (
-      <View style={props.style}>
-      {arr[dogNum]}
-      </View>
-  )
+
   return (
       <View style={styles.container}>
           <Back/>
@@ -37,7 +32,7 @@ export default function Intro({route}) {
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5')}>
             <Text style={styles.smallText}>click to continue tutorial</Text>
           </Pressable>
-          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          <Image style={styles.dog} source={dogimages[dogNum]}/>
       </View>
   )
 }
