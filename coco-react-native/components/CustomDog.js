@@ -47,7 +47,7 @@ export default function Intro() {
             {
                 arr.map((dog, index) => (
                     <View style={styles.stack} key={index}>
-                        {dog}
+                        <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
                         <Pressable onPress={() => setDogNum(index)} style={dogNum === index ? styles.selectedButton : styles.unselectedButton}>
                         {
                             dogNum === index ?

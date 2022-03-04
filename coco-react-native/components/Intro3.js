@@ -30,7 +30,7 @@ export default function Intro() {
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
-          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 60}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 60}}/>
       </View>
   )
 }

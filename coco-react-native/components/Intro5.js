@@ -25,7 +25,7 @@ export default function Intro({route}) {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  let arr = ['../assets/dogs/dog1', '../assets/dogs/dog2', '../assets/dogs/dog3', '../assets/dogs/dog4', '../assets/dogs/dog5', '../assets/dogs/dog6', '../assets/dogs/dog7', '../assets/dogs/dog8', '../assets/dogs/dog9'];
+  let arr = ['../assets/dogs/dog1.png', '../assets/dogs/dog2.png', '../assets/dogs/dog3.png', '../assets/dogs/dog4.png', '../assets/dogs/dog5.png', '../assets/dogs/dog6.png', '../assets/dogs/dog7.png', '../assets/dogs/dog8.png', '../assets/dogs/dog9.png'];
   let SelectedDog = (props)=> (
       <View style={props.style}>
       {arr[dogNum]}
@@ -40,8 +40,8 @@ export default function Intro({route}) {
           <Pressable style={styles.button} onPress={() => navigation.navigate('Values')}>
             <Text style={styles.smallText}>click to add values</Text>
           </Pressable>
-          <Image style={styles.dog} source={require('../assets/dogs/dog1')}/>
-          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
           
       </View>
   )

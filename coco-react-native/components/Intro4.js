@@ -31,7 +31,7 @@ export default function Intro() {
             <Text style={styles.smallText}>click to customize CoCo</Text>
           </Pressable>
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
-          <Icon name="arrow-down" size='150' style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
           
       </View>
   )
