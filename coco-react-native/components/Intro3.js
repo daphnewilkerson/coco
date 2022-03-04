@@ -25,12 +25,13 @@ export default function Intro() {
   return (
       <View style={styles.container}>
           <Back/>
-          <Text style={styles.moremediumText}>This is your home button! Tapping it will always bring you back to your home page.</Text>
+          <Text style={styles.mediumText}>Here is your home button!</Text>
+          <Text style={styles.moremediumText}>You can fetch information about brands, compare brands or items, and scan your receipts to earn rewards here!</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 60}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: -10}}/>
       </View>
   )
 }
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginBottom: 50,
   },
-  moremediumText: {
+  mediumText: {
     color: COLORS.darkGreen,
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 25,
@@ -55,6 +56,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
     marginTop: 430,
+    marginLeft: 25,
+    marginRight: 25,
+  },
+  moremediumText: {
+    color: COLORS.darkGreen,
+    fontFamily: 'Comfortaa_400Regular',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
     marginLeft: 25,
     marginRight: 25,
   },

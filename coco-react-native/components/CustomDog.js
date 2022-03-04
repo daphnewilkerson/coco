@@ -30,7 +30,7 @@ export default function Intro() {
   return (
     <View style={styles.container}>
         <Back/>
-        <Pressable style={styles.rightCornerButton} onPress={() => navigation.navigate('SaveDog')}>
+        <Pressable style={styles.rightCornerButton} onPress={() => navigation.navigate('CoCoMain')}>
             <Text style={styles.cornerText}>save</Text>
         </Pressable>
         <Text style={styles.mediumText}>Customize CoCo!</Text>

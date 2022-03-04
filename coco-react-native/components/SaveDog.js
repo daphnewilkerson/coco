@@ -29,8 +29,8 @@ export default function Intro({route}) {
       <View style={styles.container}>
           <Back/>
           <Text style={styles.bigText}>CoCo loves their look!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5')}>
-            <Text style={styles.smallText}>click to continue tutorial</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('CoCo')}>
+            <Text style={styles.smallText}>back to CoCo profile</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>
       </View>

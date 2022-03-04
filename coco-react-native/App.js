@@ -144,8 +144,6 @@ function OnboardingStack() {
       <Stack.Screen name="Intro3" component={Intro3}/>
       <Stack.Screen name="Intro4" component={Intro4}/>
       <Stack.Screen name="Intro5" component={Intro5}/>
-      <Stack.Screen name="CustomDog" component={CustomDog}/>
-      <Stack.Screen name="SaveDog" component={SaveDog}/>
       <Stack.Screen name="Values" component={Values}/>
       <Stack.Screen name="SaveValues" component={SaveValues}/>
       <Stack.Screen name="Landing" component={Landing}/>
@@ -227,6 +225,8 @@ function CoCoNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
       <Stack.Screen name="CoCoMain" component={CoCo}/>
+      <Stack.Screen name="CustomDog" component={CustomDog}/>
+      <Stack.Screen name="SaveDog" component={SaveDog}/>
     </Stack.Navigator>
   )
 }

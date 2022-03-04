@@ -25,14 +25,13 @@ export default function Intro() {
   return (
       <View style={styles.container}>
           <Back/>
-          <Text style={styles.moremediumText}>This is CoCo's profile button! You can update CoCo's look, and view CoCo Bones earned by shopping ethically.</Text>
-          <Text style={styles.mediumText}>Let's start by customizing CoCo's look! Click on CoCo's profile to continue.</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('CustomDog')}>
-            <Text style={styles.smallText}>click to customize CoCo</Text>
+          <Text style={styles.moremediumText}>Here is CoCo's profile button! </Text>
+          <Text style={styles.mediumText}>You can update CoCo's look and view CoCo Bones earned by shopping ethically.</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5')}>
+            <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 75, marginLeft: 270}}/>
-          
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 130, marginLeft: 270}}/>
       </View>
   )
 }
@@ -54,11 +53,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 25,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 0,
     textAlign: 'right',
-    marginTop: 220,
-    marginLeft: 50,
-    marginRight: 25,
+    marginTop: 300,
+    marginLeft: 20,
+    marginRight: 15,
   },
   mediumText: {
     color: COLORS.darkGreen,
@@ -67,9 +66,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'right',
-    marginTop: 55,
+    marginTop: 10,
     marginLeft: 50,
-    marginRight: 25,
+    marginRight: 15,
   },
   smallText: {
     color: COLORS.darkGreen,

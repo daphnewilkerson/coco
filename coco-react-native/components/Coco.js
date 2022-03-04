@@ -13,7 +13,7 @@ import { COLORS, MAINFONT, UserContext, dogimages } from '../utils/constants';
 
 export default function Landing() {
 
-  const navigator = useNavigation();
+  const navigation = useNavigation();
   const { dogNum } = useContext(UserContext);
 
   return (
@@ -21,7 +21,7 @@ export default function Landing() {
       <Text style={styles.title}>
         CoCo
       </Text>
-      <Pressable style={styles.landingButton} >
+      <Pressable style={styles.landingButton} onPress={() => navigation.navigate('CustomDog')}>
         <Text style={styles.landingButtonText}>Customize CoCo</Text>
       </Pressable>
       <Pressable style={styles.landingButton} >

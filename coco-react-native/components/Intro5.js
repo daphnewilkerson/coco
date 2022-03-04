@@ -29,13 +29,14 @@ export default function Intro({route}) {
   return (
       <View style={styles.container}>
           <Back/>
-          <Text style={styles.moremediumText}>This is your profile button, where you can update your values, and view favorited stores, saved articles, and recent purchases.</Text>
-          <Text style={styles.mediumText}>Let's add your values! Click on your profile to continue.</Text>
+          <Text style={styles.moremediumText}>Here is your profile button!</Text>
+          <Text style={styles.mediumText}>You can update your values, and view favorited stores, saved articles, and recent purchases.</Text>
+          <Text style={styles.smallerText}>Let's add your values so CoCo can tailor information to you!</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Values')}>
             <Text style={styles.smallText}>click to add values</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 290}}/>
           
       </View>
   )
@@ -58,11 +59,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 25,
     fontWeight: 'bold',
-    marginBottom: 40,
+    marginBottom: 10,
     textAlign: 'left',
-    marginTop: 220,
-    marginLeft: 25,
+    marginTop: 300,
     marginRight: 50,
+    marginLeft: 15,
   },
   mediumText: {
     color: COLORS.darkGreen,
@@ -71,8 +72,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 50,
     textAlign: 'left',
-    marginTop: 30,
     marginRight: 50,
+    marginLeft: 15,
+  },
+  smallerText: {
+    color: COLORS.darkGreen,
+    fontFamily: 'Comfortaa_400Regular',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 50,
+    textAlign: 'left',
+    marginRight: 70,
   },
   smallText: {
     color: COLORS.darkGreen,
