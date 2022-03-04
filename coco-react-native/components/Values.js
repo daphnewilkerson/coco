@@ -1,7 +1,8 @@
 import 'react-native-gesture-handler';
 import React, {
   Component,
-  useState
+  useState,
+  useContext
 } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,26 +10,29 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView, FlatList, TextInput} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS, Back, MAINFONT } from '../utils/constants';
+import { COLORS, Back, MAINFONT, allValues, UserContext } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
 
 export default function Intro({route}) {
+
+    const { values, addValue, removeValue } = useContext(UserContext);
+
     const navigation = useNavigation();
 
     const [search, setSearch] = useState('');
 
-    const DATA = [{id: 0, value: "Sustainability"}, {id: 1, value: "Paid Maternity Leave"}, {id: 2, value: "Diversity and Inclusion"}, {id: 3, value: "Accessibility"}, {id: 4, value: "Wages"}, {id: 5, value: "Health Care for Workers"}, {id: 6, value: "Anti-Child Labor Polocies"}, {id: 7, value: "Charity"}, {id: 8, value: "Workers' Rights"}, {id: 9, value: "Anti-Discrimination"}, {id: 10, value: "Animal Cruelty/Testing"}, {id: 11, value: "LGBTQ+ Rights"}, {id: 12, value: "COVID-19 Policies"}, {id: 13, value: "Ability to Unionize"}, {id: 14, value: "Reduced Water Use"}, {id: 15, value: "Transparency"}, {id: 16, value: "Greenwashing"}, {id: 17, value: "Eco-Friendly"}, {id: 18, value: "Supporting POC Owned Businesses"}, {id: 19, value: "Women's Rights"}, {id: 20, value: "Privacy"}];
-    const [results, setResults] = useState(DATA);
+    // const DATA = [{id: 0, value: "Sustainability"}, {id: 1, value: "Paid Maternity Leave"}, {id: 2, value: "Diversity and Inclusion"}, {id: 3, value: "Accessibility"}, {id: 4, value: "Wages"}, {id: 5, value: "Health Care for Workers"}, {id: 6, value: "Anti-Child Labor Polocies"}, {id: 7, value: "Charity"}, {id: 8, value: "Workers' Rights"}, {id: 9, value: "Anti-Discrimination"}, {id: 10, value: "Animal Cruelty/Testing"}, {id: 11, value: "LGBTQ+ Rights"}, {id: 12, value: "COVID-19 Policies"}, {id: 13, value: "Ability to Unionize"}, {id: 14, value: "Reduced Water Use"}, {id: 15, value: "Transparency"}, {id: 16, value: "Greenwashing"}, {id: 17, value: "Eco-Friendly"}, {id: 18, value: "Supporting POC Owned Businesses"}, {id: 19, value: "Women's Rights"}, {id: 20, value: "Privacy"}];
+    const [results, setResults] = useState(allValues);
 
     // Load fonts. Return expo loading screen if not loaded
     let [fontsLoaded] = useFonts({
       Comfortaa_400Regular,
     });
   
-    const [selected, setSelected] = useState([]);
+    // const [selected, setSelected] = useState([]);
   
     if (!fontsLoaded) {
       return <AppLoading />;
@@ -36,61 +40,28 @@ export default function Intro({route}) {
 
     const handleSearch = searchText => {
       let newResults = [];
-      for (let result of DATA) {
+      for (let result of allValues) {
         if (result.value.toLowerCase().startsWith(searchText.toLowerCase())) {
           newResults.push(result);
         }
       }
-      newResults.push({value: 'padding', id: 500})
       setResults(newResults);
       setSearch(searchText);
     }
   
-    function handleSelection(index) {
-        let copy = [...selected];
-        if (copy.includes(index)) {
-            var loc = copy.indexOf(index);
-            if (loc > -1) {
-                copy.splice(loc, 1);
-            }
+    function handleSelection(item) {
+        if (values.map(value => value.id).includes(item.id)) {
+          removeValue(item);
         } else {
-            copy.push(index);
+          addValue(item);
         }
-        console.log(copy);
-        setSelected(copy);
     }
-  
-    const Item = ({ item, onPress, backgroundColor, textColor }) => (
-        <Pressable onPress={onPress} style={[styles.button, backgroundColor]}>
-          <Text style={[styles.value, textColor]}>{item.value}</Text>
-        </Pressable>
-      );
-
-    const renderItem = ({ item }) => {
-        const backgroundColor = selected.includes(item.id) ? COLORS.darkGreen : COLORS.lightGreen;
-        const color = selected.includes(item.id) ? COLORS.lightGreen : COLORS.darkGreen;
-        if (item.value === 'padding') {
-          return (
-            <Pressable style={styles.hiddenButton}>
-              <Text style={[styles.value]}></Text>
-            </Pressable>
-          )
-        }
-        return (
-        <Item
-            item={item}
-            onPress={() => handleSelection(item.id)}
-            backgroundColor={{ backgroundColor }}
-            textColor={{ color }}
-        />
-        );
-    };
 
 
     return (
       <View style={styles.container}>
           <Back/>
-          <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate('SaveValues', {selected: selected})}>
+          <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate(route.params.nextPage)}>
               <Text style={styles.cornerText}>save</Text>
           </Pressable>
           <Text style={styles.mediumText}>What is most important to you?</Text>
@@ -108,14 +79,19 @@ export default function Intro({route}) {
             results.length === 0 ?
             <Text style={styles.noResultsText}>No results :(</Text>
             :
-            <FlatList
-              contentContainerStyle={{flexGrow: 1}}
-              data={results}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.id}
-              extraData={selected}
-              numColumns={2}
-            />
+            <ScrollView style={{width: '100%'}}>
+              <View style={styles.valuesContainer}>
+              {
+                results.map(item => {
+                  return (
+                    <Pressable key={item.id} onPress={() => handleSelection(item)} style={{...styles.button, backgroundColor: values.map(object => object.id).includes(item.id) ? COLORS.darkGreen : COLORS.lightGreen}}>
+                      <Text style={{...styles.value, color: values.map(object => object.id).includes(item.id) ? COLORS.lightGreen : COLORS.darkGreen}}>{item.value}</Text>
+                    </Pressable>
+                  )
+                })
+              }
+              </View>
+            </ScrollView>
           }
       </View>
     )
@@ -147,23 +123,12 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button: {
-    backgroundColor: '#93d075ff',
-    width: '47%',
+    padding: 15,
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
     margin: 5,
-  },
-  hiddenButton: {
-    backgroundColor: '#93d075ff',
-    width: '47%',
-    height: 70,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 50,
-    margin: 5,
-    opacity: 0
   },
   value: {
     color: COLORS.darkGreen,
@@ -211,5 +176,12 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 28,
     color: COLORS.darkGreen
+  },
+  valuesContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: '100%',
+    justifyContent: 'center'
   }
 });

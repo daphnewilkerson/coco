@@ -32,7 +32,7 @@ export default function Intro({route}) {
           <Text style={styles.moremediumText}>Here is your profile button!</Text>
           <Text style={styles.mediumText}>You can update your values, and view favorited stores, saved articles, and recent purchases.</Text>
           <Text style={styles.smallerText}>Let's add your values so CoCo can tailor information to you!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Values')}>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Values', {nextPage: 'SaveValues'})}>
             <Text style={styles.smallText}>click to add values</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>

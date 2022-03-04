@@ -47,6 +47,20 @@ export default function App() {
     setBookmarks(newBookmarks)
   }
 
+  // For saving values
+  const [values, setValues] = useState([]);
+  const addValue = (value) => {
+    setValues([...values, value]);
+  }
+  const removeValue = (value) => {
+    let newValues = [...values]
+    let index = newValues.findIndex(object => {
+      return object.id === value.id;
+    });
+    newValues.splice(index, 1)
+    setValues(newValues)
+  }
+
   // For saving dog number
   const [dogNum, setDogNum] = useState(0);
 
@@ -62,11 +76,11 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum}}>
+    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="Onboarding" component={OnboardingTab}/>
           <Stack.Screen name="MainApp" component={MainAppNav}/>
+          <Stack.Screen name="Onboarding" component={OnboardingTab}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -217,6 +231,7 @@ function ProfileNav() {
       <Stack.Screen name="ProfileMain" component={Profile}/>
       <Stack.Screen name="Bookmarks" component={Bookmarks}/>
       <Stack.Screen name="Fetch4" component={Fetch4}/>
+      <Stack.Screen name="ProfileValues" component={Values}/>
     </Stack.Navigator>
   )
 }

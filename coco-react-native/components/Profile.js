@@ -24,7 +24,7 @@ export default function Landing() {
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Bookmarks')}>
         <Text style={styles.landingButtonText}>Bookmarks</Text>
       </Pressable>
-      <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Bookmarks')}>
+      <Pressable style={styles.landingButton} onPress={() => navigator.navigate('ProfileValues', {nextPage: 'ProfileMain'})}>
         <Text style={styles.landingButtonText}>Values</Text>
       </Pressable>
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Bookmarks')}>
