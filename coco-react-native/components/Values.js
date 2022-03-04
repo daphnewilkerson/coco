@@ -68,6 +68,7 @@ export default function Intro({route}) {
               <Text style={styles.cornerText}>save</Text>
           </Pressable>
           <Text style={styles.mediumText}>What is most important to you?</Text>
+          <Text style={styles.smallText}>This information will be used to tailor information CoCo gives you to what you care about!</Text>
           <FlatList
             contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
             data={DATA}
@@ -91,9 +92,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Comfortaa_400Regular',
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 10,
     marginTop: 115,
     textAlign: 'center',
+  },
+  smallText: {
+    color: COLORS.darkGreen,
+    fontFamily: 'Comfortaa_400Regular',
+    fontSize: 13,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginRight: 30,
+    marginLeft: 30,
+    marginBottom: 30,
   },
   button: {
     backgroundColor: '#93d075ff',
