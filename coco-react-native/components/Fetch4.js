@@ -21,7 +21,7 @@ export default function Fetch4({ route, navigation }) {
             <Back/>
           </View>
         }
-        <WebView source={{ uri: route.params.link }} onLoad={() => setLoading(false)} style={styles.webpage} />
+        <WebView source={{ uri: route.params.link }} onLoad={() => setLoading(false)} style={styles.webpage} originWhitelist={['*']} />
     </View>
   ) 
 }

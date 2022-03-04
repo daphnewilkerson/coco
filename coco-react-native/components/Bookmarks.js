@@ -5,6 +5,7 @@ import React, {
 import { COLORS, MAINFONT, Back, UserContext } from '../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native-gesture-handler';
+import NewsBlurb from './NewsBlurb';
 
 export default function Bookmarks({ route, navigation }) {
 
@@ -36,18 +37,7 @@ export default function Bookmarks({ route, navigation }) {
           bookmarks.map(storyString => {
             let story = JSON.parse(storyString);
             return (
-              <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4', {link: story.link})}>
-                <Text style={styles.source}>{story.source}</Text>
-                <Text style={styles.title}>{story.title}</Text>
-                <Pressable style={styles.bookmarkContainer} onPress={() => handleBookmark(storyString)}>
-                  {
-                    bookmarks.includes(storyString) ?
-                    <Icon name="bookmark" size={25} style={styles.bookmark}/>
-                    :
-                    <Icon name="bookmark-outline" size={25} style={styles.bookmark}/>
-                  }
-                </Pressable>
-              </Pressable>
+              <NewsBlurb key={story.title} story={story}/>
             )
           })
         }
@@ -67,37 +57,6 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 45,
-  },
-  newsBlurb: {
-    width: '95%',
-    backgroundColor: COLORS.lightGreen,
-    height: 100,
-    borderRadius: 20,
-    marginBottom: 10,
-    position: 'relative'
-  },
-  source: {
-    fontFamily: MAINFONT,
-    fontSize: 16,
-    color: COLORS.darkGreen,
-    top: 10,
-    left: 10
-  },
-  title: {
-    fontFamily: MAINFONT,
-    fontSize: 18,
-    color: COLORS.darkGreen,
-    marginTop: 25,
-    left: 10,
-    marginRight: 50
-  },
-  bookmarkContainer: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-  },
-  bookmark: {
-    color: COLORS.darkGreen
   },
   listContainer: {
     width: '100%',
