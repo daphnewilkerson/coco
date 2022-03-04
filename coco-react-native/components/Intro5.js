@@ -10,7 +10,7 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, Back, UserContext } from '../utils/constants';
+import { COLORS, Back, UserContext, dogimages } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -25,13 +25,7 @@ export default function Intro({route}) {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  let arr = ['../assets/dogs/dog1.png', '../assets/dogs/dog2.png', '../assets/dogs/dog3.png', '../assets/dogs/dog4.png', '../assets/dogs/dog5.png', '../assets/dogs/dog6.png', '../assets/dogs/dog7.png', '../assets/dogs/dog8.png', '../assets/dogs/dog9.png'];
-  let SelectedDog = (props)=> (
-      <View style={props.style}>
-      {arr[dogNum]}
-      </View>
-  )
-
+  
   return (
       <View style={styles.container}>
           <Back/>
@@ -40,7 +34,7 @@ export default function Intro({route}) {
           <Pressable style={styles.button} onPress={() => navigation.navigate('Values')}>
             <Text style={styles.smallText}>click to add values</Text>
           </Pressable>
-          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          <Image style={styles.dog} source={dogimages[dogNum]}/>
           <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 270}}/>
           
       </View>

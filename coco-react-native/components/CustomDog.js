@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS, Back, UserContext} from '../utils/constants';
+import { COLORS, Back, UserContext, dogimages} from '../utils/constants';
 
 
 export default function Intro() {
@@ -27,8 +27,6 @@ export default function Intro() {
     return <AppLoading />;
   }
 
-  let arr = [require('../assets/dogs/dog1.png'), require('../assets/dogs/dog2.png'), require('../assets/dogs/dog3.png'), require('../assets/dogs/dog4.png'), require('../assets/dogs/dog5.png'), require('../assets/dogs/dog6.png'), require('../assets/dogs/dog7.png'), require('../assets/dogs/dog8.png'), require('../assets/dogs/dog9.png')];
-
   return (
     <View style={styles.container}>
         <Back/>
@@ -45,9 +43,9 @@ export default function Intro() {
           contentContainerStyle={{ marginLeft: 50, paddingRight: 110}}
           >
             {
-                arr.map((dog, index) => (
+                dogimages.map((dog, index) => (
                     <View style={styles.stack} key={index}>
-                        <Image style={styles.dog} source={require(dog)}/>
+                        <Image style={styles.dog} source={dog}/>
                         <Pressable onPress={() => setDogNum(index)} style={dogNum === index ? styles.selectedButton : styles.unselectedButton}>
                         {
                             dogNum === index ?
