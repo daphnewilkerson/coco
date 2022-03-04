@@ -6,12 +6,12 @@ import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg";
-import { UserContext, storeLogos, storeNews, storeRatings } from '../utils/constants';
+import { UserContext, storeLogos, storeNews, storeRatings, sadimages} from '../utils/constants';
 import NewsBlurb from './NewsBlurb';
 
 
 export default function Fetch2({ route, navigation }) {
-
+  const { dogNum } = useContext(UserContext);
   return (
     <View style={styles.container}>
       <Back/>
@@ -25,7 +25,7 @@ export default function Fetch2({ route, navigation }) {
           <Text style={styles.sorryText}>
             Sorry, we don't have any info uploaded for this company yet. I would go check out Amazon...
           </Text>
-          {/* <SadDog style={{marginTop: 'auto', marginBottom: -37}}/> */}
+          <Image style={styles.dog} source={sadimages[dogNum]}/>
         </View>
         :
         <>
@@ -69,6 +69,12 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginBottom: 50,
     resizeMode: 'contain',
+  },
+  dog: {
+    width: 300,
+    height: 226,
+    position: 'absolute',
+    bottom: -49,
   },
   label: {
     fontFamily: MAINFONT,

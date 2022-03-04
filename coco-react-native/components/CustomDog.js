@@ -39,7 +39,7 @@ export default function Intro() {
           decelerationRate={0} 
           snapToInterval={300} 
           style={styles.scroll} 
-          showsHorizontalScrollIndicator={false}
+          showsHorizontalScrollIndicator={true}
           contentContainerStyle={{ marginLeft: 50, paddingRight: 110}}
           >
             {
