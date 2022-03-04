@@ -17,7 +17,7 @@ import CustomDog from './components/CustomDog';
 import SaveDog from './components/SaveDog';
 import SaveValues from './components/SaveValues';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CoCo from './components/CoCo';
+import Coco from './components/Coco'
 import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fetch1 from './components/Fetch1';
@@ -29,6 +29,7 @@ import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
+import Bookmarks from './components/Bookmarks'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -46,6 +47,9 @@ export default function App() {
     setBookmarks(newBookmarks)
   }
 
+  // For saving dog number
+  const [dogNum, setDogNum] = useState(0);
+
 
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
@@ -58,11 +62,11 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark}}>
+    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          {/* <Stack.Screen name="MainApp" component={MainAppNav}/> */}
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -178,6 +182,7 @@ function MainAppNav() {
       },
       tabBarShowLabel: false,
       })}
+      initialRouteName="Landing"
     >
       <Tab.Screen name="Profile" component={ProfileNav} />
       <Tab.Screen name="Landing" component={LandingNav} />
@@ -212,6 +217,8 @@ function ProfileNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
       <Stack.Screen name="ProfileMain" component={Profile}/>
+      <Stack.Screen name="Bookmarks" component={Bookmarks}/>
+      <Stack.Screen name="Fetch4" component={Fetch4}/>
     </Stack.Navigator>
   )
 }
@@ -219,7 +226,7 @@ function ProfileNav() {
 function CoCoNav() {
   return (
     <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-      <Stack.Screen name="CoCoMain" component={CoCo}/>
+      <Stack.Screen name="CoCoMain" component={Coco}/>
     </Stack.Navigator>
   )
 }

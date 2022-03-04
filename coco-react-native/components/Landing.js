@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT } from '../utils/constants';
+import Dog1 from './dogs/dog1';
 
 export default function Landing() {
 
@@ -26,6 +27,10 @@ export default function Landing() {
       <Pressable style={styles.landingButton}>
         <Text style={styles.landingButtonText}>Sniff Receipt</Text>
       </Pressable>
+      <Image
+        style={styles.dog}
+        source={require('../assets/coco1.png')}
+      />
     </View>
   )
 }
@@ -35,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
     alignItems: 'center',
-    paddingTop: 300
+    paddingTop: 250
   },
   logo: {
     width: 125,
@@ -56,5 +61,11 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 20,
+  },
+  dog: {
+    height: 230,
+    resizeMode: 'contain',
+    marginTop: 'auto',
+    marginBottom: -3,
   }
 });

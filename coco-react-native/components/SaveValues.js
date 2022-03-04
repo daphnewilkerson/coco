@@ -1,5 +1,7 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, {
+  useContext
+} from 'react';
 import { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,11 +10,13 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, Back } from '../utils/constants';
+import { COLORS, Back, UserContext } from '../utils/constants';
 
 export default function Intro({route}) {
   const navigation = useNavigation();
-  const { dognum, selected} = route.params;
+  const { selected } = route.params;
+
+  const { dogNum } = useContext(UserContext);
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
@@ -25,7 +29,7 @@ export default function Intro({route}) {
   let dogarr = [<Dog1/>, <Dog2/>, <Dog3/>, <Dog4/>, <Dog5/>, <Dog6/>, <Dog7/>, <Dog8/>, <Dog9/>];
   let SelectedDog = (props)=> (
       <View style={props.style}>
-      {dogarr[dognum]}
+      {dogarr[dogNum]}
       </View>
   )
   return (
@@ -33,7 +37,7 @@ export default function Intro({route}) {
           <Back/>
           <Text style={styles.bigText}>Thanks for sharing your values!</Text>
           <Text style={styles.mediumText}>You can always go back and update your values through your profile page.</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Landing', {dognum: dognum})}>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('MainApp')}>
             <Text style={styles.smallText}>click to launch app!</Text>
           </Pressable>
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>

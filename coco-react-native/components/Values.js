@@ -13,7 +13,6 @@ import { COLORS, Back } from '../utils/constants';
 
 export default function Intro({route}) {
     const navigation = useNavigation();
-    const { dognum } = route.params;
 
     // Load fonts. Return expo loading screen if not loaded
     let [fontsLoaded] = useFonts({
@@ -65,7 +64,7 @@ export default function Intro({route}) {
     return (
       <View style={styles.container}>
           <Back/>
-          <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate('SaveValues', {dognum: dognum, selected: selected})}>
+          <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate('SaveValues', {selected: selected})}>
               <Text style={styles.cornerText}>save</Text>
           </Pressable>
           <Text style={styles.mediumText}>What is most important to you?</Text>

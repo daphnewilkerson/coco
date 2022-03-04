@@ -7,79 +7,21 @@ import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg";
 import SadDog from './dogs/dogSad';
-import { UserContext } from '../utils/constants';
+import { UserContext, storeLogos, storeNews, storeRatings } from '../utils/constants';
+import NewsBlurb from './NewsBlurb';
 
 
 export default function Fetch2({ route, navigation }) {
 
-  const { bookmarks, addBookmark, removeBookmark } = useContext(
-    UserContext
-  );
-  
-  const storeLogos = {
-    'Amazon': require('../assets/company-logos/amazon.png'),
-    'Amtrak': require('../assets/company-logos/amtrak.png'),
-    'American Eagle': require('../assets/company-logos/americaneagle.png')
-  }
-
-  const storeNews = {
-    Amazon: [
-      {
-        source: 'NYT',
-        title: 'Amazon Rebrands Itself as \'Zamazon\' Following CS 147 Video',
-        link: 'https://www.nytimes.com/'
-      },
-      {
-        source: 'CNN',
-        title: 'Amazon Better Than Home Depot, Despite What Dog In Video Says',
-        link: 'https://www.cnn.com/'
-      }
-    ],
-    'Amtrak': [],
-    'American Eagle': []
-  }
-
-  const storeRatings = {
-    Amazon: [
-      {
-        category: 'Sustainability',
-        score: 5
-      },
-      {
-        category: 'Accessibility',
-        score: 7
-      },
-      {
-        category: 'Workers\' Rights',
-        score: 2
-      }
-    ],
-    'Amtrak': [],
-    'American Eagle': []
-  }
-
-  const handleBookmark = (title) => {
-    if (bookmarks.includes(title)) {
-      removeBookmark(title);
-    }
-    else {
-      addBookmark(title);
-    }
-  }
-
   return (
     <View style={styles.container}>
       <Back/>
-      {/* <Image
-        style={styles.logo}
-        source={require('../assets/logo.png')}
-      /> */}
       <Image
         style={styles.storeLogo}
         source={storeLogos[route.params.store]}
       />
       {
-        storeRatings[route.params.store].length === 0 ?
+        Object.entries(storeRatings[route.params.store]).length === 0 ?
         <View style={styles.container}>
           <Text style={styles.sorryText}>
             Sorry, we don't have any info uploaded for this company yet. I would go check out Amazon...
@@ -93,18 +35,7 @@ export default function Fetch2({ route, navigation }) {
           </Text>
           {
             storeNews[route.params.store].map(story => (
-              <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4', {link: story.link})}>
-                <Text style={styles.source}>{story.source}</Text>
-                <Text style={styles.title}>{story.title}</Text>
-                <Pressable style={styles.bookmarkContainer} onPress={() => handleBookmark(story.title)}>
-                  {
-                    bookmarks.includes(story.title) ?
-                    <Icon name="bookmark" size={25} style={styles.bookmark}/>
-                    :
-                    <Icon name="bookmark-outline" size={25} style={styles.bookmark}/>
-                  }
-                </Pressable>
-              </Pressable>
+              <NewsBlurb key={story.title} story={story}/>
             ))
           }
           <Text style={styles.ratingsLabel}>
@@ -112,11 +43,11 @@ export default function Fetch2({ route, navigation }) {
           </Text>
           <View style={styles.ratingsContainer}>
           {
-            storeRatings[route.params.store].map(rating => (
-              <Pressable key={rating.category} style={styles.ratingsEntry} onPress={() => navigation.navigate('Fetch3', {store: route.params.store, category: rating.category})}>
-                <Text style={styles.ratingsNumber}>{rating.score}</Text>
+            Object.entries(storeRatings[route.params.store]).map((entry) => (
+              <Pressable key={entry[0]} style={styles.ratingsEntry} onPress={() => navigation.navigate('Fetch3', {store: route.params.store, category: entry[0]})}>
+                <Text style={styles.ratingsNumber}>{entry[1]}</Text>
                 <Bone style={{marginTop: -10}}/>
-                <Text style={styles.ratingsText}>{rating.category}</Text>
+                <Text style={styles.ratingsText}>{entry[0]}</Text>
               </Pressable>
             ))
           }
@@ -134,17 +65,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
-  logo: {
-    width: 125,
-    height: 105,
-    top: 100,
-    position: 'absolute'
-  },
   storeLogo: {
-    width: 200,
     height: 100,
     marginTop: 100,
     marginBottom: 50,
+    resizeMode: 'contain',
   },
   label: {
     fontFamily: MAINFONT,
@@ -152,37 +77,6 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     right: 100,
     marginBottom: 10,
-  },
-  newsBlurb: {
-    width: '95%',
-    backgroundColor: COLORS.lightGreen,
-    height: 100,
-    borderRadius: 20,
-    marginBottom: 10,
-    position: 'relative'
-  },
-  source: {
-    fontFamily: MAINFONT,
-    fontSize: 16,
-    color: COLORS.darkGreen,
-    top: 10,
-    left: 10
-  },
-  title: {
-    fontFamily: MAINFONT,
-    fontSize: 18,
-    color: COLORS.darkGreen,
-    marginTop: 25,
-    left: 10,
-    marginRight: 50
-  },
-  bookmarkContainer: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-  },
-  bookmark: {
-    color: COLORS.darkGreen
   },
   ratingsLabel: {
     fontFamily: MAINFONT,

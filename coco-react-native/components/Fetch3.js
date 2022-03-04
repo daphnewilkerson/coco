@@ -6,83 +6,18 @@ import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS, MAINFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Graph1, Graph2, Graph3 } from './Graphs';
-import { UserContext } from '../utils/constants';
+import { UserContext, storeLogos, storeSpecificNews, storeRatings } from '../utils/constants';
+import NewsBlurb from './NewsBlurb';
 
 
 
 export default function Fetch3({ route, navigation }) {
-
-  const { bookmarks, addBookmark, removeBookmark } = useContext(
-    UserContext
-  );
-  
-  const storeLogos = {
-    Amazon: require('../assets/company-logos/amazon.png')
-  }
-
-  const storeNews = {
-    Amazon: {
-      'Sustainability': [
-        {
-          source: 'WSJ',
-          title: 'Amazon relocates headquarters to space',
-          link: 'https://www.wsj.com/'
-        },
-        {
-          source: 'Washington Post',
-          title: 'Amazon Factory Starts Forest Fire, Bezos: “My Bad”',
-          link: 'https://www.washingtonpost.com/'
-        }
-      ],
-      'Accessibility': [
-        {
-          source: 'CNN',
-          title: 'Major Amazon Lawsuit Underway',
-          link: 'https://www.cnn.com/'
-        },
-        {
-          source: 'WSJ',
-          title: 'Bezos says “Exclusivity is Good”',
-          link: 'https://www.wsj.com/'
-        }
-      ],
-      'Workers\' Rights': [
-        {
-          source: 'NYT',
-          title: 'Amazon Employees Fired When They Have Covid',
-          link: 'https://www.nytimes.com/'
-        },
-        {
-          source: 'WSJ',
-          title: 'Retention Rate At Amazon at an “All Time Low”',
-          link: 'https://www.wsj.com/'
-        }
-      ],
-    }
-  }
-
-  const storeRatings = {
-    Amazon: {
-      'Sustainability': 5,
-      'Accessibility': 7,
-      'Workers\' Rights': 2
-    }
-  }
 
   const graphs = {
     'Amazon': {
       'Sustainability': <Graph1/>,
       'Accessibility': <Graph2/>,
       'Workers\' Rights': <Graph3/>
-    }
-  }
-
-  const handleBookmark = (title) => {
-    if (bookmarks.includes(title)) {
-      removeBookmark(title);
-    }
-    else {
-      addBookmark(title);
     }
   }
 
@@ -101,19 +36,8 @@ export default function Fetch3({ route, navigation }) {
         Stories
       </Text>
       {
-        storeNews[route.params.store][route.params.category].map(story => (
-          <Pressable key={story.title} style={styles.newsBlurb} onPress={() => navigation.navigate('Fetch4', {link: story.link})}>
-            <Text style={styles.source}>{story.source}</Text>
-            <Text style={styles.title}>{story.title}</Text>
-            <Pressable style={styles.bookmarkContainer} onPress={() => handleBookmark(story.title)}>
-                  {
-                    bookmarks.includes(story.title) ?
-                    <Icon name="bookmark" size={25} style={styles.bookmark}/>
-                    :
-                    <Icon name="bookmark-outline" size={25} style={styles.bookmark}/>
-                  }
-                </Pressable>
-          </Pressable>
+        storeSpecificNews[route.params.store][route.params.category].map(story => (
+          <NewsBlurb key={story.title} story={story}/>
         ))
       }
       <Text style={styles.statsLabel}>
@@ -136,10 +60,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   storeLogo: {
-    width: 200,
     height: 100,
     position: 'absolute',
     top: 100,
+    resizeMode: 'contain',
   },
   scoreLabel: {
     fontFamily: MAINFONT,
@@ -163,37 +87,6 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     marginTop: 10,
     left: 20,
-  },
-  newsBlurb: {
-    width: '95%',
-    backgroundColor: COLORS.lightGreen,
-    height: 100,
-    borderRadius: 20,
-    marginBottom: 10,
-    position: 'relative'
-  },
-  source: {
-    fontFamily: MAINFONT,
-    fontSize: 16,
-    color: COLORS.darkGreen,
-    top: 10,
-    left: 10
-  },
-  title: {
-    fontFamily: MAINFONT,
-    fontSize: 18,
-    color: COLORS.darkGreen,
-    marginTop: 25,
-    left: 10,
-    marginRight: 50
-  },
-  bookmarkContainer: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-  },
-  bookmark: {
-    color: COLORS.darkGreen
   },
   graphStyle: {
     marginTop: 30,
