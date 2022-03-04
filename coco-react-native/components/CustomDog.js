@@ -27,7 +27,7 @@ export default function Intro() {
     return <AppLoading />;
   }
 
-  let arr = ['../assets/dogs/dog1', '../assets/dogs/dog2', '../assets/dogs/dog3', '../assets/dogs/dog4', '../assets/dogs/dog5', '../assets/dogs/dog6', '../assets/dogs/dog7', '../assets/dogs/dog8', '../assets/dogs/dog9'];
+  let arr = [require('../assets/dogs/dog1.png'), require('../assets/dogs/dog2.png'), require('../assets/dogs/dog3.png'), require('../assets/dogs/dog4.png'), require('../assets/dogs/dog5.png'), require('../assets/dogs/dog6.png'), require('../assets/dogs/dog7.png'), require('../assets/dogs/dog8.png'), require('../assets/dogs/dog9.png')];
 
   return (
     <View style={styles.container}>
@@ -47,7 +47,7 @@ export default function Intro() {
             {
                 arr.map((dog, index) => (
                     <View style={styles.stack} key={index}>
-                        <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+                        <Image style={styles.dog} source={require(dog)}/>
                         <Pressable onPress={() => setDogNum(index)} style={dogNum === index ? styles.selectedButton : styles.unselectedButton}>
                         {
                             dogNum === index ?
