@@ -30,6 +30,9 @@ import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
 import Bookmarks from './components/Bookmarks'
+import CompareMain from './components/Compare/CompareMain';
+import Scan1 from './components/Compare/Scan1';
+import Scan2 from './components/Compare/Scan2';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -64,6 +67,9 @@ export default function App() {
   // For saving dog number
   const [dogNum, setDogNum] = useState(0);
 
+  // For the loaded in pictures for scan1
+  const [aSet, setASet] = useState(false);
+  const [bSet, setBSet] = useState(false);
 
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
@@ -76,7 +82,7 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue}}>
+    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
           <Stack.Screen name="MainApp" component={MainAppNav}/>
@@ -221,6 +227,9 @@ function LandingNav() {
       <Stack.Screen name="Fetch2" component={Fetch2}/>
       <Stack.Screen name="Fetch3" component={Fetch3}/>
       <Stack.Screen name="Fetch4" component={Fetch4}/>
+      <Stack.Screen name="CompareMain" component={CompareMain}/>
+      <Stack.Screen name="Scan1" component={Scan1}/>
+      <Stack.Screen name="Scan2" component={Scan2}/>
     </Stack.Navigator>
   )
 }

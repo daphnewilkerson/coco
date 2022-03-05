@@ -82,6 +82,7 @@ export default function Fetch1() {
         renderItem={renderResults}
         keyExtractor={entry => entry.store}
         style={{...styles.resultsList, display: (searchFocused || search !== '') ? 'flex' : 'none'}}
+        keyboardShouldPersistTaps='handled'
       />
       <Text style={styles.label}>
         Recently Bought

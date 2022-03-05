@@ -25,7 +25,7 @@ export default function Landing() {
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Fetch1')}>
         <Text style={styles.landingButtonText}>Fetch Info</Text>
       </Pressable>
-      <Pressable style={styles.landingButton}>
+      <Pressable style={styles.landingButton} onPress={() => navigator.navigate('CompareMain')}>
         <Text style={styles.landingButtonText}>Compare Items</Text>
       </Pressable>
       <Pressable style={styles.landingButton}>
