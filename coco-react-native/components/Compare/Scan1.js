@@ -16,7 +16,7 @@ export default function Scan1() {
       <Back/>
       <Text style={styles.pageTitle}>Scan Barcodes</Text>
       <Text style={{...styles.label, marginTop: 30}}>Brand A</Text>
-      <Pressable style={styles.outline} onPress={() => navigation.navigate('Scan2', {whichOne: 'A'})}>
+      <Pressable style={styles.outline} onPress={aSet ? undefined : () => navigation.navigate('Scan2', {whichOne: 'A'})}>
         {
           aSet ?
           <>
@@ -28,7 +28,7 @@ export default function Scan1() {
         }
       </Pressable>
       <Text style={{...styles.label, marginTop: 30}}>Brand B</Text>
-      <Pressable style={styles.outline} onPress={() => navigation.navigate('Scan2', {whichOne: 'B'})}>
+      <Pressable style={styles.outline} onPress={bSet ? undefined : () => navigation.navigate('Scan2', {whichOne: 'B'})}>
         {
           bSet ?
           <>
@@ -41,7 +41,7 @@ export default function Scan1() {
       </Pressable>
       {
         aSet && bSet ?
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Scan3')}>
           <Text style={styles.buttonText}>Compare!</Text>
         </Pressable>
         :

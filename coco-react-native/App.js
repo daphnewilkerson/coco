@@ -33,6 +33,9 @@ import Bookmarks from './components/Bookmarks'
 import CompareMain from './components/Compare/CompareMain';
 import Scan1 from './components/Compare/Scan1';
 import Scan2 from './components/Compare/Scan2';
+import Scan3 from './components/Compare/Scan3';
+import Scan4 from './components/Compare/Scan4';
+import Search1 from './components/Compare/Search1';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -230,6 +233,9 @@ function LandingNav() {
       <Stack.Screen name="CompareMain" component={CompareMain}/>
       <Stack.Screen name="Scan1" component={Scan1}/>
       <Stack.Screen name="Scan2" component={Scan2}/>
+      <Stack.Screen name="Scan3" component={Scan3}/>
+      <Stack.Screen name="Scan4" component={Scan4}/>
+      <Stack.Screen name="Search1" component={Search1}/>
     </Stack.Navigator>
   )
 }

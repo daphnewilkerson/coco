@@ -65,7 +65,7 @@ export default function Scan2({route, navigation}) {
         <View style={styles.topBar}/>
         <Image
           style={styles.image}
-          source={require('../../assets/barcode1.png')}
+          source={route.params.whichOne === 'A' ? require('../../assets/barcode1.png') : require('../../assets/barcode2.png')}
         />
         <View style={styles.otherBottomBar}>
           <Text style={styles.cancelButton} onPress={() => navigation.goBack()}>Cancel</Text>

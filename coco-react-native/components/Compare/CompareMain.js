@@ -23,7 +23,7 @@ export default function CompareMain() {
         <Text style={styles.buttonText}>Scan Barcode</Text>
       </Pressable>
       <Text style={styles.or}>Or</Text>
-      <Pressable style={styles.button} onPress={() => navigation.navigate('CompareMain')}>
+      <Pressable style={styles.button} onPress={() => navigation.navigate('Search1')}>
         <Text style={styles.buttonText}>Search Brand</Text>
       </Pressable>
     </View>
