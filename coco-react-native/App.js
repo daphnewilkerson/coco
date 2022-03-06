@@ -30,6 +30,16 @@ import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
 import Bookmarks from './components/Bookmarks'
+import CompareMain from './components/Compare/CompareMain';
+import Scan1 from './components/Compare/Scan1';
+import Scan2 from './components/Compare/Scan2';
+import Scan3 from './components/Compare/Scan3';
+import Scan4 from './components/Compare/Scan4';
+import Search1 from './components/Compare/Search1';
+import Sniff1 from './components/Sniff/Sniff1';
+import Sniff2 from './components/Sniff/Sniff2';
+import Sniff3 from './components/Sniff/Sniff3';
+import Sniff4 from './components/Sniff/Sniff4';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -47,9 +57,26 @@ export default function App() {
     setBookmarks(newBookmarks)
   }
 
+  // For saving values
+  const [values, setValues] = useState([]);
+  const addValue = (value) => {
+    setValues([...values, value]);
+  }
+  const removeValue = (value) => {
+    let newValues = [...values]
+    let index = newValues.findIndex(object => {
+      return object.id === value.id;
+    });
+    newValues.splice(index, 1)
+    setValues(newValues)
+  }
+
   // For saving dog number
   const [dogNum, setDogNum] = useState(0);
 
+  // For the loaded in pictures for scan1
+  const [aSet, setASet] = useState(false);
+  const [bSet, setBSet] = useState(false);
 
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
@@ -63,11 +90,11 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum}}>
+    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="Onboarding" component={OnboardingTab}/>
           <Stack.Screen name="MainApp" component={MainAppNav}/>
+          <Stack.Screen name="Onboarding" component={OnboardingTab}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -208,6 +235,16 @@ function LandingNav() {
       <Stack.Screen name="Fetch2" component={Fetch2}/>
       <Stack.Screen name="Fetch3" component={Fetch3}/>
       <Stack.Screen name="Fetch4" component={Fetch4}/>
+      <Stack.Screen name="CompareMain" component={CompareMain}/>
+      <Stack.Screen name="Scan1" component={Scan1}/>
+      <Stack.Screen name="Scan2" component={Scan2}/>
+      <Stack.Screen name="Scan3" component={Scan3}/>
+      <Stack.Screen name="Scan4" component={Scan4}/>
+      <Stack.Screen name="Search1" component={Search1}/>
+      <Stack.Screen name="Sniff1" component={Sniff1}/>
+      <Stack.Screen name="Sniff2" component={Sniff2}/>
+      <Stack.Screen name="Sniff3" component={Sniff3}/>
+      <Stack.Screen name="Sniff4" component={Sniff4}/>
     </Stack.Navigator>
   )
 }
@@ -218,6 +255,7 @@ function ProfileNav() {
       <Stack.Screen name="ProfileMain" component={Profile}/>
       <Stack.Screen name="Bookmarks" component={Bookmarks}/>
       <Stack.Screen name="Fetch4" component={Fetch4}/>
+      <Stack.Screen name="ProfileValues" component={Values}/>
     </Stack.Navigator>
   )
 }

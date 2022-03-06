@@ -27,6 +27,22 @@ export const Back = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 30,
+    zIndex: 2, 
+    elevation: 2
+  },
+  backButtonText: {
+    fontFamily: MAINFONT,
+    fontSize: 20,
+    color: COLORS.darkGreen
+  }
+})
+
+
 // Using context for global stuff, hopefully this works
 export const UserContext = createContext(null);
 
@@ -125,21 +141,14 @@ export const storeSpecificNews = {
   }
 }
 
-const styles = StyleSheet.create({
-  backButton: {
-    position: 'absolute',
-    top: 50,
-    left: 30
-  },
-  backButtonText: {
-    fontFamily: MAINFONT,
-    fontSize: 20,
-    color: COLORS.darkGreen
-  }
-})
-
-
 export const dogimages = [require('../assets/dogs/dog1.png'), require('../assets/dogs/dog2.png'), require('../assets/dogs/dog3.png'), require('../assets/dogs/dog4.png'), require('../assets/dogs/dog5.png'), require('../assets/dogs/dog6.png'), require('../assets/dogs/dog7.png'), require('../assets/dogs/dog8.png'), require('../assets/dogs/dog9.png')];
 export const sadimages = [require('../assets/dogs/sad1.png'), require('../assets/dogs/sad2.png'), require('../assets/dogs/sad3.png'), require('../assets/dogs/sad4.png'), require('../assets/dogs/sad5.png'), require('../assets/dogs/sad6.png'), require('../assets/dogs/sad7.png'), require('../assets/dogs/sad8.png'), require('../assets/dogs/sad9.png')];
 export const sideimages = [require('../assets/dogs/side1.png'), require('../assets/dogs/side2.png'), require('../assets/dogs/side3.png'), require('../assets/dogs/side4.png'), require('../assets/dogs/side5.png'), require('../assets/dogs/side6.png'), require('../assets/dogs/side7.png'), require('../assets/dogs/side8.png'), require('../assets/dogs/side9.png')];
 export const sniffimages = [require('../assets/dogs/sniff1.png'), require('../assets/dogs/sniff2.png'), require('../assets/dogs/sniff3.png'), require('../assets/dogs/sniff4.png'), require('../assets/dogs/sniff5.png'), require('../assets/dogs/sniff6.png'), require('../assets/dogs/sniff7.png'), require('../assets/dogs/sniff8.png'), require('../assets/dogs/sniff9.png')];
+export const winkimages = [require('../assets/dogs/wink1.png'), require('../assets/dogs/wink2.png'), require('../assets/dogs/wink3.png'), require('../assets/dogs/wink4.png'), require('../assets/dogs/wink5.png'), require('../assets/dogs/wink6.png'), require('../assets/dogs/wink7.png'), require('../assets/dogs/wink8.png'), require('../assets/dogs/wink9.png')];
+
+
+export const allValues = [{id: 0, value: "Sustainability"}, {id: 1, value: "Paid Maternity Leave"}, {id: 2, value: "Diversity and Inclusion"}, {id: 3, value: "Accessibility"}, {id: 4, value: "Wages"}, {id: 5, value: "Health Care for Workers"}, {id: 6, value: "Anti-Child Labor Polocies"}, {id: 7, value: "Charity"}, {id: 8, value: "Workers' Rights"}, {id: 9, value: "Anti-Discrimination"}, {id: 10, value: "Animal Cruelty/Testing"}, {id: 11, value: "Privacy"}, {id: 12, value: "COVID-19 Policies"}, {id: 13, value: "Ability to Unionize"}, {id: 14, value: "Reduced Water Use"}, {id: 15, value: "Transparency"}, {id: 16, value: "Greenwashing"}, {id: 17, value: "Eco-Friendly"}, {id: 18, value: "Women's Rights"}, {id: 19, value: "LGBTQ+ Rights"}, {id: 20, value: "Supporting POC Owned Businesses"}];
+
+export const tateRankings = {"Sustainability": 7, "Paid Maternity Leave": 5, "Diversity and Inclusion": 6, "Accessibility": 9, "Wages": 8, "Health Care for Workers": 9, "Anti-Child Labor Polocies": 5, "Charity": 8, "Workers' Rights": 10, "Anti-Discrimination": 6, "Animal Cruelty/Testing": 10, "Privacy": 8, "COVID-19 Policies": 9, "Ability to Unionize": 7, "Reduced Water Use": 7, "Transparency": 8, "Greenwashing": 10, "Eco-Friendly": 8, "Women's Rights": 8, "LGBTQ+ Rights": 7, "Supporting POC Owned Businesses": 6};
+export const tjRankings = {"Sustainability": 4, "Paid Maternity Leave": 3, "Diversity and Inclusion": 1, "Accessibility": 2, "Wages": 5, "Health Care for Workers": 8, "Anti-Child Labor Polocies": 4, "Charity": 7, "Workers' Rights": 10, "Anti-Discrimination": 4, "Animal Cruelty/Testing": 8, "Privacy": 2, "COVID-19 Policies": 4, "Ability to Unionize": 5, "Reduced Water Use": 5, "Transparency": 6, "Greenwashing": 9, "Eco-Friendly": 5, "Women's Rights": 1, "LGBTQ+ Rights": 4, "Supporting POC Owned Businesses": 3};
