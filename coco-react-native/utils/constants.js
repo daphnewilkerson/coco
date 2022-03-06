@@ -50,11 +50,12 @@ export const UserContext = createContext(null);
 export const storeLogos = {
   'Amazon': require('../assets/company-logos/amazon.png'),
   'Amtrak': require('../assets/company-logos/amtrak.png'),
-  'American Eagle': require('../assets/company-logos/americaneagle.png')
+  'American Eagle': require('../assets/company-logos/americaneagle.png'),
+  'Trader Joe\'s': require('../assets/company-logos/traderjoes.png')
 }
 
 export const storeNews = {
-  Amazon: [
+  'Amazon': [
     {
       source: 'NYT',
       title: 'New Amazon Headquarters Sparks Feud Among Indigenous South Africans',
@@ -67,7 +68,8 @@ export const storeNews = {
     }
   ],
   'Amtrak': [],
-  'American Eagle': []
+  'American Eagle': [],
+  'Trader Joe\'s': []
 }
 
 // export const storeRatings = {
@@ -96,7 +98,8 @@ export const storeRatings = {
     'Workers\' Rights': 2
   },
   'Amtrak': {},
-  'American Eagle': {}
+  'American Eagle': {},
+  'Trader Joe\'s': {}
 }
 
 

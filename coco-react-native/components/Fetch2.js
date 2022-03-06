@@ -44,7 +44,8 @@ export default function Fetch2({ route, navigation }) {
             Object.entries(storeRatings[route.params.store]).map((entry) => (
               <Pressable key={entry[0]} style={styles.ratingsEntry} onPress={() => navigation.navigate('Fetch3', {store: route.params.store, category: entry[0]})}>
                 <Text style={styles.ratingsNumber}>{entry[1]}</Text>
-                <Bone style={{marginTop: -10}}/>
+                {/* <Bone style={{marginTop: -10}}/> */}
+                <Icon name="paw" size={50} color={COLORS.darkGreen} style={{marginBottom: 10}}/>
                 <Text style={styles.ratingsText}>{entry[0]}</Text>
               </Pressable>
             ))
