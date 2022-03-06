@@ -30,6 +30,7 @@ import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
 import Bookmarks from './components/Bookmarks'
+import RecentPurchases from './components/RecentPurchases';
 import CompareMain from './components/Compare/CompareMain';
 import Scan1 from './components/Compare/Scan1';
 import Scan2 from './components/Compare/Scan2';
@@ -55,6 +56,12 @@ export default function App() {
     let newBookmarks = [...bookmarks]
     newBookmarks.splice(newBookmarks.indexOf(article), 1)
     setBookmarks(newBookmarks)
+  }
+
+  //for recent purchases
+  const [purchases, setPurchases] = useState([]);
+  const addPurchase = (purchase) => {
+    setPurchases([...purchases, purchase]);
   }
 
   // For saving values
@@ -90,7 +97,7 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
+    <UserContext.Provider value={{purchases, addPurchase, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
           <Stack.Screen name="MainApp" component={MainAppNav}/>
@@ -256,6 +263,8 @@ function ProfileNav() {
       <Stack.Screen name="Bookmarks" component={Bookmarks}/>
       <Stack.Screen name="Fetch4" component={Fetch4}/>
       <Stack.Screen name="ProfileValues" component={Values}/>
+      <Stack.Screen name="RecentPurchases" component={RecentPurchases}/>
+
     </Stack.Navigator>
   )
 }
