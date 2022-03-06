@@ -7,9 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
-import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS, Back, UserContext, dogimages} from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, dogimages} from '../utils/constants';
 
 
 export default function Intro() {
@@ -17,15 +16,6 @@ export default function Intro() {
   const navigation = useNavigation();
 
   const { dogNum, setDogNum } = useContext(UserContext);
-
-  // Load fonts. Return expo loading screen if not loaded
-  let [fontsLoaded] = useFonts({
-    Comfortaa_400Regular,
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
     <View style={styles.container}>
@@ -80,7 +70,7 @@ const styles = StyleSheet.create({
   },
   mediumText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: BOLDFONT,
     fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 60,
@@ -98,7 +88,7 @@ const styles = StyleSheet.create({
   },
   unselectedButtonText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   selectedButton: {
@@ -112,7 +102,7 @@ const styles = StyleSheet.create({
   },
   selectedButtonText: {
     color: COLORS.lightGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   leftCornerButton: {
@@ -137,7 +127,7 @@ const styles = StyleSheet.create({
   },
   cornerText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 20,
     position: 'absolute',
     top: 10,

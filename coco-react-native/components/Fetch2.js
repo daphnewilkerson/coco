@@ -3,10 +3,9 @@ import React, {
   useContext
 } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT, Back } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, UserContext, storeLogos, storeNews, storeRatings, sadimages, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg";
-import { UserContext, storeLogos, storeNews, storeRatings, sadimages} from '../utils/constants';
 import NewsBlurb from './NewsBlurb';
 
 
@@ -77,14 +76,14 @@ const styles = StyleSheet.create({
     bottom: -49,
   },
   label: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     right: 100,
     marginBottom: 10,
   },
   ratingsLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     marginTop: 40
@@ -106,12 +105,12 @@ const styles = StyleSheet.create({
   },
   ratingsNumber: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 25,
   },
   ratingsText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 14,
     textAlign: 'center'
   },

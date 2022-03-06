@@ -2,7 +2,7 @@ import React, {
   useState,
 } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, FlatList, Pressable} from 'react-native';
-import { COLORS, MAINFONT, Back} from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back} from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -116,12 +116,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   label: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen
   },
   recommendedLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     marginTop: 30,

@@ -5,22 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, Back } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Intro() {
   const navigation = useNavigation();
-  // Load fonts. Return expo loading screen if not loaded
-  let [fontsLoaded] = useFonts({
-    Comfortaa_400Regular,
-  });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
       <View style={styles.container}>
@@ -31,7 +23,7 @@ export default function Intro() {
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 130, marginLeft: 270}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 180, marginLeft: 270}}/>
       </View>
   )
 }
@@ -50,7 +42,7 @@ const styles = StyleSheet.create({
   },
   moremediumText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: BOLDFONT,
     fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 0,
@@ -61,7 +53,7 @@ const styles = StyleSheet.create({
   },
   mediumText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
@@ -72,7 +64,7 @@ const styles = StyleSheet.create({
   },
   smallText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: BOLDFONT,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -110,7 +102,7 @@ const styles = StyleSheet.create({
   },
   cornerText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 20,
     position: 'absolute',
     top: 10,

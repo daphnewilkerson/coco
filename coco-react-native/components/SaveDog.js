@@ -7,23 +7,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, Back, UserContext, dogimages } from '../utils/constants';
+import { COLORS, Back, MAINFONT, BOLDFONT, UserContext, dogimages } from '../utils/constants';
 
 export default function Intro({route}) {
   const navigation = useNavigation();
   const { dogNum } = useContext(UserContext);
   
-  // Load fonts. Return expo loading screen if not loaded
-  let [fontsLoaded] = useFonts({
-    Comfortaa_400Regular,
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
       <View style={styles.container}>
@@ -51,7 +42,7 @@ const styles = StyleSheet.create({
   },
   bigText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 20,
@@ -61,7 +52,7 @@ const styles = StyleSheet.create({
   },
   smallText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: BOLDFONT,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -97,7 +88,7 @@ const styles = StyleSheet.create({
   },
   cornerText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 20,
     position: 'absolute',
     top: 10,

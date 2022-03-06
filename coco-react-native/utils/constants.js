@@ -7,11 +7,13 @@ import React, {
 
 export const COLORS = {
   background: '#FEFADC',
-  lightGreen: '#93d075',
+  //lightGreen: '#B1E693',
   darkGreen: '#07500A',
+  lightGreen: '#93d075',
 }
 
 export const MAINFONT = 'Comfortaa_400Regular';
+export const BOLDFONT = 'Comfortaa_700Bold';
 
 
 export const Back = () => {

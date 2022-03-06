@@ -8,7 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT, UserContext, dogimages } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, UserContext, dogimages } from '../utils/constants';
 
 
 export default function Landing() {
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 45,
     marginBottom: 100
   },
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   landingButtonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   dog: {
