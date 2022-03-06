@@ -6,7 +6,7 @@ import React, {
 import { COLORS, MAINFONT, winkimages, UserContext, Back } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function Sniff4() {
+export default function Sniff4({ navigation }) {
 
   const scrollRef = useRef(null);
 
@@ -22,20 +22,20 @@ export default function Sniff4() {
         <Back/>
         <Text style={styles.label}>Your Trip</Text>
         <Text style={styles.sideLabel}>Store</Text>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonText}>Trader Joe's</Text>
         </Pressable>
-        <Text style={styles.sideLabel}>Brand</Text>
-        <Pressable style={styles.buttonSmall}>
+        <Text style={styles.sideLabel}>Brands</Text>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonTextSmall}>Trader Joe's</Text>
         </Pressable>
-        <Pressable style={styles.buttonSmall}>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonTextSmall}>Skinny Pop</Text>
         </Pressable>
-        <Pressable style={styles.buttonSmall}>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonTextSmall}>Kerrygold</Text>
         </Pressable>
-        <Pressable style={styles.buttonSmall}>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonTextSmall}>Stella Rosa</Text>
         </Pressable>
         <Text style={styles.sideLabel}>CoCo Bones Received</Text>
@@ -60,15 +60,15 @@ export default function Sniff4() {
         </Pressable>
         <Text style={styles.label}>Your Trip</Text>
         <Text style={{...styles.sideLabel, marginTop: 100}}>Your Best Purchase</Text>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonText}>Stella Rosa</Text>
         </Pressable>
         <Text style={{...styles.sideLabel, marginTop: 50}}>Next time, instead of</Text>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonText}>Kerrygold</Text>
         </Pressable>
         <Text style={{...styles.sideLabel, marginTop: 50}}>Try...</Text>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonText}>Organic Valley</Text>
         </Pressable>
       </View>
@@ -142,13 +142,14 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     marginRight: 'auto',
     marginLeft: 50,
-    marginTop: 30
+    marginTop: 10,
+    marginBottom: 10
   },
   boneLabel: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 40,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   boneButton: {
     backgroundColor: COLORS.lightGreen,
@@ -157,5 +158,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     borderRadius: 18,
+    marginLeft: 15
   },
 })
