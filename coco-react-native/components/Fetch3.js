@@ -65,13 +65,13 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   scoreLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 35,
     color: COLORS.darkGreen,
     marginTop: 220,
   },
   storiesLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     marginRight: 'auto',
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   statsLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     marginRight: 'auto',

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   mediumText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 60,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   unselectedButtonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   selectedButton: {
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   selectedButtonText: {
     color: COLORS.lightGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   leftCornerButton: {

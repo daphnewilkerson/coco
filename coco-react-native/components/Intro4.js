@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   moremediumText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 0,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   smallText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',

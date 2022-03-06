@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 45,
     marginBottom: 100
   },
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   landingButtonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   dog: {

@@ -116,12 +116,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   label: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen
   },
   recommendedLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     marginTop: 30,

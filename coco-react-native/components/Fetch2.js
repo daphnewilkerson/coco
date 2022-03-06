@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
     bottom: -49,
   },
   label: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     right: 100,
     marginBottom: 10,
   },
   ratingsLabel: {
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
     marginTop: 40
@@ -105,12 +105,12 @@ const styles = StyleSheet.create({
   },
   ratingsNumber: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 25,
   },
   ratingsText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 14,
     textAlign: 'center'
   },

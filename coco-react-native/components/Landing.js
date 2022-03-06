@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   landingButtonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   dog: {

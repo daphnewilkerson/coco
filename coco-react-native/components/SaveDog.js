@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   smallText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
