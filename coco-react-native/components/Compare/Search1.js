@@ -8,17 +8,16 @@ import { MAINFONT, COLORS, Back, UserContext, dogimages } from '../../utils/cons
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
-export default function Search1() {
+export default function Search1({ navigation }) {
+
+  const { dogNum } = useContext(UserContext);
+
   const allResults = [
-    {store: 'Amazon'}, 
-    {store: 'Amtrak'}, 
-    {store: 'American Eagle'}
+    {store: 'Tate\'s Cookies'}, 
   ];
 
   const allResultsB = [
-    {store: 'Bamazon'}, 
-    {store: 'Bamtrak'}, 
-    {store: 'Bamerican Eagle'}
+    {store: 'Trader Joe\'s'}, 
   ];
 
   const [results, setResults] = useState(allResults);
@@ -26,7 +25,7 @@ export default function Search1() {
   const [searchFocused, setSearchFocused] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
-  const [resultsB, setResultsB] = useState(allResults);
+  const [resultsB, setResultsB] = useState(allResultsB);
   const [searchB, setSearchB] = useState('');
   const [searchFocusedB, setSearchFocusedB] = useState(false);
   const [showResultsB, setShowResultsB] = useState(false);
@@ -73,7 +72,28 @@ export default function Search1() {
     }
     return (
       <Pressable onPress={() => {setSearch(item.store); setShowResults(false); Keyboard.dismiss(); }}>
-        <View style={{...styles.resultItem, borderBottomWidth: (item.store === results[results.length-1].store || item.store === resultsB[resultsB.length-1].store ) ? 1 : 0}}>
+        <View style={{...styles.resultItem, borderBottomWidth: (item.store === results[results.length-1].store ) ? 1 : 0}}>
+          <Text style={styles.resultItemText}>
+            {item.store}
+          </Text>
+        </View>
+      </Pressable>
+    )
+  }
+
+  const renderResultsB = ({ item }) => {
+    if (item.store === 'No results :(') {
+      return (
+        <View style={styles.noResultsContainer}>
+          <Text style={styles.noResultsText}>
+            No results :(
+          </Text>
+        </View>
+      )
+    }
+    return (
+      <Pressable onPress={() => {setSearchB(item.store); setShowResultsB(false); Keyboard.dismiss(); }}>
+        <View style={{...styles.resultItem, borderBottomWidth: (item.store === resultsB[resultsB.length-1].store ) ? 1 : 0}}>
           <Text style={styles.resultItemText}>
             {item.store}
           </Text>
@@ -119,11 +139,23 @@ export default function Search1() {
       </View>
       <FlatList 
         data={resultsB}
-        renderItem={renderResults}
+        renderItem={renderResultsB}
         keyExtractor={entry => entry.store}
         style={{...styles.resultsListB, display: (showResultsB) ? 'flex' : 'none'}}
         keyboardShouldPersistTaps='handled'
       />
+      <Image
+        style={styles.dog}
+        source={dogimages[dogNum]}
+      />
+      {
+        search !== '' && searchB !== '' ?
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Scan3')}>
+          <Text style={styles.buttonText}>Compare!</Text>
+        </Pressable>
+        :
+        <></>
+      }
     </View>
   )
 }
@@ -140,6 +172,20 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 30,
     marginTop: 100,
+  },
+  button: {
+    backgroundColor: COLORS.lightGreen,
+    width: '70%',
+    height: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    margin: 15,
+  },
+  buttonText: {
+    color: COLORS.darkGreen,
+    fontFamily: MAINFONT,
+    fontSize: 20,
   },
   brand: {
     color: COLORS.darkGreen,
@@ -187,7 +233,7 @@ const styles = StyleSheet.create({
   },
   resultsList: {
     width: '100%',
-    height: '55%',
+    height: '60%',
     top: '40%',
     backgroundColor: COLORS.background,
     position: 'absolute',
@@ -214,4 +260,12 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 25,
   },
+  dog: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+    position: 'absolute',
+    bottom: -180,
+    right: 120
+  }
 })

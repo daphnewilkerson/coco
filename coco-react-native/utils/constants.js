@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
     top: 50,
-    left: 30
+    left: 30,
+    zIndex: 2, 
+    elevation: 2
   },
   backButtonText: {
     fontFamily: MAINFONT,
