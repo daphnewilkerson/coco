@@ -25,7 +25,7 @@ import Fetch2 from './components/Fetch2';
 import Fetch3 from './components/Fetch3';
 import Fetch4 from './components/Fetch4';
 import { COLORS } from './utils/constants'
-import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
+import { useFonts, Comfortaa_400Regular, Comfortaa_700Bold } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
@@ -54,6 +54,7 @@ export default function App() {
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({
     Comfortaa_400Regular,
+    Comfortaa_700Bold,
   });
   if (!fontsLoaded) {
     return <AppLoading />;

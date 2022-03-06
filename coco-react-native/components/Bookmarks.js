@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
 import React, {
   useContext
 } from 'react'
-import { COLORS, MAINFONT, Back, UserContext } from '../utils/constants'
+import { COLORS, MAINFONT, BOLDFONT, Back, UserContext } from '../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native-gesture-handler';
 import NewsBlurb from './NewsBlurb';

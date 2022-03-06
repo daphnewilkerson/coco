@@ -7,9 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView, FlatList, TextInput} from 'react-native';
-import { useFonts, Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
-import { COLORS, Back, MAINFONT } from '../utils/constants';
+import { COLORS, Back, MAINFONT, BOLDFONT } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -23,16 +22,8 @@ export default function Intro({route}) {
     const DATA = [{id: 0, value: "Sustainability"}, {id: 1, value: "Paid Maternity Leave"}, {id: 2, value: "Diversity and Inclusion"}, {id: 3, value: "Accessibility"}, {id: 4, value: "Wages"}, {id: 5, value: "Health Care for Workers"}, {id: 6, value: "Anti-Child Labor Polocies"}, {id: 7, value: "Charity"}, {id: 8, value: "Workers' Rights"}, {id: 9, value: "Anti-Discrimination"}, {id: 10, value: "Animal Cruelty/Testing"}, {id: 11, value: "LGBTQ+ Rights"}, {id: 12, value: "COVID-19 Policies"}, {id: 13, value: "Ability to Unionize"}, {id: 14, value: "Reduced Water Use"}, {id: 15, value: "Transparency"}, {id: 16, value: "Greenwashing"}, {id: 17, value: "Eco-Friendly"}, {id: 18, value: "Supporting POC Owned Businesses"}, {id: 19, value: "Women's Rights"}, {id: 20, value: "Privacy"}];
     const [results, setResults] = useState(DATA);
 
-    // Load fonts. Return expo loading screen if not loaded
-    let [fontsLoaded] = useFonts({
-      Comfortaa_400Regular,
-    });
-  
     const [selected, setSelected] = useState([]);
-  
-    if (!fontsLoaded) {
-      return <AppLoading />;
-    }
+
 
     const handleSearch = searchText => {
       let newResults = [];
@@ -129,7 +120,7 @@ const styles = StyleSheet.create({
   },
   mediumText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -138,7 +129,7 @@ const styles = StyleSheet.create({
   },
   smallText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 13,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -167,7 +158,7 @@ const styles = StyleSheet.create({
   },
   value: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 18,
     textAlign: 'center',
   },
@@ -183,7 +174,7 @@ const styles = StyleSheet.create({
   },
   cornerText: {
     color: COLORS.darkGreen,
-    fontFamily: 'Comfortaa_400Regular',
+    fontFamily: MAINFONT,
     fontSize: 20,
   },
   searchContainer: {

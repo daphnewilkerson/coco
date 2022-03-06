@@ -8,7 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT, UserContext, dogimages } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, UserContext, dogimages } from '../utils/constants';
 
 
 export default function Landing() {
