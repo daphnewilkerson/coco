@@ -28,7 +28,7 @@ export default function Landing() {
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('CompareMain')}>
         <Text style={styles.landingButtonText}>Compare Items</Text>
       </Pressable>
-      <Pressable style={styles.landingButton}>
+      <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Sniff1')}>
         <Text style={styles.landingButtonText}>Sniff Receipt</Text>
       </Pressable>
       <Image

@@ -36,6 +36,10 @@ import Scan2 from './components/Compare/Scan2';
 import Scan3 from './components/Compare/Scan3';
 import Scan4 from './components/Compare/Scan4';
 import Search1 from './components/Compare/Search1';
+import Sniff1 from './components/Sniff/Sniff1';
+import Sniff2 from './components/Sniff/Sniff2';
+import Sniff3 from './components/Sniff/Sniff3';
+import Sniff4 from './components/Sniff/Sniff4';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -236,6 +240,10 @@ function LandingNav() {
       <Stack.Screen name="Scan3" component={Scan3}/>
       <Stack.Screen name="Scan4" component={Scan4}/>
       <Stack.Screen name="Search1" component={Search1}/>
+      <Stack.Screen name="Sniff1" component={Sniff1}/>
+      <Stack.Screen name="Sniff2" component={Sniff2}/>
+      <Stack.Screen name="Sniff3" component={Sniff3}/>
+      <Stack.Screen name="Sniff4" component={Sniff4}/>
     </Stack.Navigator>
   )
 }
