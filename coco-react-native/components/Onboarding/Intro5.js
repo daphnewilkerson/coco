@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AppLoading from 'expo-app-loading';
-import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, dogimages } from '.../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, dogimages } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
