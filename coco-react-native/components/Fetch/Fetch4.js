@@ -3,7 +3,7 @@ import React, {
   useState
 } from 'react'
 import { WebView } from 'react-native-webview';
-import { Back, COLORS } from '../utils/constants'; 
+import { Back, COLORS } from '.../utils/constants'; 
 
 export default function Fetch4({ route, navigation }) {
   const [loading, setLoading] = useState(true);

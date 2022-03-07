@@ -8,11 +8,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import Landing from './components/Landing';
-import Intro1 from './components/Intro1';
-import Intro2 from './components/Intro2';
-import Intro3 from './components/Intro3';
-import Intro4 from './components/Intro4';
-import Intro5 from './components/Intro5';
+import Intro1 from './components/Onboarding/Intro1';
+import Intro2 from './components/Onboarding/Intro2';
+import Intro3 from './components/Onboarding/Intro3';
+import Intro4 from './components/Onboarding/Intro4';
+import Intro5 from './components/Onboarding/Intro5';
 import CustomDog from './components/CustomDog';
 import SaveDog from './components/SaveDog';
 import SaveValues from './components/SaveValues';
@@ -20,16 +20,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CoCo from './components/CoCo'
 import Profile from './components/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Fetch1 from './components/Fetch1';
-import Fetch2 from './components/Fetch2';
-import Fetch3 from './components/Fetch3';
-import Fetch4 from './components/Fetch4';
+import Fetch1 from './components/Fetch/Fetch1';
+import Fetch2 from './components/Fetch/Fetch2';
+import Fetch3 from './components/Fetch/Fetch3';
+import Fetch4 from './components/Fetch/Fetch4';
 import { COLORS } from './utils/constants'
 import { useFonts, Comfortaa_400Regular, Comfortaa_700Bold } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
 import { UserContext } from './utils/constants';
 import Bookmarks from './components/Bookmarks'
+import RecentPurchases from './components/RecentPurchases';
+import CoCoBones from './components/CoCoBones';
 import CompareMain from './components/Compare/CompareMain';
 import Scan1 from './components/Compare/Scan1';
 import Scan2 from './components/Compare/Scan2';
@@ -55,6 +57,18 @@ export default function App() {
     let newBookmarks = [...bookmarks]
     newBookmarks.splice(newBookmarks.indexOf(article), 1)
     setBookmarks(newBookmarks)
+  }
+
+  //for recent purchases
+  const [purchases, setPurchases] = useState([]);
+  const addPurchase = (purchase) => {
+    setPurchases([...purchases, purchase]);
+  }
+
+  //for CoCo Bones
+  const [bones, setBones] = useState(0);
+  const addBones = (bone) => {
+    setBones([...bones, bone]);
   }
 
   // For saving values
@@ -90,11 +104,11 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
+    <UserContext.Provider value={{bones, addBones, purchases, addPurchase, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="MainApp" component={MainAppNav}/>
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -256,6 +270,8 @@ function ProfileNav() {
       <Stack.Screen name="Bookmarks" component={Bookmarks}/>
       <Stack.Screen name="Fetch4" component={Fetch4}/>
       <Stack.Screen name="ProfileValues" component={Values}/>
+      <Stack.Screen name="RecentPurchases" component={RecentPurchases}/>
+
     </Stack.Navigator>
   )
 }
@@ -266,6 +282,7 @@ function CoCoNav() {
       <Stack.Screen name="CoCoMain" component={CoCo}/>
       <Stack.Screen name="CustomDog" component={CustomDog}/>
       <Stack.Screen name="SaveDog" component={SaveDog}/>
+      <Stack.Screen name="CoCoBones" component={CoCoBones}/>
     </Stack.Navigator>
   )
 }

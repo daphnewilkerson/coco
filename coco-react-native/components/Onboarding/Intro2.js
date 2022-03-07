@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, MAINFONT, BOLDFONT, Back } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back } from '.../utils/constants';
 
 export default function Intro() {
   const navigation = useNavigation();

@@ -24,7 +24,7 @@ export default function Landing() {
       <Pressable style={styles.landingButton} onPress={() => navigation.navigate('CustomDog')}>
         <Text style={styles.landingButtonText}>Customize CoCo</Text>
       </Pressable>
-      <Pressable style={styles.landingButton} >
+      <Pressable style={styles.landingButton} onPress={() => navigation.navigate('CoCoBones')}>
         <Text style={styles.landingButtonText}>CoCo Bones</Text>
       </Pressable>
       <Image

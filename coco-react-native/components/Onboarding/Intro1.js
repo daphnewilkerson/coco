@@ -7,8 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, MAINFONT, BOLDFONT, Back } from '../utils/constants';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { COLORS, MAINFONT, BOLDFONT, } from '.../../utils/constants';
 
 export default function Intro() {
   const navigation = useNavigation();
@@ -16,14 +15,15 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Back/>
-          <Text style={styles.mediumText}>Here is your home button!</Text>
-          <Text style={styles.moremediumText}>You can fetch information about brands, compare brands or items, and scan your receipts to earn rewards here!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
+          <Image style={styles.logo} source={require('../assets/logo.png')}/>
+          <Text style={styles.bigText}>Welcome to CoCo!</Text>
+          <Text style={styles.mediumText}>Let me show you around!</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro2')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
+          {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
           <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 40}}/>
+          {/* <Dog1 style={styles.dog}/> */}
       </View>
   )
 }
@@ -34,32 +34,33 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
+  logo: {
+    width: 125,
+    height: 105,
+    marginTop: 100,
+    marginBottom: 50,
+  },
   coco: {
     width: 115,
     height: 250,
     marginTop: 100,
     marginBottom: 50,
   },
-  mediumText: {
+  bigText: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
-    fontSize: 25,
+    fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    marginTop: 430,
-    marginLeft: 25,
-    marginRight: 25,
   },
-  moremediumText: {
+  mediumText: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 40,
     textAlign: 'center',
-    marginLeft: 25,
-    marginRight: 25,
   },
   smallText: {
     color: COLORS.darkGreen,
@@ -69,12 +70,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dog: {
-    position: 'absolute',
-    left: -60,
-    top: 160,
-    transform: [{ rotate: '50deg' }],
     width: 221,
     height: 281,
+    position: 'absolute',
+    bottom: 0,
   },
   video: {
     backgroundColor: "red",
@@ -88,23 +87,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-  },
-  leftCornerButton: {
-    backgroundColor: COLORS.background,
-    width: 100,
-    height: 50,
-    position: 'absolute',
-    left: 25,
-    top: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cornerText: {
-    color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
-    fontSize: 20,
-    position: 'absolute',
-    top: 10,
-    right: 0,
-  },
+  }
 });
