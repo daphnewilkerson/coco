@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   dog: {
     height: 250,
     resizeMode: 'contain',
+    bottom: -8
   },
   boneview:{
     backgroundColor: COLORS.lightGreen,
