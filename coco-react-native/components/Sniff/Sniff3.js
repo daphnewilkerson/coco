@@ -2,16 +2,18 @@ import { StyleSheet, Text, View, Image, Pressable} from 'react-native'
 import React, {
   useContext,
   useEffect,
-  useState
+  useState,
 } from 'react'
 import { COLORS, MAINFONT, winkimages, UserContext, Back } from '../../utils/constants';
 
 export default function Sniff3({ navigation }) {
-  const { dogNum } = useContext(UserContext);
+  const { dogNum, bones, setBones, setPurchases } = useContext(UserContext);
   const [playConfetti, setPlayConfetti] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setPlayConfetti(false), 3000)
+    setPurchases([{store: 'Trader Joe\'s', date: new Date(), bones: 6}])
+    setBones(6);
+    setTimeout(() => setPlayConfetti(false), 3000);
   }, [])
 
   return (

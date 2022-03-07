@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native'
 import React, {
   useRef,
-  useState
+  useState,
 } from 'react'
-import { COLORS, MAINFONT, winkimages, UserContext, Back } from '../../utils/constants';
+import { COLORS, MAINFONT, Back } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Sniff4({ navigation }) {
@@ -46,7 +46,7 @@ export default function Sniff4({ navigation }) {
             style={styles.bone}
             source={require('../../assets/bone.png')}
           />
-          <Pressable style={styles.boneButton}>
+          <Pressable style={styles.boneButton} onPress={() => navigation.navigate('CoCoBones')}>
             <Text style={styles.buttonTextSmall}>View Bones</Text>
           </Pressable>
         </View>

@@ -61,15 +61,9 @@ export default function App() {
 
   //for recent purchases
   const [purchases, setPurchases] = useState([]);
-  const addPurchase = (purchase) => {
-    setPurchases([...purchases, purchase]);
-  }
 
   //for CoCo Bones
   const [bones, setBones] = useState(0);
-  const addBones = (bone) => {
-    setBones([...bones, bone]);
-  }
 
   // For saving values
   const [values, setValues] = useState([]);
@@ -104,7 +98,7 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{bones, addBones, purchases, addPurchase, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
+    <UserContext.Provider value={{bones, setBones, purchases, setPurchases, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
           <Stack.Screen name="MainApp" component={MainAppNav}/>

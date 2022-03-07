@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Pressable, Image } from 'react-native'
 import React, {
   useContext
 } from 'react'
@@ -57,14 +57,12 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 40,
     padding: 10,
-    textAlign: 'center',
   },
   bonenum: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
     fontSize: 60,
     padding: 10,
-    textAlign: 'center',
   },
   pageTitle: {
     color: COLORS.darkGreen,
