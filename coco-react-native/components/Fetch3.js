@@ -13,11 +13,9 @@ import NewsBlurb from './NewsBlurb';
 export default function Fetch3({ route, navigation }) {
 
   const graphs = {
-    'Amazon': {
-      'Sustainability': <Graph1/>,
-      'Accessibility': <Graph2/>,
-      'Workers\' Rights': <Graph3/>
-    }
+    'Sustainability': <Graph1/>,
+    'Accessibility': <Graph2/>,
+    'Workers\' Rights': <Graph3/>
   }
 
 
@@ -44,7 +42,7 @@ export default function Fetch3({ route, navigation }) {
       </Text>
       <View style={styles.graphStyle}>
         {
-          graphs[route.params.store][route.params.category]
+          graphs[route.params.category]
         }
       </View>
     </View>

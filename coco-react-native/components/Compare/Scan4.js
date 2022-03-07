@@ -7,16 +7,16 @@ import React, {
 import { MAINFONT, COLORS, Back, UserContext, dogimages, allValues, tjRankings, tateRankings } from '../../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function Scan4() {
+export default function Scan4({ navigation }) {
   const { values, dogNum } = useContext(UserContext);
 
   return (
     <View style={styles.container}>
       <Back/>
       <View style={styles.header}>
-        <Text style={styles.label}>Tate's</Text>
+        <Text style={styles.label} onPress={() => navigation.navigate('Fetch2', {store: 'Tate\'s'})}>Tate's</Text>
         <Text style={styles.label}>Your Values</Text>
-        <Text style={styles.label}>TJ's</Text>
+        <Text style={styles.label} onPress={() => navigation.navigate('Fetch2', {store: 'Trader Joe\'s'})}>TJ's</Text>
       </View>
       <ScrollView style={styles.scroll}>
         {
@@ -30,15 +30,15 @@ export default function Scan4() {
         {
           values.map((entry, index) => (
             <View style={styles.valueEntry} key={index}>
-              <View style={styles.pawWithLabel}>
+              <Pressable style={styles.pawWithLabel} onPress={() => navigation.navigate('Fetch2', {store: 'Tate\'s'})}>
                 <Icon name={'paw'} size={50} style={{color: COLORS.lightGreen}}/>
                 <Text style={styles.pawLabel}>{tateRankings[entry.value]}</Text>
-              </View>
+              </Pressable>
               <Text style={styles.valueLabel}>{entry.value.substring(0, 28)}</Text>
-              <View style={styles.pawWithLabel}>
+              <Pressable style={styles.pawWithLabel} onPress={() => navigation.navigate('Fetch2', {store: 'Trader Joe\'s'})}>
                 <Icon name={'paw'} size={50} style={{color: COLORS.lightGreen}}/>
                 <Text style={styles.pawLabel}>{tjRankings[entry.value]}</Text>
-              </View>
+              </Pressable>
             </View>
           ))
         }

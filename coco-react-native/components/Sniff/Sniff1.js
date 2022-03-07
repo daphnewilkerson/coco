@@ -1,13 +1,26 @@
 import { StyleSheet, Text, View, Image, Pressable, Alert } from 'react-native';
 import React, {
-  useContext
+  useContext,
+  useEffect,
+  useState
 } from 'react';
 import { COLORS, MAINFONT, dogimages, UserContext, Back } from '../../utils/constants';
 import * as ImagePicker from 'expo-image-picker';
+import { Camera } from 'expo-camera';
 
 export default function Sniff1({ navigation }) {
 
   const { dogNum } = useContext(UserContext);
+
+  const [hasPermission, setHasPermission] = useState(null);
+  const [type, setType] = useState(Camera.Constants.Type.back);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync();
+      setHasPermission(status === 'granted');
+    })();
+  }, []);
 
   const photoAlert = () =>
     Alert.alert(

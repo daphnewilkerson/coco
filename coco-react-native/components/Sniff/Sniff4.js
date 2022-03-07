@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native'
 import React, {
-  useContext,
-  useRef
+  useRef,
+  useState
 } from 'react'
 import { COLORS, MAINFONT, winkimages, UserContext, Back } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -9,14 +9,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function Sniff4({ navigation }) {
 
   const scrollRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
 
   return (
     <ScrollView 
       style={styles.scroll} 
       contentContainerStyle={styles.scrollContent} 
-      snapToInterval={1000}
-      decelerationRate="fast"
       ref={scrollRef}
+      onScroll={() => setScrolled(true)}
+      scrollEventThrottle={50}
     >
       <View style={styles.container}>
         <Back/>
@@ -29,13 +30,13 @@ export default function Sniff4({ navigation }) {
         <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
           <Text style={styles.buttonTextSmall}>Trader Joe's</Text>
         </Pressable>
-        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Skinny Pop' })}>
           <Text style={styles.buttonTextSmall}>Skinny Pop</Text>
         </Pressable>
-        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Kerrygold' })}>
           <Text style={styles.buttonTextSmall}>Kerrygold</Text>
         </Pressable>
-        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
+        <Pressable style={styles.buttonSmall} onPress={() => navigation.navigate('Fetch2', { store: 'Stella Rosa' })}>
           <Text style={styles.buttonTextSmall}>Stella Rosa</Text>
         </Pressable>
         <Text style={styles.sideLabel}>CoCo Bones Received</Text>
@@ -49,26 +50,24 @@ export default function Sniff4({ navigation }) {
             <Text style={styles.buttonTextSmall}>View Bones</Text>
           </Pressable>
         </View>
-        <Pressable onPress={() => scrollRef.current.scrollTo({y: 1000, animated: true})}>
-          <Icon name="chevron-down" size={45} color={COLORS.darkGreen}/>
-        </Pressable>
-      </View>
-      <View style={styles.container2}>
-        <Back/>
-        <Pressable onPress={() => scrollRef.current.scrollTo({y: 0, animated: true})} style={{position: 'absolute', top: 40, right: 30}}>
-          <Icon name="chevron-up" size={45} color={COLORS.darkGreen}/>
-        </Pressable>
-        <Text style={styles.label}>Your Trip</Text>
-        <Text style={{...styles.sideLabel, marginTop: 100}}>Your Best Purchase</Text>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
+        {
+          scrolled ?
+          <></>
+          :
+          <Pressable onPress={() => scrollRef.current.scrollTo({y: 1000, animated: true})} style={{position: 'absolue'}}>
+            <Icon name="chevron-down" size={45} color={COLORS.darkGreen}/>
+          </Pressable>
+        }
+        <Text style={{...styles.sideLabel, marginTop: 60}}>Your Best Purchase</Text>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Stella Rosa' })}>
           <Text style={styles.buttonText}>Stella Rosa</Text>
         </Pressable>
         <Text style={{...styles.sideLabel, marginTop: 50}}>Next time, instead of</Text>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Kerrygold' })}>
           <Text style={styles.buttonText}>Kerrygold</Text>
         </Pressable>
         <Text style={{...styles.sideLabel, marginTop: 50}}>Try...</Text>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Trader Joe\'s' })}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Fetch2', { store: 'Organic Valley' })}>
           <Text style={styles.buttonText}>Organic Valley</Text>
         </Pressable>
       </View>
@@ -80,6 +79,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.background,
     alignItems: 'center',
+    paddingBottom: 50,
   },
   label: {
     color: COLORS.darkGreen,
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     fontFamily: MAINFONT,
     fontSize: 30,
     marginRight: 'auto',
+    marginLeft: 15,
     marginTop: 10,
     marginBottom: 10,
   },
