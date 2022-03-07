@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Pressable, Image} from 'react-native'
 import React, {
   useContext
 } from 'react'
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   dog: {
     height: 250,
     resizeMode: 'contain',
+    bottom: -8
   },
   boneview:{
     backgroundColor: COLORS.lightGreen,

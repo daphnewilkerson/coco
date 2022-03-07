@@ -9,6 +9,7 @@ import { COLORS, MAINFONT, winkimages, UserContext, Back } from '../../utils/con
 export default function Sniff3({ navigation }) {
   const { dogNum } = useContext(UserContext);
   const [playConfetti, setPlayConfetti] = useState(true);
+  const { bones, setBones } = useContext(UserContext);
 
   useEffect(() => {
     setTimeout(() => setPlayConfetti(false), 3000)
@@ -22,6 +23,7 @@ export default function Sniff3({ navigation }) {
         source={winkimages[dogNum]}
       />
       <View style={styles.titleContainer}>
+        {setBones(6)}
         <Text style={styles.label}>Great job! +6</Text>
         <Image
           style={styles.bone}
