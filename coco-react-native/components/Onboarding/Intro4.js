@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, MAINFONT, BOLDFONT, Back } from '.../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Intro() {
@@ -22,7 +22,7 @@ export default function Intro() {
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
-          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          <Image style={styles.dog} source={require('../../assets/dogs/dog1.png')}/>
           <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 180, marginLeft: 270}}/>
       </View>
   )

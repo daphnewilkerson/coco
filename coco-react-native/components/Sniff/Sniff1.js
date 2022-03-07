@@ -2,11 +2,14 @@ import { StyleSheet, Text, View, Image, Pressable, Alert } from 'react-native';
 import React, {
   useContext,
   useEffect,
-  useState
+  useState,
+  useRef
 } from 'react';
 import { COLORS, MAINFONT, dogimages, UserContext, Back } from '../../utils/constants';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
+import * as Device from 'expo-device';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Sniff1({ navigation }) {
 
@@ -14,6 +17,9 @@ export default function Sniff1({ navigation }) {
 
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+  const [showCamera, setShowCamera] = useState(false);
+
+  const camRef = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -33,11 +39,16 @@ export default function Sniff1({ navigation }) {
         },
         {
           text: "Camera",
-          onPress: photoAlert, // There might be a better solution here, also maybe do camera thing for phone
+          onPress: Device.isDevice ? () => setShowCamera(true) : photoAlert, // There might be a better solution here, also maybe do camera thing for phone
         },
         { text: "Cancel", onPress: undefined, style: "cancel" }
       ]
     );
+  
+  const takePicture = async () => {
+    let photo = await camRef.current?.takePictureAsync();
+    navigation.navigate('Sniff2', {image: photo.uri})
+  }
   
   // Code straight from expo :D
   const pickImage = async () => {
@@ -56,7 +67,12 @@ export default function Sniff1({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Back/>
+      {
+        showCamera ?
+        <></>
+        :
+        <Back/>
+      }
       <Text style={styles.label}>Scan your receipt to see how well you shopped!</Text>
       <Image
         style={styles.dog}
@@ -71,6 +87,33 @@ export default function Sniff1({ navigation }) {
           Upload Photo
         </Text>
       </Pressable>
+      {
+        showCamera ?
+        <View style={styles.camContainer}>
+          <View style={styles.topBar}/>
+          <Camera style={styles.camera} type={type} ref={camRef}/>
+          <View style={styles.otherBottomBar}>
+            <Text style={styles.cancelButton} onPress={() => setShowCamera(false)}>Cancel</Text>
+            <Pressable style={styles.cameraButtonOuter} onPress={takePicture}>
+              <View style={styles.cameraButtonInner}/>
+            </Pressable>
+            <Icon 
+              name="camera-reverse-outline" 
+              color="white" 
+              size={35}
+              onPress={() => {
+                setType(
+                  type === Camera.Constants.Type.back
+                    ? Camera.Constants.Type.front
+                    : Camera.Constants.Type.back
+                );
+              }}
+            />
+          </View>
+        </View>
+        :
+        <></>
+      }
     </View>
   )
 }
@@ -121,5 +164,51 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 20,
+  },
+  camera: {
+    flex: 1,
+  },
+  camText: {
+    fontSize: 18,
+    color: 'white',
+  },
+  camContainer: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  otherBottomBar: {
+    flex: 0.2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: 'black',
+    width: '100%',
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  topBar: {
+    flex: 0.2,
+    backgroundColor: 'black',
+    width: '100%'
+  },
+  cameraButtonOuter: {
+    backgroundColor: 'white',
+    height: 70,
+    width: 70,
+    borderRadius: 35,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cameraButtonInner: {
+    backgroundColor: 'white',
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: 'black',
+  },
+  cancelButton: {
+    color: 'white',
   },
 })

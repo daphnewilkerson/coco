@@ -3,10 +3,10 @@ import React, {
   useContext
 } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, storeLogos, storeSpecificNews, storeRatings } from '.../../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, storeLogos, storeSpecificNews, storeRatings } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Graph1, Graph2, Graph3 } from '../Graphs';
-import NewsBlurb from '.../NewsBlurb';
+import NewsBlurb from '../NewsBlurb';
 
 
 

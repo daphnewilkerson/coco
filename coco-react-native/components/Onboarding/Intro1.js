@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, MAINFONT, BOLDFONT, } from '.../../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, } from '../../utils/constants';
 
 export default function Intro() {
   const navigation = useNavigation();
@@ -15,14 +15,14 @@ export default function Intro() {
 
   return (
       <View style={styles.container}>
-          <Image style={styles.logo} source={require('../assets/logo.png')}/>
+          <Image style={styles.logo} source={require('../../assets/logo.png')}/>
           <Text style={styles.bigText}>Welcome to CoCo!</Text>
           <Text style={styles.mediumText}>Let me show you around!</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro2')}>
             <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
           {/* <Video source={require("../assets/sniff.mov")} shouldPlay={true} style={styles.video}/> */}
-          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          <Image style={styles.dog} source={require('../../assets/dogs/dog1.png')}/>
           {/* <Dog1 style={styles.dog}/> */}
       </View>
   )
