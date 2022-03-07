@@ -4,7 +4,7 @@ import React, {
   useContext,
   useEffect
 } from 'react'
-import { MAINFONT, COLORS, Back, UserContext, dogimages, allValues, tjRankings, tateRankings } from '../../utils/constants'
+import { MAINFONT, BOLDFONT, COLORS, Back, UserContext, dogimages, allValues, tjRankings, tateRankings } from '../../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Scan4() {
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   label: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 30,
   },
   idChoose: {

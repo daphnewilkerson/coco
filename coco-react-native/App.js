@@ -31,6 +31,7 @@ import Values from './components/Values';
 import { UserContext } from './utils/constants';
 import Bookmarks from './components/Bookmarks'
 import RecentPurchases from './components/RecentPurchases';
+import CoCoBones from './components/CoCoBones';
 import CompareMain from './components/Compare/CompareMain';
 import Scan1 from './components/Compare/Scan1';
 import Scan2 from './components/Compare/Scan2';
@@ -62,6 +63,12 @@ export default function App() {
   const [purchases, setPurchases] = useState([]);
   const addPurchase = (purchase) => {
     setPurchases([...purchases, purchase]);
+  }
+
+  //for CoCo Bones
+  const [bones, setBones] = useState(0);
+  const addBones = (bone) => {
+    setBones([...bones, bone]);
   }
 
   // For saving values
@@ -97,11 +104,11 @@ export default function App() {
   
 
   return (
-    <UserContext.Provider value={{purchases, addPurchase, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
+    <UserContext.Provider value={{bones, addBones, purchases, addPurchase, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="MainApp" component={MainAppNav}/>
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -275,6 +282,7 @@ function CoCoNav() {
       <Stack.Screen name="CoCoMain" component={CoCo}/>
       <Stack.Screen name="CustomDog" component={CustomDog}/>
       <Stack.Screen name="SaveDog" component={SaveDog}/>
+      <Stack.Screen name="CoCoBones" component={CoCoBones}/>
     </Stack.Navigator>
   )
 }
