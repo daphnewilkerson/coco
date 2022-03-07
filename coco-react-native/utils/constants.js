@@ -51,7 +51,12 @@ export const storeLogos = {
   'Amazon': require('../assets/company-logos/amazon.png'),
   'Amtrak': require('../assets/company-logos/amtrak.png'),
   'American Eagle': require('../assets/company-logos/americaneagle.png'),
-  'Trader Joe\'s': require('../assets/company-logos/traderjoes.png')
+  'Trader Joe\'s': require('../assets/company-logos/traderjoes.png'),
+  'Tate\'s': require('../assets/company-logos/tates.png'),
+  'Kerrygold': require('../assets/company-logos/kerrygold.png'),
+  'Organic Valley': require('../assets/company-logos/organicvalley.png'),
+  'Skinny Pop': require('../assets/company-logos/skinnypop.png'),
+  'Stella Rosa': require('../assets/company-logos/stellarosa.png'),
 }
 
 export const storeNews = {
@@ -69,7 +74,78 @@ export const storeNews = {
   ],
   'Amtrak': [],
   'American Eagle': [],
-  'Trader Joe\'s': []
+  'Trader Joe\'s': [
+    {
+      source: 'NYT',
+      title: 'Petition Urges Trader Joe\'s to Get Rid of \'Racist Branding\'',
+      link: 'https://www.nytimes.com/2020/07/19/business/trader-joes-petition.html'
+    },
+    {
+      source: 'KCRW',
+      title: 'Inside the bizarre business strategies of Trader Joe\'s',
+      link: 'https://www.kcrw.com/news/shows/greater-la/wildfires-trader-joes-surveillance/joe-coulombe'
+    }
+  ],
+  'Tate\'s': [
+    {
+      source: 'Food Business News',
+      title: 'Tate\'s Bake Shop taps new leader',
+      link: 'https://www.foodbusinessnews.net/articles/15339-tates-bake-shop-taps-new-leader'
+    },
+    {
+      source: 'Bake Magazine',
+      title: 'Tate\'s Bake Shop introduces Blueberry Crisp Cookies',
+      link: 'https://www.bakemag.com/articles/14622-tates-bake-shop-introduces-blueberry-crisp-cookies'
+    }
+  ],
+  'Kerrygold': [
+    {
+      source: 'FPT',
+      title: 'Ornua\'s Kerrygold Butter Production Plant, Mitchelstown, Co, Cork, Ireland',
+      link: 'https://www.foodprocessing-technology.com/projects/ornuas-kerrygold-butter-production-plant-mitchelstown-co-cork/'
+    },
+    {
+      source: 'Bloomberg',
+      title: 'Irish Butter Kerrygold has conquered America\'s Kitchen',
+      link: 'https://www.bloomberg.com/news/features/2019-10-02/how-irish-butter-kerrygold-conquered-america-s-kitchens'
+    }
+  ],
+  'Organic Valley': [
+    {
+      source: 'Cision',
+      title: 'Organic Valley Announces 2022 Initiatives to Save Northeast Family Dairy Farms',
+      link: 'https://www.prnewswire.com/news-releases/organic-valley-announces-2022-initiatives-to-save-northeast-family-dairy-farms-301463996.html'
+    },
+    {
+      source: 'Statesman Journal',
+      title: '\'Saving small organic family farms\': Organic Valley rebuilding McMinnville creamery',
+      link: 'https://www.statesmanjournal.com/story/news/2021/10/24/organic-valley-rebuilding-mcminnville-creamery/6143205001/'
+    }
+  ],
+  'Skinny Pop': [
+    {
+      source: 'Mashed',
+      title: 'The Untold Truth Of SkinnyPop',
+      link: 'https://www.mashed.com/655854/the-untold-truth-of-skinnypop/'
+    },
+    {
+      source: 'The Daily Journal',
+      title: '\'Skinny\' popcorn buyers say no kernel of truth in health claims',
+      link: 'https://www.smdailyjournal.com/news/local/skinny-popcorn-buyers-say-no-kernel-of-truth-in-health-claims/article_29a8c4ec-76b0-5b6a-8f9c-28d169c29635.html'
+    }
+  ],
+  'Stella Rosa': [
+    {
+      source: 'Business Wire',
+      title: 'Stella Rosa Joins the Non-Alcoholic Wine Category with Stella Rosa Non-Alcoholics',
+      link: 'https://www.businesswire.com/news/home/20220105005825/en/Stella-Rosa-Joins-the-Non-Alcoholic-Wine-Category-with-Stella-Rosa-Non-Alcoholics'
+    },
+    {
+      source: 'Vine Pair',
+      title: '13 Things You Should Know About Stella Rosa',
+      link: 'https://vinepair.com/articles/stella-rosa-red-black-moscato-wine-guide/'
+    }
+  ],
 }
 
 // export const storeRatings = {
@@ -99,12 +175,41 @@ export const storeRatings = {
   },
   'Amtrak': {},
   'American Eagle': {},
-  'Trader Joe\'s': {}
+  'Trader Joe\'s': {
+    'Sustainability': 4,
+    'Accessibility': 8,
+    'Workers\' Rights': 6
+  },
+  'Tate\'s': {
+    'Sustainability': 5,
+    'Accessibility': 6,
+    'Workers\' Rights': 1
+  },
+  'Kerrygold': {
+    'Sustainability': 3,
+    'Accessibility': 8,
+    'Workers\' Rights': 5
+  },
+  'Organic Valley': {
+    'Sustainability': 6,
+    'Accessibility': 9,
+    'Workers\' Rights': 8
+  },
+  'Skinny Pop': {
+    'Sustainability': 5,
+    'Accessibility': 7,
+    'Workers\' Rights': 6
+  },
+  'Stella Rosa': {
+    'Sustainability': 8,
+    'Accessibility': 9,
+    'Workers\' Rights': 8
+  },
 }
 
 
 export const storeSpecificNews = {
-  Amazon: {
+  'Amazon': {
     'Sustainability': [
       {
         source: 'CNN',
@@ -141,7 +246,235 @@ export const storeSpecificNews = {
         link: 'https://www.npr.org/2021/12/23/1067698799/amazon-nlrb-union#:~:text=Press-,Amazon%20settles%20with%20NLRB%20to%20give%20workers%20the%20power%20to,freely%20organize%20%E2%80%94%20and%20without%20retaliation'
       }
     ],
-  }
+  },
+  'Trader Joe\'s': {
+    'Sustainability': [
+      {
+        source: 'Daily Californian',
+        title: 'How sustainable is Trader Joe\'s business model?',
+        link: 'https://www.dailycal.org/2021/03/16/how-sustainable-is-trader-joes-business-model/'
+      },
+      {
+        source: 'Veg News',
+        title: 'NEW FROZEN TREATS AT TRADER JOE\'S, ECO PIZZA, AND MORE VEGAN FOOD NEWS OF THE WEEK',
+        link: 'https://vegnews.com/2022/2/vegan-food-news-of-the-week-february-18'
+      }
+    ],
+    'Accessibility': [
+      {
+        source: 'Eat This, Not That',
+        title: 'This Is How Far Shoppers Will Travel to Shop at Trader Joe\'s',
+        link: 'https://www.eatthis.com/news-how-far-shoppers-travel-for-trader-joes/'
+      },
+      {
+        source: 'NY Post',
+        title: 'Gristedes supermarket adds security to stores after \'hamburglar\' heist at Trader Joe\'s',
+        link: 'https://nypost.com/2022/02/10/nyc-supermarket-chain-adds-security-after-hamburglar-heist-at-trader-joes/'
+      }
+    ],
+    'Workers\' Rights': [
+      {
+        source: 'Daily Mail',
+        title: 'NYC subway stabbings rocket by 35% in a year, as Trader Joes\' worker is horrifically slashed across face',
+        link: 'https://www.dailymail.co.uk/news/article-10530543/NYC-subway-stabbings-spike-35-Trader-Joes-worker-slashed-face-latest-incident.html'
+      },
+      {
+        source: 'NY Post',
+        title: 'Another shoplifter targets NYC Trader Joe\'s — one day after thief took steaks',
+        link: 'https://nypost.com/2022/02/09/another-shoplifter-targets-nyc-trader-joes-in-east-village/'
+      }
+    ],
+  },
+  'Tate\'s': {
+    'Sustainability': [
+      {
+        source: 'People',
+        title: 'Tate\'s Has 2 New Cookie Flavors and You Can Order Them Online',
+        link: 'https://people.com/food/tates-has-2-new-cookie-flavors-and-you-can-order-them-online/'
+      },
+      {
+        source: 'Veg News',
+        title: 'TATE\'S BAKE SHOP JUST LAUNCHED ITS FIRST VEGAN COOKIES',
+        link: 'https://vegnews.com/2021/12/tates-bake-shop-vegan-cookies'
+      }
+    ],
+    'Accessibility': [
+      {
+        source: 'Business Insider',
+        title: 'The workers who make America\'s \'best chocolate-chip cookie\' say an anti-union employee threatened violence and claimed MS-13 gang ties',
+        link: 'https://www.businessinsider.com/tate-union-supporters-report-violent-threats-ms-13-fears-2021-4'
+      },
+      {
+        source: 'Newsday',
+        title: 'NLRB complaint filed over union vote at Tate\'s cookie factory',
+        link: 'https://www.newsday.com/business/tate-s-bake-shop-union-vote-1.50252573'
+      }
+    ],
+    'Workers\' Rights': [
+      {
+        source: 'News 12',
+        title: 'Union officials: Tate\'s Bake Shop workers threatened with deportation if they unionize',
+        link: 'https://bronx.news12.com/union-officials-tates-bake-shop-workers-threatened-with-deportation-if-they-unionize'
+      },
+      {
+        source: 'Long Island Press',
+        title: 'Tate\'s Bake Shop Employees Reject Bid to Unionize',
+        link: 'https://www.longislandpress.com/2021/05/14/tates-bake-shop-employees-reject-bid-to-unionize/'
+      }
+    ],
+  },
+  'Kerrygold': {
+    'Sustainability': [
+      {
+        source: 'DW',
+        title: 'Butter wars: Kerrygold wins EU trademark battle',
+        link: 'https://www.dw.com/en/butter-wars-kerrygold-wins-eu-trademark-battle/a-56843166'
+      },
+      {
+        source: 'Irish Central',
+        title: 'Kerrygold butter facing US lawsuit over "grass-fed cow" claims',
+        link: 'https://www.irishcentral.com/culture/food-drink/kerrygold-lawsuit-grass-fed'
+      }
+    ],
+    'Accessibility': [
+      {
+        source: 'Business Insider',
+        title: 'The workers who make America\'s \'best chocolate-chip cookie\' say an anti-union employee threatened violence and claimed MS-13 gang ties',
+        link: 'https://www.businessinsider.com/tate-union-supporters-report-violent-threats-ms-13-fears-2021-4'
+      },
+      {
+        source: 'Dairy Foods',
+        title: 'Kerrygold launches Irish butter with olive oil',
+        link: 'https://www.dairyfoods.com/articles/94873-kerrygold-launches-irish-butter-with-olive-oil'
+      }
+    ],
+    'Workers\' Rights': [
+      {
+        source: 'The Irish Times',
+        title: 'Ornua eyes €2bn in Kerrygold sales as group reports record turnover for 2020',
+        link: 'https://www.irishtimes.com/business/agribusiness-and-food/ornua-eyes-2bn-in-kerrygold-sales-as-group-reports-record-turnover-for-2020-1.4542853'
+      },
+      {
+        source: 'Independent',
+        title: '€40m Kerrygold plant on hold after engineer lodges planning objection',
+        link: 'https://www.independent.ie/business/irish/40m-kerrygold-plant-on-hold-afterengineer-lodges-planning-objection-40709499.html'
+      }
+    ],
+  },
+  'Organic Valley': {
+    'Sustainability': [
+      {
+        source: 'Organic Eye',
+        title: 'The Crisis in Organic Farming has Divided Advocates on how to Protect Organic Integrity',
+        link: 'https://organiceye.org/crisis-in-organic-farming-divided-advocates-protect-organic-integrity/'
+      },
+      {
+        source: 'News 8000',
+        title: 'Organic Valley hits record $1.2 billion in sales',
+        link: 'https://www.news8000.com/organic-valley-hits-record-1-2-billion-in-sales/'
+      }
+    ],
+    'Accessibility': [
+      {
+        source: 'Park Rapids Enterprise',
+        title: 'Organic Valley farms in southeast Minnesota grateful they made the turn to organic',
+        link: 'https://www.parkrapidsenterprise.com/business/organic-valley-farms-in-southeast-minnesota-grateful-they-made-the-turn-to-organic'
+      },
+      {
+        source: 'Wisconsin Examiner',
+        title: 'Organic Valley struggles, then surges in turbulent dairy market',
+        link: 'https://wisconsinexaminer.com/2020/04/20/organic-valley-struggles-then-surges-in-turbulent-dairy-market/'
+      }
+    ],
+    'Workers\' Rights': [
+      {
+        source: 'Dairy Herd',
+        title: 'Organic Valley Farmers Receive National Dairy Quality Awards',
+        link: 'https://www.dairyherd.com/news/sustainability/organic-valley-farmers-receive-national-dairy-quality-awards'
+      },
+      {
+        source: 'Tasting Table',
+        title: 'The Real Reason Small Dairy Farms Are Rapidly Closing',
+        link: 'https://www.tastingtable.com/725575/the-real-reason-small-dairy-farms-are-rapidly-closing/'
+      }
+    ],
+  },
+  'Skinny Pop': {
+    'Sustainability': [
+      {
+        source: 'CNBC',
+        title: 'Hershey in $1.6 billion deal to acquire SkinnyPop parent Amplify',
+        link: 'https://www.cnbc.com/2017/12/18/hershey-in-1-point-6-billion-deal-to-acquire-skinnypop-parent-amplify.html'
+      },
+      {
+        source: 'The Hershey Company',
+        title: 'The SkinnyPop Story: How We\'re Building a Mega-brand',
+        link: 'https://www.thehersheycompany.com/en_us/home/newsroom/blog/the-skinnypop-story-how-were-building-a-megabrand.html'
+      }
+    ],
+    'Accessibility': [
+      {
+        source: 'Food Business News',
+        title: 'SkinnyPop goes sweet',
+        link: 'https://www.foodbusinessnews.net/articles/18215-skinnypop-goes-sweet'
+      },
+      {
+        source: 'The Street',
+        title: 'Why Maker of SkinnyPop Popcorn May be Having a Nasty IPO',
+        link: 'https://www.thestreet.com/investing/will-skinnypop-maker-amplify-brands-still-be-mouth-watering-post-ipo-13244901'
+      }
+    ],
+    'Workers\' Rights': [
+      {
+        source: 'Chicago Business',
+        title: 'SkinnyPop parent goes public valuing the popcorn startup at $1.35 billion',
+        link: 'https://www.chicagobusiness.com/article/20150805/NEWS07/150809926/skinnypop-parent-goes-public-valuing-the-popcorn-startup-at-1-35-billion'
+      },
+      {
+        source: 'The Garage',
+        title: 'Family Dinner: Andy Friedman of SkinnyPop',
+        link: 'https://thegarage.northwestern.edu/news/1766-2/'
+      }
+    ],
+  },
+  'Stella Rosa': {
+    'Sustainability': [
+      {
+        source: 'LA Times',
+        title: 'The story behind Stella Rosa, and all those super extra billboards',
+        link: 'https://www.latimes.com/food/dailydish/la-fo-dr-stella-rosa-20181015-story.html'
+      },
+      {
+        source: 'Shanken News Daily',
+        title: 'Riboli Family\'s Stella Rosa On A Sharp Rise',
+        link: 'https://www.shankennewsdaily.com/index.php/2018/01/11/19964/riboli-familys-stella-rosa-sharp-rise/'
+      }
+    ],
+    'Accessibility': [
+      {
+        source: 'Statista',
+        title: 'Growth of sparkling wine sales volume in the United States in 2018, by brand',
+        link: 'https://www.statista.com/statistics/972844/sparkling-wine-volume-growth-us-brand/'
+      },
+      {
+        source: 'DPF Law',
+        title: 'Stella Rosa Trumpets Pyrrhic Trade Dress “Victory” Over Constellation',
+        link: 'https://www.dpf-law.com/blogs/lex-vini/stella-rosa-trumpets-pyrrhic-trade-dress-victory-constellation/'
+      }
+    ],
+    'Workers\' Rights': [
+      {
+        source: 'Benzinga',
+        title: 'Where\'s Stella Rosa?',
+        link: 'https://www.benzinga.com/pressreleases/20/08/b17247561/wheres-stella-rosa'
+      },
+      {
+        source: 'Law 360',
+        title: 'Winemaker Says Anheuser-Busch Breached \'Stella\' TM Deal',
+        link: 'https://www.law360.com/articles/1343614/winemaker-says-anheuser-busch-breached-stella-tm-deal'
+      }
+    ],
+  },
 }
 
 export const dogimages = [require('../assets/dogs/dog1.png'), require('../assets/dogs/dog2.png'), require('../assets/dogs/dog3.png'), require('../assets/dogs/dog4.png'), require('../assets/dogs/dog5.png'), require('../assets/dogs/dog6.png'), require('../assets/dogs/dog7.png'), require('../assets/dogs/dog8.png'), require('../assets/dogs/dog9.png')];
