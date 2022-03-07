@@ -2,37 +2,33 @@ import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
 import React, {
   useContext
 } from 'react'
-import { COLORS, MAINFONT, BOLDFONT, Back, UserContext } from '../utils/constants'
+import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, winkimages} from '../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native-gesture-handler';
 
 
 export default function Purchases({ route, navigation }) {
 
-  const { bones } = useContext(
-    UserContext
-  );
+  const { dogNum, bones } = useContext(UserContext);
 
-  
   return (
     <View style={styles.container}>
       <Back/>
       <Text style={styles.pageTitle}>CoCo Bones</Text>
-      <ScrollView style={styles.listContainer} contentContainerStyle={{ alignItems: 'center' }}>
-        <View style={styles.boneview}>
-          <Text style={styles.bonetext}> You have </Text>
-          <Text style={styles.bonenum}> {bones} </Text>
-          <Text style={styles.bonetext}> CoCo Bone{bones === 1 ? '!' : 's!'}</Text>
-        </View>
-        {
-          bones === 0 ?
-          <><Text style={styles.noBonesText}>Make ethical purchases to earn CoCo Bones!</Text></>
-          
-          :
-          <></>
-        }
+      <View style={styles.boneview}>
+        <Text style={styles.bonetext}> You have </Text>
+        <Text style={styles.bonenum}> {bones} </Text>
+        <Text style={styles.bonetext}> CoCo Bone{bones === 1 ? '!' : 's!'}</Text>
+      </View>
+      {
+        bones === 0 ?
+        <><Text style={styles.noBonesText}>Make ethical purchases to earn CoCo Bones!</Text></>
         
-      </ScrollView>
+        :
+        <></>
+      }
+      <Image style={styles.dog} source={winkimages[dogNum]} />
+
     </View>
   )
 }
@@ -43,6 +39,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
     paddingTop: 100
+  },
+  dog: {
+    height: 250,
+    resizeMode: 'contain',
   },
   boneview:{
     backgroundColor: COLORS.lightGreen,

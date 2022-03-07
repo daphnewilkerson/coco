@@ -1,7 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {
-  useContext
-} from 'react';
+import * as React from 'react';
 import { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,27 +7,23 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
-import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, dogimages } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back } from '.../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+export default function Intro() {
+  const navigation = useNavigation();
 
-export default function Intro({route}) {
-    const navigation = useNavigation();
-    const { dogNum } = useContext(UserContext);
 
-  
   return (
       <View style={styles.container}>
           <Back/>
-          <Text style={styles.moremediumText}>Here is your profile button!</Text>
-          <Text style={styles.mediumText}>You can update your values, and view favorited stores, saved articles, and recent purchases.</Text>
-          <Text style={styles.smallerText}>Let's add your values so CoCo can tailor information to you!</Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Values', {nextPage: 'SaveValues'})}>
-            <Text style={styles.smallText}>click to add values</Text>
+          <Text style={styles.mediumText}>Here is your home button!</Text>
+          <Text style={styles.moremediumText}>You can fetch information about brands, compare brands or items, and scan your receipts to earn rewards here!</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Intro4')}>
+            <Text style={styles.smallText}>click to continue</Text>
           </Pressable>
-          <Image style={styles.dog} source={dogimages[dogNum]}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 70, marginRight: 290}}/>
-          
+          <Image style={styles.dog} source={require('../assets/dogs/dog1.png')}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 40}}/>
       </View>
   )
 }
@@ -46,35 +40,26 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginBottom: 50,
   },
-  moremediumText: {
+  mediumText: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
     fontSize: 25,
     fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'left',
-    marginTop: 300,
-    marginRight: 50,
-    marginLeft: 15,
+    marginBottom: 20,
+    textAlign: 'center',
+    marginTop: 430,
+    marginLeft: 25,
+    marginRight: 25,
   },
-  mediumText: {
+  moremediumText: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 50,
-    textAlign: 'left',
-    marginRight: 50,
-    marginLeft: 15,
-  },
-  smallerText: {
-    color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 50,
-    textAlign: 'left',
-    marginRight: 70,
+    marginBottom: 20,
+    textAlign: 'center',
+    marginLeft: 25,
+    marginRight: 25,
   },
   smallText: {
     color: COLORS.darkGreen,
@@ -85,8 +70,9 @@ const styles = StyleSheet.create({
   },
   dog: {
     position: 'absolute',
-    right: 15,
-    bottom: -170,
+    left: -60,
+    top: 160,
+    transform: [{ rotate: '50deg' }],
     width: 221,
     height: 281,
   },

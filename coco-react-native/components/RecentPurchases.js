@@ -21,7 +21,8 @@ export default function Purchases({ route, navigation }) {
       <ScrollView style={styles.listContainer} contentContainerStyle={{ alignItems: 'center' }}>
         {
           purchases.length === 0 ?
-          <Text style={styles.noBookmarksText}>Scan receipt to confirm a purchase!</Text>
+          <><Text style={styles.noPurchasesText}>No purchases yet...</Text>
+          <Text style={styles.noPurchasesText}>Scan receipt to confirm a purchase!</Text></>
           :
           <></>
         }
@@ -49,10 +50,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '95%',
   },
-  noBookmarksText: {
+  noPurchasesText: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
-    fontSize: 30,
+    fontSize: 20,
     padding: 15,
   }
 })
