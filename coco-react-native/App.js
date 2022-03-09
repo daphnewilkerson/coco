@@ -104,8 +104,9 @@ export default function App() {
     <UserContext.Provider value={{bones, setBones, purchases, setPurchases, bookmarks, addBookmark, removeBookmark, dogNum, setDogNum, values, addValue, removeValue, aSet, bSet, setASet, setBSet}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ animationEnabled: false, headerShown: false  }}>
-          <Stack.Screen name="MainApp" component={MainAppNav}/>
           <Stack.Screen name="Onboarding" component={OnboardingTab}/>
+          <Stack.Screen name="MainApp" component={MainAppNav}/>
+          
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>

@@ -1,5 +1,6 @@
 import { Text, StyleSheet, Pressable, Dimensions} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { RFPercentage } from "react-native-responsive-fontsize";
 import React, {
   createContext,
 } from 'react';
@@ -30,7 +31,7 @@ export const Back = () => {
 const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
-    top: 50,
+    top: 60,
     left: 30,
     zIndex: 2, 
     elevation: 2
