@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontFamily: MAINFONT,
-    fontSize: 20,
+    fontSize: Math.round(20*FONT_SCALE),
     color: COLORS.darkGreen
   }
 })
