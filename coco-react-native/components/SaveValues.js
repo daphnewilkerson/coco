@@ -90,21 +90,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   leftCornerButton: {
-    backgroundColor: COLORS.background,
-    width: 100,
-    height: 50,
     position: 'absolute',
-    left: 25,
-    top: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
+    top: 60,
+    left: 30,
+    zIndex: 2, 
+    elevation: 2
   },
   cornerText: {
-    color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 20,
-    position: 'absolute',
-    top: 10,
-    right: 0,
+    color: COLORS.darkGreen
   },
 });
