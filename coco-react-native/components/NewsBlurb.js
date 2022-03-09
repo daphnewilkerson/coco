@@ -4,7 +4,7 @@ import React, {
 import { StyleSheet, Pressable, Text  } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import { COLORS, MAINFONT, BOLDFONT, UserContext } from '../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, UserContext, FONT_SCALE } from '../utils/constants';
 
 
 
@@ -59,11 +59,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: MAINFONT,
-    fontSize: 18,
+    fontSize: Math.round(19*FONT_SCALE),
     color: COLORS.darkGreen,
     marginTop: 15,
     left: 10,
-    marginRight: 50
+    marginRight: 50,
   },
   bookmarkContainer: {
     position: 'absolute',

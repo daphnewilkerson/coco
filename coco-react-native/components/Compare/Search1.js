@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, Image, ScrollView, TextInput, FlatList, Keyboard } from 'react-native'
+import { StyleSheet, Text, View, Pressable, Image, ScrollView, TextInput, FlatList, Keyboard, KeyboardAvoidingView } from 'react-native'
 import React, {
   useState,
   useContext,
@@ -106,25 +106,32 @@ export default function Search1({ navigation }) {
     <View style={styles.container}>
       <Back/>
       <Text style={styles.pageTitle}>Search Brands</Text>
-      <Text style={styles.brand}>Brand A</Text>
-      <View style={styles.searchContainer}>
-        <Icon name="search-outline" size={35} style={{color: COLORS.darkGreen, marginLeft: 10}}/>
-        <TextInput
-          style={styles.searchInput}
-          onChangeText={handleSearch}
-          value={search}
-          selectionColor={COLORS.darkGreen}
-          onFocus={() => {setSearchFocused(true); setShowResults(true)}}
-          onBlur={() => {setSearchFocused(false); if (search === '') {setShowResults(false)}}}
-        ></TextInput>
-      </View>
-      <FlatList 
-        data={results}
-        renderItem={renderResults}
-        keyExtractor={entry => entry.store}
-        style={{...styles.resultsList, display: (showResults) ? 'flex' : 'none'}}
-        keyboardShouldPersistTaps='handled'
-      />
+      {
+        searchFocusedB ?
+        <View style={{height: 30}}></View>
+        :
+        <>
+          <Text style={styles.brand}>Brand A</Text>
+          <View style={styles.searchContainer}>
+            <Icon name="search-outline" size={35} style={{color: COLORS.darkGreen, marginLeft: 10}}/>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={handleSearch}
+              value={search}
+              selectionColor={COLORS.darkGreen}
+              onFocus={() => {setSearchFocused(true); setShowResults(true)}}
+              onBlur={() => {setSearchFocused(false); if (search === '') {setShowResults(false)}}}
+            ></TextInput>
+          </View>
+          <FlatList 
+            data={results}
+            renderItem={renderResults}
+            keyExtractor={entry => entry.store}
+            style={{...styles.resultsList, display: (showResults) ? 'flex' : 'none'}}
+            keyboardShouldPersistTaps='handled'
+          />
+        </>
+      }
       <Text style={{...styles.brand, marginTop: 0}}>Brand B</Text>
       <View style={styles.searchContainer}>
         <Icon name="search-outline" size={35} style={{color: COLORS.darkGreen, marginLeft: 10}}/>
@@ -141,7 +148,7 @@ export default function Search1({ navigation }) {
         data={resultsB}
         renderItem={renderResultsB}
         keyExtractor={entry => entry.store}
-        style={{...styles.resultsListB, display: (showResultsB) ? 'flex' : 'none'}}
+        style={{...styles.resultsListB, display: (showResultsB) ? 'flex' : 'none', top: searchFocusedB ? 320 : 500}}
         keyboardShouldPersistTaps='handled'
       />
       <Image
@@ -233,8 +240,8 @@ const styles = StyleSheet.create({
   },
   resultsList: {
     width: '100%',
-    height: '60%',
-    top: '40%',
+    height: '80%',
+    top: 320,
     backgroundColor: COLORS.background,
     position: 'absolute',
     zIndex: 2, // for ios
@@ -242,8 +249,8 @@ const styles = StyleSheet.create({
   },
   resultsListB: {
     width: '100%',
-    height: '55%',
-    top: '61%',
+    height: '80%',
+    top: 500,
     backgroundColor: COLORS.background,
     position: 'absolute',
     zIndex: 2, // for ios
@@ -261,11 +268,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   dog: {
-    height: 300,
+    height: '35%',
     width: 300,
     resizeMode: 'contain',
     position: 'absolute',
-    bottom: -180,
-    right: 120
+    bottom: '-21%',
+    right: '30%'
   }
 })

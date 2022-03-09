@@ -4,7 +4,7 @@ import React, {
   useContext,
   useEffect
 } from 'react'
-import { MAINFONT, BOLDFONT, COLORS, Back, UserContext, dogimages, allValues, tjRankings, tateRankings } from '../../utils/constants'
+import { MAINFONT, BOLDFONT, COLORS, Back, UserContext, dogimages, allValues, tjRankings, tateRankings, FONT_SCALE} from '../../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Scan4({ navigation }) {
@@ -48,13 +48,13 @@ export default function Scan4({ navigation }) {
           <>
             <Image
               style={styles.thought}
-              source={require('../../assets/thoughtbubble3.png')}
+              source={require('../../assets/idchoosetates.png')}
             />
             <Image
               style={styles.dog}
               source={dogimages[dogNum]}
             />
-            <Text style={styles.idChoose}>I'd choose Tate's!</Text>
+            {/* <Text style={styles.idChoose}>I'd choose Tate's!</Text> */}
           </>
           :
           <></>
@@ -73,17 +73,18 @@ const styles = StyleSheet.create({
   label: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
-    fontSize: 30,
+    fontSize: Math.round(30*FONT_SCALE),
   },
   idChoose: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
-    fontSize: 25,
+    fontSize: Math.round(22*FONT_SCALE),
     position: 'absolute',
-    bottom: 190,
-    right: 65,
-    width: 130,
-    textAlign: 'center'
+    bottom: '20%',
+    right: '20%',
+    width: '30%',
+    textAlign: 'center',
+    
   },
   valueLabel: {
     color: COLORS.darkGreen,
@@ -134,18 +135,18 @@ const styles = StyleSheet.create({
     maxHeight: '47%'
   },
   dog: {
-    height: 160,
+    height: '20%',
     width: 160,
     resizeMode: 'contain',
     position: 'absolute',
     bottom: -5,
-    left: -10,
+    left: '5%',
   },
   thought: {
-    width: 250,
+    height: '15%',
     resizeMode: 'contain',
     position: 'absolute',
-    bottom: 110,
-    right: 20
+    bottom: '15%',
+    left: '-20%'
   },
 })

@@ -46,7 +46,7 @@ export default function Sniff4({ navigation }) {
             style={styles.bone}
             source={require('../../assets/bone.png')}
           />
-          <Pressable style={styles.boneButton} onPress={() => navigation.navigate('CoCoBones')}>
+          <Pressable style={styles.boneButton} onPress={() => {navigation.navigate('CoCo', { screen: 'CoCoBones' });}}>
             <Text style={styles.buttonTextSmall}>View Bones</Text>
           </Pressable>
         </View>
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   boneButton: {
     backgroundColor: COLORS.lightGreen,
     height: 70,
-    width: 200,
+    width: '50%',
     justifyContent: 'center',
     textAlign: 'center',
     borderRadius: 18,

@@ -4,7 +4,7 @@ import React, {
   useContext,
   useEffect
 } from 'react'
-import { MAINFONT, COLORS, Back, UserContext, dogimages } from '../../utils/constants'
+import { MAINFONT, COLORS, Back, UserContext, dogimages, FONT_SCALE, BOLDFONT } from '../../utils/constants'
 import { useNavigation } from '@react-navigation/native'
 
 export default function Scan1() {
@@ -39,14 +39,16 @@ export default function Scan1() {
           <Text style={styles.tap}>Tap to take photo!</Text>
         }
       </Pressable>
-      {
-        aSet && bSet ?
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Scan3')}>
-          <Text style={styles.buttonText}>Compare!</Text>
-        </Pressable>
-        :
-        <></>
-      }
+      <View style={{width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        {
+          aSet && bSet ?
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Scan3')}>
+            <Text style={styles.buttonText}>Compare!</Text>
+          </Pressable>
+          :
+          <></>
+        }
+      </View>
     </View>
   )
 }
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
   pageTitle: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
-    fontSize: 35,
+    fontSize: Math.round(35*FONT_SCALE),
     marginTop: 100
   },
   label: {
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
   },
   outline: {
     width: '80%',
-    height: 200,
+    height: '20%',
     borderColor: COLORS.darkGreen,
     borderWidth: 1.5,
     borderRadius: 50,
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.lightGreen,
     width: '70%',
-    height: 60,
+    height: '50%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
