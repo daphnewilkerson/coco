@@ -58,10 +58,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dog: {
+    width: '54%',
+    height: undefined,
+    aspectRatio: 221/281,
     position: 'absolute',
     bottom: 0,
-    width: 300,
-    height: 381,
   },
   video: {
     backgroundColor: "red",
