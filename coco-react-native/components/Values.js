@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView, FlatList, TextInput} from 'react-native';
 import AppLoading from 'expo-app-loading';
+import { RFPercentage } from "react-native-responsive-fontsize";
 import { COLORS, Back, MAINFONT, BOLDFONT, allValues, UserContext } from '../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -52,8 +53,8 @@ export default function Intro({route}) {
           <Pressable style={styles.rightCornerButton} onPress={()=> navigation.navigate(route.params.nextPage)}>
               <Text style={styles.cornerText}>save</Text>
           </Pressable>
-          <Text style={styles.mediumText}>What is most important to you?</Text>
-          <Text style={styles.smallText}>This information will be used to tailor information CoCo gives you to what you care about!</Text>
+          <Text numberOfLines={1} adjustsFontSizeToFit style={styles.mediumText}>What is most important to you?</Text>
+          <Text numberOfLines={2} adjustsFontSizeToFit style={styles.smallText}>This information will be used to tailor information CoCo gives you to what you care about!</Text>
           <View style={styles.searchContainer}>
               <Icon name="search-outline" size={35} style={{color: COLORS.darkGreen, marginLeft: 10}}/>
               <TextInput
@@ -97,7 +98,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
-    marginTop: 115,
+    marginTop: 105,
+    padding: 10,
     textAlign: 'center',
   },
   smallText: {
@@ -121,18 +123,16 @@ const styles = StyleSheet.create({
   value: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
-    fontSize: 18,
+    fontSize: 15,
     textAlign: 'center',
   },
   rightCornerButton: {
     backgroundColor: COLORS.background,
-    width: 100,
-    height: 50,
     position: 'absolute',
-    right: 25,
-    top: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
+    top: '6%',
+    right: '5%',
+    //alignItems: 'center',
+    //justifyContent: 'center',
   },
   cornerText: {
     color: COLORS.darkGreen,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flexGrow: 1,
     height: '100%',
-    fontSize: 25,
+    fontSize: RFPercentage(2.5),
     fontFamily: MAINFONT,
     marginLeft: 5,
     color: COLORS.darkGreen,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   noResultsText: {
     fontFamily: MAINFONT,
-    fontSize: 28,
+    fontSize: RFPercentage(2),
     color: COLORS.darkGreen
   },
   valuesContainer: {

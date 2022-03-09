@@ -17,13 +17,13 @@ export default function Intro() {
   return (
       <View style={styles.container}>
           <Back/>
-          <Text style={styles.moremediumText}>Here is CoCo's profile button! </Text>
-          <Text style={styles.mediumText}>You can update CoCo's look and view CoCo Bones earned by shopping ethically.</Text>
+          <Text numberOfLines={1} adjustsFontSizeToFit style={styles.moremediumText}>Here is CoCo's profile button! </Text>
+          <Text numberOfLines={3} adjustsFontSizeToFit style={styles.mediumText}>You can update CoCo's look and view CoCo Bones earned by shopping ethically.</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Intro5')}>
-            <Text style={styles.smallText}>click to continue</Text>
+            <Text numberOfLines={1} adjustsFontSizeToFit style={styles.smallText}>click to continue</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: 180, marginLeft: 270}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: '45%', marginLeft: '65%'}}/>
       </View>
   )
 }
@@ -34,12 +34,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     alignItems: 'center',
   },
-  coco: {
-    width: 115,
-    height: 250,
-    marginTop: 100,
-    marginBottom: 50,
-  },
   moremediumText: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
@@ -47,7 +41,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 0,
     textAlign: 'right',
-    marginTop: 300,
+    marginTop: '70%',
     marginLeft: 20,
     marginRight: 15,
   },
@@ -68,44 +62,23 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
+    padding: 10,
   },
   dog: {
     position: 'absolute',
     left: 15,
-    bottom: -170,
-    width: 221,
-    height: 281,
-  },
-  video: {
-    backgroundColor: "red",
-    width: 500,
-    height: 500,
+    bottom: '-22%',
+    width: '54%',
+    height: undefined,
+    aspectRatio: 221/281,
   },
   button: {
     backgroundColor: COLORS.lightGreen,
-    width: 230,
+    width: '50%',
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
     marginTop: 25,
-  },
-  leftCornerButton: {
-    backgroundColor: COLORS.background,
-    width: 100,
-    height: 50,
-    position: 'absolute',
-    left: 25,
-    top: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cornerText: {
-    color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
-    fontSize: 20,
-    position: 'absolute',
-    top: 10,
-    right: 0,
   },
 });
