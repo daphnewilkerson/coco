@@ -50,7 +50,9 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'black',
     borderWidth: 7,
-    borderColor: COLORS.lightGreen
+    borderColor: COLORS.lightGreen,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   button: {
     backgroundColor: COLORS.lightGreen,

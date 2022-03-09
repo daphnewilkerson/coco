@@ -78,15 +78,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 35,
     marginTop: 450,
-    zIndex: 2, // for ios
-    elevation: 2, // for android
   },
   buttonText: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 20,
-    zIndex: 2, // for ios
-    elevation: 2, // for android
   },
   label: {
     color: COLORS.darkGreen,
