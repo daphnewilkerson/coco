@@ -3,7 +3,7 @@ import React, {
   useContext
 } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, storeLogos, storeSpecificNews, storeRatings } from '../../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, storeLogos, storeSpecificNews, storeRatings, FONT_SCALE } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Graph1, Graph2, Graph3 } from '../Graphs';
 import NewsBlurb from '../NewsBlurb';
@@ -59,27 +59,27 @@ const styles = StyleSheet.create({
   storeLogo: {
     height: 100,
     position: 'absolute',
-    top: 100,
+    top: '12%',
     resizeMode: 'contain',
   },
   scoreLabel: {
     fontFamily: BOLDFONT,
-    fontSize: 35,
+    fontSize: Math.round(35*FONT_SCALE),
     color: COLORS.darkGreen,
-    marginTop: 220,
+    marginTop: '52%',
   },
   storiesLabel: {
     fontFamily: BOLDFONT,
-    fontSize: 28,
+    fontSize: Math.round(28*FONT_SCALE),
     color: COLORS.darkGreen,
     marginRight: 'auto',
     left: 20,
     marginBottom: 10,
-    marginTop: 30
+    marginTop: '5%'
   },
   statsLabel: {
     fontFamily: BOLDFONT,
-    fontSize: 28,
+    fontSize: Math.round(28*FONT_SCALE),
     color: COLORS.darkGreen,
     marginRight: 'auto',
     marginTop: 10,

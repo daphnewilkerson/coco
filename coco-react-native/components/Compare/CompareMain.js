@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React, {
   useContext
 } from 'react'
-import { MAINFONT, COLORS, Back, UserContext, dogimages } from '../../utils/constants'
+import { MAINFONT, COLORS, Back, UserContext, dogimages, BOLDFONT } from '../../utils/constants'
 import { useNavigation } from '@react-navigation/native';
 
 export default function CompareMain() {
@@ -48,12 +48,12 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   pageTitle: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 35,
     marginTop: 100
   },
@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
   dog: {
     position: 'absolute',
     resizeMode: 'contain',
-    height: 300,
+    height: '30%',
     width: 300,
-    top: 600,
+    top: '70%',
     right: -115,
   }
   

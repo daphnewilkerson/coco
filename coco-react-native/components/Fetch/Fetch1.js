@@ -2,7 +2,7 @@ import React, {
   useState,
 } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, FlatList, Pressable} from 'react-native';
-import { COLORS, MAINFONT, BOLDFONT, Back} from '../../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, Back, FONT_SCALE} from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   blobText: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
-    fontSize: 25
+    fontSize: Math.round(25*FONT_SCALE)
   },
   resultItem: {
     width: '100%',

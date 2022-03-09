@@ -24,7 +24,7 @@ import Fetch1 from './components/Fetch/Fetch1';
 import Fetch2 from './components/Fetch/Fetch2';
 import Fetch3 from './components/Fetch/Fetch3';
 import Fetch4 from './components/Fetch/Fetch4';
-import { COLORS } from './utils/constants'
+import { COLORS, allAssets } from './utils/constants'
 import { useFonts, Comfortaa_400Regular, Comfortaa_700Bold } from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 import Values from './components/Values';
@@ -85,6 +85,9 @@ export default function App() {
   // For the loaded in pictures for scan1
   const [aSet, setASet] = useState(false);
   const [bSet, setBSet] = useState(false);
+
+  // Wow this actually works crazy (but causes soome lag)
+  // const [assets, error] = useAssets(allAssets);
 
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({

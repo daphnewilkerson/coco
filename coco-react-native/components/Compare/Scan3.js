@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
+import { StyleSheet, Text, View, Pressable, Image, Dimensions } from 'react-native'
 import React, {
   useState,
   useContext,
   useEffect
 } from 'react'
-import { MAINFONT, COLORS, Back, UserContext, dogimages } from '../../utils/constants'
+import { MAINFONT, COLORS, Back, UserContext, dogimages, FONT_SCALE, BOLDFONT} from '../../utils/constants'
 
 
 export default function Scan3({navigation}) {
@@ -24,10 +24,15 @@ export default function Scan3({navigation}) {
       <Pressable style={styles.button} onPress={() => navigation.navigate('Scan4')}>
         <Text style={styles.buttonText}>Learn more</Text>
       </Pressable>
-      <Image
-        style={styles.thought}
-        source={require('../../assets/thoughtbubble2.png')}
-      />
+      {
+        Dimensions.get('window').height === 896 ? // This is bad I'm just only rendering in demo size
+        <Image
+          style={styles.thought}
+          source={require('../../assets/thoughtbubble2.png')}
+        />
+        :
+        <></>
+      }
       <Image
         style={styles.dog}
         source={dogimages[dogNum]}
@@ -44,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   dog: {
-    height: 260,
+    height: '30%',
     width: 260,
     resizeMode: 'contain',
     position: 'absolute',
@@ -55,23 +60,23 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: 'contain',
     position: 'absolute',
-    bottom: -40,
+    bottom: '-5%',
   },
   labelContainer: {
     width: '70%',
-    height: 200,
-    marginTop: 240,
+    height: '24%',
+    marginTop: '58%',
   },
   brand: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT, // Change this to bold
-    fontSize: 37,
+    fontSize: Math.round(38*FONT_SCALE),
     textDecorationLine: 'underline'
   },
   label: {
     color: COLORS.darkGreen,
     fontFamily: MAINFONT,
-    fontSize: 37,
+    fontSize: Math.round(38*FONT_SCALE),
   },
   button: {
     backgroundColor: COLORS.lightGreen,
@@ -88,7 +93,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
 })

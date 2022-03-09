@@ -5,7 +5,7 @@ import React, {
   useState,
   useRef
 } from 'react';
-import { COLORS, MAINFONT, dogimages, UserContext, Back } from '../../utils/constants';
+import { COLORS, MAINFONT, dogimages, UserContext, Back, BOLDFONT } from '../../utils/constants';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
 import * as Device from 'expo-device';
@@ -126,17 +126,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   dog: {
-    height: 230,
-    width: 230,
-    right: 190,
+    height: '30%',
+    width: '45%',
+    right: '50%',
     resizeMode: 'contain',
     position: 'absolute'
   },
   speech: {
     height: 200,
-    width: 200,
+    width: '45%',
     top: 180,
-    left: 200,
+    left: '50%',
     resizeMode: 'contain',
     position: 'absolute'
   },
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 170,
     top: 225,
-    left: 210,
+    left: '51%',
     textAlign: 'center'
   },
   button: {
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   camera: {

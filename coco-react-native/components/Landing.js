@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
     alignItems: 'center',
-    paddingTop: 250
+    paddingTop: '60%'
   },
   logo: {
     width: 125,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    margin: 15,
+    margin: '3%',
   },
   landingButtonText: {
     color: COLORS.darkGreen,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   dog: {
-    height: 230,
+    height: '40%',
     resizeMode: 'contain',
     marginTop: 'auto',
     marginBottom: -3,

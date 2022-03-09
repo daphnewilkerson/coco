@@ -3,7 +3,7 @@ import React, {
   useContext
 } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { COLORS, MAINFONT, BOLDFONT, UserContext, storeLogos, storeNews, storeRatings, sadimages, Back } from '../../utils/constants';
+import { COLORS, MAINFONT, BOLDFONT, UserContext, storeLogos, storeNews, storeRatings, sadimages, Back, FONT_SCALE } from '../../utils/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path, G, Defs } from "react-native-svg";
 import NewsBlurb from '../NewsBlurb';
@@ -67,27 +67,29 @@ const styles = StyleSheet.create({
   storeLogo: {
     height: 100,
     marginTop: 100,
-    marginBottom: 50,
+    marginBottom: '5%',
     resizeMode: 'contain',
   },
   dog: {
     width: 300,
-    height: 226,
+    height: '40%',
     position: 'absolute',
-    bottom: -49,
+    resizeMode: 'contain',
+    bottom: '-9%',
   },
   label: {
     fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
-    right: 100,
+    marginRight: 'auto',
+    marginLeft: '5%',
     marginBottom: 10,
   },
   ratingsLabel: {
     fontFamily: BOLDFONT,
     fontSize: 28,
     color: COLORS.darkGreen,
-    marginTop: 40
+    marginTop: '8%'
   },
   ratingsContainer: {
     display: 'flex',
@@ -112,7 +114,7 @@ const styles = StyleSheet.create({
   ratingsText: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
-    fontSize: 14,
+    fontSize: Math.round(14*FONT_SCALE),
     textAlign: 'center'
   },
   sorryText: {

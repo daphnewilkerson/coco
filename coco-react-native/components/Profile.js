@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
     fontSize: 45,
-    marginBottom: 100
+    marginBottom: '15%'
   },
   landingButton: {
     backgroundColor: COLORS.lightGreen,
@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   dog: {
-    height: 250,
+    height: '35%',
     resizeMode: 'contain',
     marginTop: 'auto',
     marginBottom: -3,
-    left: 180,
+    left: '43%',
   }
 });

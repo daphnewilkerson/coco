@@ -6,7 +6,7 @@ import { Component, useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, ScrollView, Dimensions} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, dogimages} from '../utils/constants';
 
@@ -24,13 +24,14 @@ export default function Intro() {
             <Text style={styles.cornerText}>save</Text>
         </Pressable>
         <Text style={styles.mediumText}>Customize CoCo!</Text>
+        <Text style={styles.smallText}>(Swipe to see options!)</Text>
         <ScrollView 
           horizontal={true} 
           decelerationRate={0} 
-          snapToInterval={300} 
+          snapToInterval={Dimensions.get('window').width} 
           style={styles.scroll} 
-          showsHorizontalScrollIndicator={true}
-          contentContainerStyle={{ marginLeft: 50, paddingRight: 110}}
+          showsHorizontalScrollIndicator={false}
+          // contentContainerStyle={{ marginLeft: 50, paddingRight: 110}}
           >
             {
                 dogimages.map((dog, index) => (
@@ -67,15 +68,24 @@ const styles = StyleSheet.create({
   dog: {
       width: 221,
       height: 281,
+      resizeMode: 'contain'
   },
   mediumText: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
     fontSize: 50,
     fontWeight: 'bold',
-    marginBottom: 60,
     textAlign: 'center',
-    marginTop: 160,
+    marginTop: '30%',
+  },
+  smallText: {
+    color: COLORS.darkGreen,
+    fontFamily: BOLDFONT,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: '10%',
   },
   unselectedButton: {
     backgroundColor: COLORS.lightGreen,
@@ -137,9 +147,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   stack: {
-    marginLeft: 40,
-    marginRight: 40,
-    backgroundColor: COLORS.background,
+    width: Dimensions.get('window').width,
     alignItems: 'center',
   },
 });

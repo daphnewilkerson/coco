@@ -4,7 +4,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import { COLORS, MAINFONT, winkimages, UserContext, Back } from '../../utils/constants';
+import { COLORS, MAINFONT, winkimages, UserContext, Back, BOLDFONT} from '../../utils/constants';
 
 export default function Sniff3({ navigation }) {
   const { dogNum, setBones, setPurchases } = useContext(UserContext);
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dog: {
-    height: 360,
+    height: '40%',
     width: 360,
     bottom: 200,
     resizeMode: 'contain',
@@ -77,16 +77,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 35,
-    marginTop: 450,
-    zIndex: 2, // for ios
-    elevation: 2, // for android
+    marginTop: '100%',
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
-    zIndex: 2, // for ios
-    elevation: 2, // for android
   },
   label: {
     color: COLORS.darkGreen,

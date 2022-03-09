@@ -2,12 +2,12 @@ import 'react-native-gesture-handler';
 import React, {
   Component,
   useState,
-  useContext
+  useContext,
 } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View, Image, Pressable, ScrollView, FlatList, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, ScrollView, FlatList, TextInput, Dimensions} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { COLORS, Back, MAINFONT, BOLDFONT, allValues, UserContext } from '../utils/constants';
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   value: {
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
-    fontSize: 15,
+    fontSize: Math.round(18*Dimensions.get('window').width/440),
     textAlign: 'center',
   },
   rightCornerButton: {
