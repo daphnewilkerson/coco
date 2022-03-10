@@ -21,10 +21,10 @@ export default function Intro({route}) {
   return (
       <View style={styles.container}>
           <Back/>
-          <Text style={styles.bigText}>Thanks for sharing your values!</Text>
-          <Text style={styles.mediumText}>You can always go back and update your values through your profile page.</Text>
+          <Text numberOfLines={2} adjustsFontSizeToFit style={styles.bigText}>Thanks for sharing your values!</Text>
+          <Text numberOfLines={3} adjustsFontSizeToFit style={styles.mediumText}>You can always go back and update your values through your profile page.</Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('MainApp')}>
-            <Text style={styles.smallText}>click to launch app!</Text>
+            <Text numberOfLines={1} adjustsFontSizeToFit style={styles.smallText}>click to launch app!</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>
       </View>
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    marginTop: 200,
+    padding: 15,
+    marginTop: '40%',
   },
   mediumText: {
     color: COLORS.darkGreen,
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 20,
+    padding: 10,
     textAlign: 'center',
   },
   smallText: {
@@ -68,10 +70,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dog: {
+    width: '54%',
+    height: undefined,
+    aspectRatio: 221/281,
     position: 'absolute',
     bottom: 0,
-    width: 221,
-    height: 281,
   },
   video: {
     backgroundColor: "red",
@@ -87,21 +90,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   leftCornerButton: {
-    backgroundColor: COLORS.background,
-    width: 100,
-    height: 50,
     position: 'absolute',
-    left: 25,
-    top: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
+    top: 60,
+    left: 30,
+    zIndex: 2, 
+    elevation: 2
   },
   cornerText: {
-    color: COLORS.darkGreen,
     fontFamily: MAINFONT,
     fontSize: 20,
-    position: 'absolute',
-    top: 10,
-    right: 0,
+    color: COLORS.darkGreen
   },
 });
