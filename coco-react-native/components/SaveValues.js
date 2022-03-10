@@ -6,7 +6,7 @@ import { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, Dimensions } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {Video, AVPlaybackStatus} from 'expo-av';
 import { COLORS, MAINFONT, BOLDFONT, Back, UserContext, dogimages } from '../utils/constants';
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   cornerText: {
     fontFamily: MAINFONT,
-    fontSize: 20,
+    fontSize: Math.round(20*Dimensions.get('window').width/440),
     color: COLORS.darkGreen
   },
 });

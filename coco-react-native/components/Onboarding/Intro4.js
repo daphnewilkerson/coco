@@ -23,7 +23,7 @@ export default function Intro() {
             <Text numberOfLines={1} adjustsFontSizeToFit style={styles.smallText}>click to continue</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: '45%', marginLeft: '65%'}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, position: 'absolute', bottom: -20, right: '-3%'}}/>
       </View>
   )
 }

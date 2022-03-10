@@ -27,7 +27,7 @@ export default function Intro({route}) {
             <Text numberOfLines={1} adjustsFontSizeToFit style={styles.smallText}>click to add values</Text>
           </Pressable>
           <Image style={styles.dog} source={dogimages[dogNum]}/>
-          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, marginTop: '48%', marginRight: '70%'}}/>
+          <Icon name="arrow-down" size={150} style={{color: COLORS.darkGreen, position: 'absolute', bottom: -20, left: '-3%'}}/>
           
       </View>
   )
