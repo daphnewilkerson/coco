@@ -4,7 +4,7 @@ import React, {
   useContext,
   useEffect
 } from 'react'
-import { MAINFONT, COLORS, Back, UserContext, dogimages } from '../../utils/constants'
+import { MAINFONT, COLORS, Back, UserContext, dogimages, BOLDFONT } from '../../utils/constants'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   brand: {

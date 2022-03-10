@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
   x: {

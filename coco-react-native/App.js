@@ -42,6 +42,7 @@ import Sniff1 from './components/Sniff/Sniff1';
 import Sniff2 from './components/Sniff/Sniff2';
 import Sniff3 from './components/Sniff/Sniff3';
 import Sniff4 from './components/Sniff/Sniff4';
+import {useAssets} from 'expo-asset';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -87,7 +88,7 @@ export default function App() {
   const [bSet, setBSet] = useState(false);
 
   // Wow this actually works crazy (but causes soome lag)
-  // const [assets, error] = useAssets(allAssets);
+  // const [assets, error] = useAssets(allAssets); 
 
   // Load fonts. Return expo loading screen if not loaded
   let [fontsLoaded] = useFonts({

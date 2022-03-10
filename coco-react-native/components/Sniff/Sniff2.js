@@ -2,7 +2,7 @@ import React, {
   useContext
 } from 'react';
 import { Button, Image, View, StyleSheet, Pressable, Text } from 'react-native';
-import { COLORS, MAINFONT, sniffimages, UserContext, Back } from '../../utils/constants';
+import { COLORS, MAINFONT, sniffimages, UserContext, Back, BOLDFONT } from '../../utils/constants';
 
 
 export default function Sniff2({route, navigation}) {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.darkGreen,
-    fontFamily: MAINFONT,
+    fontFamily: BOLDFONT,
     fontSize: 20,
   },
 })
