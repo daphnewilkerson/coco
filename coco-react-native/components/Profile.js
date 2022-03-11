@@ -22,13 +22,13 @@ export default function Landing() {
         Profile
       </Text>
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('Bookmarks')}>
-        <Text style={styles.landingButtonText}>Bookmarks</Text>
+        <Text numberOfLines={1} adjustsFontSizeToFit style={styles.landingButtonText}>Bookmarks</Text>
       </Pressable>
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('ProfileValues', {nextPage: 'ProfileMain'})}>
-        <Text style={styles.landingButtonText}>Values</Text>
+        <Text numberOfLines={1} adjustsFontSizeToFit style={styles.landingButtonText}>Values</Text>
       </Pressable>
       <Pressable style={styles.landingButton} onPress={() => navigator.navigate('RecentPurchases')}>
-        <Text style={styles.landingButtonText}>Recent Purchases</Text>
+        <Text numberOfLines={1} adjustsFontSizeToFit style={styles.landingButtonText}>Recent Purchases</Text>
       </Pressable>
       <Image
         style={[styles.dog, {
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
     fontSize: 20,
+    padding: 10,
   },
   dog: {
     height: '35%',

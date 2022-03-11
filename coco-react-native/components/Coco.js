@@ -22,10 +22,10 @@ export default function Landing() {
         CoCo
       </Text>
       <Pressable style={styles.landingButton} onPress={() => navigation.navigate('CustomDog')}>
-        <Text style={styles.landingButtonText}>Customize CoCo</Text>
+        <Text numberOfLines={1} adjustsFontSizeToFit style={styles.landingButtonText}>Customize CoCo</Text>
       </Pressable>
       <Pressable style={styles.landingButton} onPress={() => navigation.navigate('CoCoBones')}>
-        <Text style={styles.landingButtonText}>CoCo Bones</Text>
+        <Text numberOfLines={1} adjustsFontSizeToFit style={styles.landingButtonText}>CoCo Bones</Text>
       </Pressable>
       <Image
         style={[styles.dog, {
@@ -65,12 +65,13 @@ const styles = StyleSheet.create({
     color: COLORS.darkGreen,
     fontFamily: BOLDFONT,
     fontSize: 20,
+    padding: 10,
   },
   dog: {
-    height: 250,
+    height: '35%',
     resizeMode: 'contain',
     marginTop: 'auto',
     marginBottom: -3,
-    right: 180,
+    right: '43%',
   }
 });

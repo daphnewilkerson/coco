@@ -73,7 +73,7 @@ export default function Sniff1({ navigation }) {
         :
         <Back/>
       }
-      <Text style={styles.label}>Scan your receipt to see how well you shopped!</Text>
+      <Text numberOfLines={4} adjustsFontSizeToFit style={styles.label}>Scan your receipt to see how well you shopped!</Text>
       <Image
         style={styles.dog}
         source={dogimages[dogNum]}
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     width: 170,
     top: 225,
     left: '51%',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   button: {
     backgroundColor: COLORS.lightGreen,
